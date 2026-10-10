@@ -1,0 +1,1202 @@
+[
+ {
+  "id": "1-001",
+  "hanzi": "爱",
+  "pinyin": "ài",
+  "english": "to love",
+  "level": 1,
+  "example": "我爱我的妈妈。",
+  "examplePinyin": "Wǒ ài wǒ de māma.",
+  "exampleEnglish": "I love my mom."
+ },
+ {
+  "id": "1-002",
+  "hanzi": "八",
+  "pinyin": "bā",
+  "english": "eight",
+  "level": 1,
+  "example": "现在八点。",
+  "examplePinyin": "Xiànzài bā diǎn.",
+  "exampleEnglish": "It's eight o'clock now."
+ },
+ {
+  "id": "1-003",
+  "hanzi": "爸爸",
+  "pinyin": "bàba",
+  "english": "dad",
+  "level": 1,
+  "example": "我爸爸是医生。",
+  "examplePinyin": "Wǒ bàba shì yīshēng.",
+  "exampleEnglish": "My dad is a doctor."
+ },
+ {
+  "id": "1-004",
+  "hanzi": "杯子",
+  "pinyin": "bēizi",
+  "english": "cup",
+  "level": 1,
+  "example": "这个杯子很大。",
+  "examplePinyin": "Zhège bēizi hěn dà.",
+  "exampleEnglish": "This cup is big."
+ },
+ {
+  "id": "1-005",
+  "hanzi": "北京",
+  "pinyin": "Běijīng",
+  "english": "Beijing",
+  "level": 1,
+  "example": "我住在北京。",
+  "examplePinyin": "Wǒ zhù zài Běijīng.",
+  "exampleEnglish": "I live in Beijing."
+ },
+ {
+  "id": "1-006",
+  "hanzi": "本",
+  "pinyin": "běn",
+  "english": "measure word for books",
+  "level": 1,
+  "example": "我有三本书。",
+  "examplePinyin": "Wǒ yǒu sān běn shū.",
+  "exampleEnglish": "I have three books."
+ },
+ {
+  "id": "1-007",
+  "hanzi": "不",
+  "pinyin": "bù",
+  "english": "not, no",
+  "level": 1,
+  "example": "我不喝茶。",
+  "examplePinyin": "Wǒ bù hē chá.",
+  "exampleEnglish": "I don't drink tea."
+ },
+ {
+  "id": "1-008",
+  "hanzi": "菜",
+  "pinyin": "cài",
+  "english": "dish, vegetable",
+  "level": 1,
+  "example": "这个菜很好吃。",
+  "examplePinyin": "Zhège cài hěn hǎochī.",
+  "exampleEnglish": "This dish is delicious."
+ },
+ {
+  "id": "1-009",
+  "hanzi": "茶",
+  "pinyin": "chá",
+  "english": "tea",
+  "level": 1,
+  "example": "你喝茶吗？",
+  "examplePinyin": "Nǐ hē chá ma?",
+  "exampleEnglish": "Do you drink tea?"
+ },
+ {
+  "id": "1-010",
+  "hanzi": "吃",
+  "pinyin": "chī",
+  "english": "to eat",
+  "level": 1,
+  "example": "我们去吃饭吧。",
+  "examplePinyin": "Wǒmen qù chī fàn ba.",
+  "exampleEnglish": "Let's go eat."
+ },
+ {
+  "id": "1-011",
+  "hanzi": "出租车",
+  "pinyin": "chūzūchē",
+  "english": "taxi",
+  "level": 1,
+  "example": "我坐出租车去。",
+  "examplePinyin": "Wǒ zuò chūzūchē qù.",
+  "exampleEnglish": "I'm going by taxi."
+ },
+ {
+  "id": "1-012",
+  "hanzi": "大",
+  "pinyin": "dà",
+  "english": "big",
+  "level": 1,
+  "example": "他的家很大。",
+  "examplePinyin": "Tā de jiā hěn dà.",
+  "exampleEnglish": "His home is big."
+ },
+ {
+  "id": "1-013",
+  "hanzi": "电脑",
+  "pinyin": "diànnǎo",
+  "english": "computer",
+  "level": 1,
+  "example": "这是我的电脑。",
+  "examplePinyin": "Zhè shì wǒ de diànnǎo.",
+  "exampleEnglish": "This is my computer."
+ },
+ {
+  "id": "1-014",
+  "hanzi": "电视",
+  "pinyin": "diànshì",
+  "english": "television",
+  "level": 1,
+  "example": "爸爸在看电视。",
+  "examplePinyin": "Bàba zài kàn diànshì.",
+  "exampleEnglish": "Dad is watching TV."
+ },
+ {
+  "id": "1-015",
+  "hanzi": "东西",
+  "pinyin": "dōngxi",
+  "english": "thing, stuff",
+  "level": 1,
+  "example": "你买什么东西？",
+  "examplePinyin": "Nǐ mǎi shénme dōngxi?",
+  "exampleEnglish": "What are you buying?"
+ },
+ {
+  "id": "1-016",
+  "hanzi": "读",
+  "pinyin": "dú",
+  "english": "to read",
+  "level": 1,
+  "example": "我在读书。",
+  "examplePinyin": "Wǒ zài dú shū.",
+  "exampleEnglish": "I'm reading a book."
+ },
+ {
+  "id": "1-017",
+  "hanzi": "对不起",
+  "pinyin": "duìbuqǐ",
+  "english": "sorry",
+  "level": 1,
+  "example": "对不起，我来晚了。",
+  "examplePinyin": "Duìbuqǐ, wǒ lái wǎn le.",
+  "exampleEnglish": "Sorry, I'm late."
+ },
+ {
+  "id": "1-018",
+  "hanzi": "多少",
+  "pinyin": "duōshao",
+  "english": "how many, how much",
+  "level": 1,
+  "example": "这个多少钱？",
+  "examplePinyin": "Zhège duōshao qián?",
+  "exampleEnglish": "How much is this?"
+ },
+ {
+  "id": "1-019",
+  "hanzi": "饭店",
+  "pinyin": "fàndiàn",
+  "english": "restaurant, hotel",
+  "level": 1,
+  "example": "我们在饭店吃饭。",
+  "examplePinyin": "Wǒmen zài fàndiàn chī fàn.",
+  "exampleEnglish": "We eat at a restaurant."
+ },
+ {
+  "id": "1-020",
+  "hanzi": "飞机",
+  "pinyin": "fēijī",
+  "english": "airplane",
+  "level": 1,
+  "example": "他坐飞机去中国。",
+  "examplePinyin": "Tā zuò fēijī qù Zhōngguó.",
+  "exampleEnglish": "He's flying to China."
+ },
+ {
+  "id": "1-021",
+  "hanzi": "工作",
+  "pinyin": "gōngzuò",
+  "english": "to work; job",
+  "level": 1,
+  "example": "你在哪儿工作？",
+  "examplePinyin": "Nǐ zài nǎr gōngzuò?",
+  "exampleEnglish": "Where do you work?"
+ },
+ {
+  "id": "1-022",
+  "hanzi": "狗",
+  "pinyin": "gǒu",
+  "english": "dog",
+  "level": 1,
+  "example": "我家有一只狗。",
+  "examplePinyin": "Wǒ jiā yǒu yì zhī gǒu.",
+  "exampleEnglish": "My family has a dog."
+ },
+ {
+  "id": "1-023",
+  "hanzi": "汉语",
+  "pinyin": "Hànyǔ",
+  "english": "Chinese language",
+  "level": 1,
+  "example": "我学习汉语。",
+  "examplePinyin": "Wǒ xuéxí Hànyǔ.",
+  "exampleEnglish": "I study Chinese."
+ },
+ {
+  "id": "1-024",
+  "hanzi": "好",
+  "pinyin": "hǎo",
+  "english": "good",
+  "level": 1,
+  "example": "今天天气很好。",
+  "examplePinyin": "Jīntiān tiānqì hěn hǎo.",
+  "exampleEnglish": "The weather is nice today."
+ },
+ {
+  "id": "1-025",
+  "hanzi": "喝",
+  "pinyin": "hē",
+  "english": "to drink",
+  "level": 1,
+  "example": "我想喝水。",
+  "examplePinyin": "Wǒ xiǎng hē shuǐ.",
+  "exampleEnglish": "I want to drink water."
+ },
+ {
+  "id": "1-026",
+  "hanzi": "很",
+  "pinyin": "hěn",
+  "english": "very",
+  "level": 1,
+  "example": "我很高兴。",
+  "examplePinyin": "Wǒ hěn gāoxìng.",
+  "exampleEnglish": "I'm very happy."
+ },
+ {
+  "id": "1-027",
+  "hanzi": "回",
+  "pinyin": "huí",
+  "english": "to return",
+  "level": 1,
+  "example": "我明天回家。",
+  "examplePinyin": "Wǒ míngtiān huí jiā.",
+  "exampleEnglish": "I'm going home tomorrow."
+ },
+ {
+  "id": "1-028",
+  "hanzi": "家",
+  "pinyin": "jiā",
+  "english": "home, family",
+  "level": 1,
+  "example": "你家有几个人？",
+  "examplePinyin": "Nǐ jiā yǒu jǐ ge rén?",
+  "exampleEnglish": "How many people are in your family?"
+ },
+ {
+  "id": "1-029",
+  "hanzi": "叫",
+  "pinyin": "jiào",
+  "english": "to be called",
+  "level": 1,
+  "example": "你叫什么名字？",
+  "examplePinyin": "Nǐ jiào shénme míngzi?",
+  "exampleEnglish": "What's your name?"
+ },
+ {
+  "id": "1-030",
+  "hanzi": "今天",
+  "pinyin": "jīntiān",
+  "english": "today",
+  "level": 1,
+  "example": "今天是星期一。",
+  "examplePinyin": "Jīntiān shì xīngqīyī.",
+  "exampleEnglish": "Today is Monday."
+ },
+ {
+  "id": "1-031",
+  "hanzi": "看",
+  "pinyin": "kàn",
+  "english": "to look, to watch",
+  "level": 1,
+  "example": "我喜欢看书。",
+  "examplePinyin": "Wǒ xǐhuan kàn shū.",
+  "exampleEnglish": "I like reading books."
+ },
+ {
+  "id": "1-032",
+  "hanzi": "老师",
+  "pinyin": "lǎoshī",
+  "english": "teacher",
+  "level": 1,
+  "example": "她是我的汉语老师。",
+  "examplePinyin": "Tā shì wǒ de Hànyǔ lǎoshī.",
+  "exampleEnglish": "She is my Chinese teacher."
+ },
+ {
+  "id": "1-033",
+  "hanzi": "妈妈",
+  "pinyin": "māma",
+  "english": "mom",
+  "level": 1,
+  "example": "妈妈在做饭。",
+  "examplePinyin": "Māma zài zuò fàn.",
+  "exampleEnglish": "Mom is cooking."
+ },
+ {
+  "id": "1-034",
+  "hanzi": "米饭",
+  "pinyin": "mǐfàn",
+  "english": "cooked rice",
+  "level": 1,
+  "example": "我要一碗米饭。",
+  "examplePinyin": "Wǒ yào yì wǎn mǐfàn.",
+  "exampleEnglish": "I'd like a bowl of rice."
+ },
+ {
+  "id": "1-035",
+  "hanzi": "朋友",
+  "pinyin": "péngyou",
+  "english": "friend",
+  "level": 1,
+  "example": "他是我的朋友。",
+  "examplePinyin": "Tā shì wǒ de péngyou.",
+  "exampleEnglish": "He is my friend."
+ },
+ {
+  "id": "1-036",
+  "hanzi": "苹果",
+  "pinyin": "píngguǒ",
+  "english": "apple",
+  "level": 1,
+  "example": "我想吃苹果。",
+  "examplePinyin": "Wǒ xiǎng chī píngguǒ.",
+  "exampleEnglish": "I want to eat an apple."
+ },
+ {
+  "id": "1-037",
+  "hanzi": "谢谢",
+  "pinyin": "xièxie",
+  "english": "thank you",
+  "level": 1,
+  "example": "谢谢你的帮助。",
+  "examplePinyin": "Xièxie nǐ de bāngzhù.",
+  "exampleEnglish": "Thank you for your help."
+ },
+ {
+  "id": "1-038",
+  "hanzi": "学生",
+  "pinyin": "xuésheng",
+  "english": "student",
+  "level": 1,
+  "example": "我是学生。",
+  "examplePinyin": "Wǒ shì xuésheng.",
+  "exampleEnglish": "I am a student."
+ },
+ {
+  "id": "1-039",
+  "hanzi": "医生",
+  "pinyin": "yīshēng",
+  "english": "doctor",
+  "level": 1,
+  "example": "他想当医生。",
+  "examplePinyin": "Tā xiǎng dāng yīshēng.",
+  "exampleEnglish": "He wants to be a doctor."
+ },
+ {
+  "id": "1-040",
+  "hanzi": "中国",
+  "pinyin": "Zhōngguó",
+  "english": "China",
+  "level": 1,
+  "example": "我想去中国。",
+  "examplePinyin": "Wǒ xiǎng qù Zhōngguó.",
+  "exampleEnglish": "I want to go to China."
+ },
+ {
+  "id": "2-001",
+  "hanzi": "帮助",
+  "pinyin": "bāngzhù",
+  "english": "to help",
+  "level": 2,
+  "example": "谢谢你帮助我。",
+  "examplePinyin": "Xièxie nǐ bāngzhù wǒ.",
+  "exampleEnglish": "Thank you for helping me."
+ },
+ {
+  "id": "2-002",
+  "hanzi": "报纸",
+  "pinyin": "bàozhǐ",
+  "english": "newspaper",
+  "level": 2,
+  "example": "爷爷每天看报纸。",
+  "examplePinyin": "Yéye měi tiān kàn bàozhǐ.",
+  "exampleEnglish": "Grandpa reads the newspaper every day."
+ },
+ {
+  "id": "2-003",
+  "hanzi": "比",
+  "pinyin": "bǐ",
+  "english": "compared to",
+  "level": 2,
+  "example": "他比我高。",
+  "examplePinyin": "Tā bǐ wǒ gāo.",
+  "exampleEnglish": "He is taller than me."
+ },
+ {
+  "id": "2-004",
+  "hanzi": "宾馆",
+  "pinyin": "bīnguǎn",
+  "english": "hotel",
+  "level": 2,
+  "example": "这个宾馆很便宜。",
+  "examplePinyin": "Zhège bīnguǎn hěn piányi.",
+  "exampleEnglish": "This hotel is cheap."
+ },
+ {
+  "id": "2-005",
+  "hanzi": "唱歌",
+  "pinyin": "chàng gē",
+  "english": "to sing",
+  "level": 2,
+  "example": "她很喜欢唱歌。",
+  "examplePinyin": "Tā hěn xǐhuan chàng gē.",
+  "exampleEnglish": "She really likes singing."
+ },
+ {
+  "id": "2-006",
+  "hanzi": "穿",
+  "pinyin": "chuān",
+  "english": "to wear",
+  "level": 2,
+  "example": "今天很冷，多穿点儿衣服。",
+  "examplePinyin": "Jīntiān hěn lěng, duō chuān diǎnr yīfu.",
+  "exampleEnglish": "It's cold today, wear more clothes."
+ },
+ {
+  "id": "2-007",
+  "hanzi": "大家",
+  "pinyin": "dàjiā",
+  "english": "everyone",
+  "level": 2,
+  "example": "大家好！",
+  "examplePinyin": "Dàjiā hǎo!",
+  "exampleEnglish": "Hello, everyone!"
+ },
+ {
+  "id": "2-008",
+  "hanzi": "弟弟",
+  "pinyin": "dìdi",
+  "english": "younger brother",
+  "level": 2,
+  "example": "我弟弟八岁。",
+  "examplePinyin": "Wǒ dìdi bā suì.",
+  "exampleEnglish": "My younger brother is eight."
+ },
+ {
+  "id": "2-009",
+  "hanzi": "懂",
+  "pinyin": "dǒng",
+  "english": "to understand",
+  "level": 2,
+  "example": "你懂我的意思吗？",
+  "examplePinyin": "Nǐ dǒng wǒ de yìsi ma?",
+  "exampleEnglish": "Do you understand what I mean?"
+ },
+ {
+  "id": "2-010",
+  "hanzi": "房间",
+  "pinyin": "fángjiān",
+  "english": "room",
+  "level": 2,
+  "example": "我的房间很小。",
+  "examplePinyin": "Wǒ de fángjiān hěn xiǎo.",
+  "exampleEnglish": "My room is small."
+ },
+ {
+  "id": "2-011",
+  "hanzi": "非常",
+  "pinyin": "fēicháng",
+  "english": "extremely",
+  "level": 2,
+  "example": "这个电影非常好看。",
+  "examplePinyin": "Zhège diànyǐng fēicháng hǎokàn.",
+  "exampleEnglish": "This movie is really good."
+ },
+ {
+  "id": "2-012",
+  "hanzi": "服务员",
+  "pinyin": "fúwùyuán",
+  "english": "waiter, attendant",
+  "level": 2,
+  "example": "服务员，请给我一杯茶。",
+  "examplePinyin": "Fúwùyuán, qǐng gěi wǒ yì bēi chá.",
+  "exampleEnglish": "Waiter, please bring me a cup of tea."
+ },
+ {
+  "id": "2-013",
+  "hanzi": "高兴",
+  "pinyin": "gāoxìng",
+  "english": "happy",
+  "level": 2,
+  "example": "认识你很高兴。",
+  "examplePinyin": "Rènshi nǐ hěn gāoxìng.",
+  "exampleEnglish": "Nice to meet you."
+ },
+ {
+  "id": "2-014",
+  "hanzi": "告诉",
+  "pinyin": "gàosu",
+  "english": "to tell",
+  "level": 2,
+  "example": "请告诉我你的电话。",
+  "examplePinyin": "Qǐng gàosu wǒ nǐ de diànhuà.",
+  "exampleEnglish": "Please tell me your phone number."
+ },
+ {
+  "id": "2-015",
+  "hanzi": "公司",
+  "pinyin": "gōngsī",
+  "english": "company",
+  "level": 2,
+  "example": "他在一家公司工作。",
+  "examplePinyin": "Tā zài yì jiā gōngsī gōngzuò.",
+  "exampleEnglish": "He works at a company."
+ },
+ {
+  "id": "2-016",
+  "hanzi": "贵",
+  "pinyin": "guì",
+  "english": "expensive",
+  "level": 2,
+  "example": "这件衣服太贵了。",
+  "examplePinyin": "Zhè jiàn yīfu tài guì le.",
+  "exampleEnglish": "This piece of clothing is too expensive."
+ },
+ {
+  "id": "2-017",
+  "hanzi": "孩子",
+  "pinyin": "háizi",
+  "english": "child",
+  "level": 2,
+  "example": "他们有两个孩子。",
+  "examplePinyin": "Tāmen yǒu liǎng ge háizi.",
+  "exampleEnglish": "They have two children."
+ },
+ {
+  "id": "2-018",
+  "hanzi": "好吃",
+  "pinyin": "hǎochī",
+  "english": "delicious",
+  "level": 2,
+  "example": "中国菜很好吃。",
+  "examplePinyin": "Zhōngguó cài hěn hǎochī.",
+  "exampleEnglish": "Chinese food is delicious."
+ },
+ {
+  "id": "2-019",
+  "hanzi": "机场",
+  "pinyin": "jīchǎng",
+  "english": "airport",
+  "level": 2,
+  "example": "我们几点去机场？",
+  "examplePinyin": "Wǒmen jǐ diǎn qù jīchǎng?",
+  "exampleEnglish": "What time are we going to the airport?"
+ },
+ {
+  "id": "2-020",
+  "hanzi": "教室",
+  "pinyin": "jiàoshì",
+  "english": "classroom",
+  "level": 2,
+  "example": "学生们在教室里。",
+  "examplePinyin": "Xuéshengmen zài jiàoshì lǐ.",
+  "exampleEnglish": "The students are in the classroom."
+ },
+ {
+  "id": "2-021",
+  "hanzi": "介绍",
+  "pinyin": "jièshào",
+  "english": "to introduce",
+  "level": 2,
+  "example": "我来介绍一下。",
+  "examplePinyin": "Wǒ lái jièshào yíxià.",
+  "exampleEnglish": "Let me introduce (someone)."
+ },
+ {
+  "id": "2-022",
+  "hanzi": "觉得",
+  "pinyin": "juéde",
+  "english": "to feel, to think",
+  "level": 2,
+  "example": "我觉得汉语不难。",
+  "examplePinyin": "Wǒ juéde Hànyǔ bù nán.",
+  "exampleEnglish": "I think Chinese isn't hard."
+ },
+ {
+  "id": "2-023",
+  "hanzi": "咖啡",
+  "pinyin": "kāfēi",
+  "english": "coffee",
+  "level": 2,
+  "example": "我每天早上喝咖啡。",
+  "examplePinyin": "Wǒ měi tiān zǎoshang hē kāfēi.",
+  "exampleEnglish": "I drink coffee every morning."
+ },
+ {
+  "id": "2-024",
+  "hanzi": "快乐",
+  "pinyin": "kuàilè",
+  "english": "happy, joyful",
+  "level": 2,
+  "example": "生日快乐！",
+  "examplePinyin": "Shēngrì kuàilè!",
+  "exampleEnglish": "Happy birthday!"
+ },
+ {
+  "id": "2-025",
+  "hanzi": "旅游",
+  "pinyin": "lǚyóu",
+  "english": "to travel",
+  "level": 2,
+  "example": "我想去上海旅游。",
+  "examplePinyin": "Wǒ xiǎng qù Shànghǎi lǚyóu.",
+  "exampleEnglish": "I want to travel to Shanghai."
+ },
+ {
+  "id": "2-026",
+  "hanzi": "慢",
+  "pinyin": "màn",
+  "english": "slow",
+  "level": 2,
+  "example": "请说慢一点儿。",
+  "examplePinyin": "Qǐng shuō màn yìdiǎnr.",
+  "exampleEnglish": "Please speak a little slower."
+ },
+ {
+  "id": "2-027",
+  "hanzi": "便宜",
+  "pinyin": "piányi",
+  "english": "cheap",
+  "level": 2,
+  "example": "这个比那个便宜。",
+  "examplePinyin": "Zhège bǐ nàge piányi.",
+  "exampleEnglish": "This one is cheaper than that one."
+ },
+ {
+  "id": "2-028",
+  "hanzi": "妻子",
+  "pinyin": "qīzi",
+  "english": "wife",
+  "level": 2,
+  "example": "他的妻子是老师。",
+  "examplePinyin": "Tā de qīzi shì lǎoshī.",
+  "exampleEnglish": "His wife is a teacher."
+ },
+ {
+  "id": "2-029",
+  "hanzi": "晴",
+  "pinyin": "qíng",
+  "english": "sunny",
+  "level": 2,
+  "example": "明天是晴天。",
+  "examplePinyin": "Míngtiān shì qíngtiān.",
+  "exampleEnglish": "Tomorrow will be sunny."
+ },
+ {
+  "id": "2-030",
+  "hanzi": "生日",
+  "pinyin": "shēngrì",
+  "english": "birthday",
+  "level": 2,
+  "example": "今天是我的生日。",
+  "examplePinyin": "Jīntiān shì wǒ de shēngrì.",
+  "exampleEnglish": "Today is my birthday."
+ },
+ {
+  "id": "2-031",
+  "hanzi": "手机",
+  "pinyin": "shǒujī",
+  "english": "mobile phone",
+  "level": 2,
+  "example": "我的手机在哪儿？",
+  "examplePinyin": "Wǒ de shǒujī zài nǎr?",
+  "exampleEnglish": "Where is my phone?"
+ },
+ {
+  "id": "2-032",
+  "hanzi": "跳舞",
+  "pinyin": "tiào wǔ",
+  "english": "to dance",
+  "level": 2,
+  "example": "她跳舞跳得很好。",
+  "examplePinyin": "Tā tiào wǔ tiào de hěn hǎo.",
+  "exampleEnglish": "She dances very well."
+ },
+ {
+  "id": "2-033",
+  "hanzi": "问题",
+  "pinyin": "wèntí",
+  "english": "question, problem",
+  "level": 2,
+  "example": "我有一个问题。",
+  "examplePinyin": "Wǒ yǒu yí ge wèntí.",
+  "exampleEnglish": "I have a question."
+ },
+ {
+  "id": "2-034",
+  "hanzi": "希望",
+  "pinyin": "xīwàng",
+  "english": "to hope",
+  "level": 2,
+  "example": "我希望你能来。",
+  "examplePinyin": "Wǒ xīwàng nǐ néng lái.",
+  "exampleEnglish": "I hope you can come."
+ },
+ {
+  "id": "2-035",
+  "hanzi": "雪",
+  "pinyin": "xuě",
+  "english": "snow",
+  "level": 2,
+  "example": "外面下雪了。",
+  "examplePinyin": "Wàimiàn xià xuě le.",
+  "exampleEnglish": "It's snowing outside."
+ },
+ {
+  "id": "2-036",
+  "hanzi": "眼睛",
+  "pinyin": "yǎnjing",
+  "english": "eye",
+  "level": 2,
+  "example": "她的眼睛很大。",
+  "examplePinyin": "Tā de yǎnjing hěn dà.",
+  "exampleEnglish": "She has big eyes."
+ },
+ {
+  "id": "2-037",
+  "hanzi": "颜色",
+  "pinyin": "yánsè",
+  "english": "color",
+  "level": 2,
+  "example": "你喜欢什么颜色？",
+  "examplePinyin": "Nǐ xǐhuan shénme yánsè?",
+  "exampleEnglish": "What color do you like?"
+ },
+ {
+  "id": "2-038",
+  "hanzi": "游泳",
+  "pinyin": "yóu yǒng",
+  "english": "to swim",
+  "level": 2,
+  "example": "我每个星期去游泳。",
+  "examplePinyin": "Wǒ měi ge xīngqī qù yóu yǒng.",
+  "exampleEnglish": "I go swimming every week."
+ },
+ {
+  "id": "2-039",
+  "hanzi": "早上",
+  "pinyin": "zǎoshang",
+  "english": "morning",
+  "level": 2,
+  "example": "我早上七点起床。",
+  "examplePinyin": "Wǒ zǎoshang qī diǎn qǐ chuáng.",
+  "exampleEnglish": "I get up at seven in the morning."
+ },
+ {
+  "id": "2-040",
+  "hanzi": "准备",
+  "pinyin": "zhǔnbèi",
+  "english": "to prepare",
+  "level": 2,
+  "example": "你准备好了吗？",
+  "examplePinyin": "Nǐ zhǔnbèi hǎo le ma?",
+  "exampleEnglish": "Are you ready?"
+ },
+ {
+  "id": "3-001",
+  "hanzi": "阿姨",
+  "pinyin": "āyí",
+  "english": "aunt",
+  "level": 3,
+  "example": "阿姨，您好！",
+  "examplePinyin": "Āyí, nín hǎo!",
+  "exampleEnglish": "Hello, auntie!"
+ },
+ {
+  "id": "3-002",
+  "hanzi": "安静",
+  "pinyin": "ānjìng",
+  "english": "quiet",
+  "level": 3,
+  "example": "图书馆里很安静。",
+  "examplePinyin": "Túshūguǎn lǐ hěn ānjìng.",
+  "exampleEnglish": "It's quiet in the library."
+ },
+ {
+  "id": "3-003",
+  "hanzi": "帮忙",
+  "pinyin": "bāng máng",
+  "english": "to help out",
+  "level": 3,
+  "example": "谢谢你来帮忙。",
+  "examplePinyin": "Xièxie nǐ lái bāng máng.",
+  "exampleEnglish": "Thanks for coming to help."
+ },
+ {
+  "id": "3-004",
+  "hanzi": "办法",
+  "pinyin": "bànfǎ",
+  "english": "method, way",
+  "level": 3,
+  "example": "我们一起想办法吧。",
+  "examplePinyin": "Wǒmen yìqǐ xiǎng bànfǎ ba.",
+  "exampleEnglish": "Let's think of a solution together."
+ },
+ {
+  "id": "3-005",
+  "hanzi": "比赛",
+  "pinyin": "bǐsài",
+  "english": "competition, match",
+  "level": 3,
+  "example": "明天有足球比赛。",
+  "examplePinyin": "Míngtiān yǒu zúqiú bǐsài.",
+  "exampleEnglish": "There's a soccer match tomorrow."
+ },
+ {
+  "id": "3-006",
+  "hanzi": "冰箱",
+  "pinyin": "bīngxiāng",
+  "english": "refrigerator",
+  "level": 3,
+  "example": "牛奶在冰箱里。",
+  "examplePinyin": "Niúnǎi zài bīngxiāng lǐ.",
+  "exampleEnglish": "The milk is in the fridge."
+ },
+ {
+  "id": "3-007",
+  "hanzi": "迟到",
+  "pinyin": "chídào",
+  "english": "to be late",
+  "level": 3,
+  "example": "对不起，我迟到了。",
+  "examplePinyin": "Duìbuqǐ, wǒ chídào le.",
+  "exampleEnglish": "Sorry, I'm late."
+ },
+ {
+  "id": "3-008",
+  "hanzi": "聪明",
+  "pinyin": "cōngming",
+  "english": "clever",
+  "level": 3,
+  "example": "这个孩子很聪明。",
+  "examplePinyin": "Zhège háizi hěn cōngming.",
+  "exampleEnglish": "This child is very clever."
+ },
+ {
+  "id": "3-009",
+  "hanzi": "担心",
+  "pinyin": "dānxīn",
+  "english": "to worry",
+  "level": 3,
+  "example": "别担心，我没事。",
+  "examplePinyin": "Bié dānxīn, wǒ méi shì.",
+  "exampleEnglish": "Don't worry, I'm fine."
+ },
+ {
+  "id": "3-010",
+  "hanzi": "地铁",
+  "pinyin": "dìtiě",
+  "english": "subway",
+  "level": 3,
+  "example": "我坐地铁上班。",
+  "examplePinyin": "Wǒ zuò dìtiě shàng bān.",
+  "exampleEnglish": "I take the subway to work."
+ },
+ {
+  "id": "3-011",
+  "hanzi": "锻炼",
+  "pinyin": "duànliàn",
+  "english": "to exercise",
+  "level": 3,
+  "example": "他每天早上锻炼身体。",
+  "examplePinyin": "Tā měi tiān zǎoshang duànliàn shēntǐ.",
+  "exampleEnglish": "He exercises every morning."
+ },
+ {
+  "id": "3-012",
+  "hanzi": "发烧",
+  "pinyin": "fā shāo",
+  "english": "to have a fever",
+  "level": 3,
+  "example": "我发烧了，不能去上课。",
+  "examplePinyin": "Wǒ fā shāo le, bù néng qù shàng kè.",
+  "exampleEnglish": "I have a fever and can't go to class."
+ },
+ {
+  "id": "3-013",
+  "hanzi": "方便",
+  "pinyin": "fāngbiàn",
+  "english": "convenient",
+  "level": 3,
+  "example": "住在这儿很方便。",
+  "examplePinyin": "Zhù zài zhèr hěn fāngbiàn.",
+  "exampleEnglish": "Living here is very convenient."
+ },
+ {
+  "id": "3-014",
+  "hanzi": "复习",
+  "pinyin": "fùxí",
+  "english": "to review",
+  "level": 3,
+  "example": "考试前要好好复习。",
+  "examplePinyin": "Kǎoshì qián yào hǎohǎo fùxí.",
+  "exampleEnglish": "You should review well before the exam."
+ },
+ {
+  "id": "3-015",
+  "hanzi": "干净",
+  "pinyin": "gānjìng",
+  "english": "clean",
+  "level": 3,
+  "example": "房间很干净。",
+  "examplePinyin": "Fángjiān hěn gānjìng.",
+  "exampleEnglish": "The room is very clean."
+ },
+ {
+  "id": "3-016",
+  "hanzi": "关心",
+  "pinyin": "guānxīn",
+  "english": "to care about",
+  "level": 3,
+  "example": "谢谢你的关心。",
+  "examplePinyin": "Xièxie nǐ de guānxīn.",
+  "exampleEnglish": "Thanks for your concern."
+ },
+ {
+  "id": "3-017",
+  "hanzi": "害怕",
+  "pinyin": "hàipà",
+  "english": "to be afraid",
+  "level": 3,
+  "example": "我害怕狗。",
+  "examplePinyin": "Wǒ hàipà gǒu.",
+  "exampleEnglish": "I'm afraid of dogs."
+ },
+ {
+  "id": "3-018",
+  "hanzi": "环境",
+  "pinyin": "huánjìng",
+  "english": "environment",
+  "level": 3,
+  "example": "这里的环境很好。",
+  "examplePinyin": "Zhèlǐ de huánjìng hěn hǎo.",
+  "exampleEnglish": "The environment here is nice."
+ },
+ {
+  "id": "3-019",
+  "hanzi": "会议",
+  "pinyin": "huìyì",
+  "english": "meeting",
+  "level": 3,
+  "example": "会议几点开始？",
+  "examplePinyin": "Huìyì jǐ diǎn kāishǐ?",
+  "exampleEnglish": "What time does the meeting start?"
+ },
+ {
+  "id": "3-020",
+  "hanzi": "检查",
+  "pinyin": "jiǎnchá",
+  "english": "to check, to inspect",
+  "level": 3,
+  "example": "请再检查一下。",
+  "examplePinyin": "Qǐng zài jiǎnchá yíxià.",
+  "exampleEnglish": "Please check it again."
+ },
+ {
+  "id": "3-021",
+  "hanzi": "简单",
+  "pinyin": "jiǎndān",
+  "english": "simple",
+  "level": 3,
+  "example": "这个问题很简单。",
+  "examplePinyin": "Zhège wèntí hěn jiǎndān.",
+  "exampleEnglish": "This question is simple."
+ },
+ {
+  "id": "3-022",
+  "hanzi": "健康",
+  "pinyin": "jiànkāng",
+  "english": "healthy",
+  "level": 3,
+  "example": "祝你身体健康！",
+  "examplePinyin": "Zhù nǐ shēntǐ jiànkāng!",
+  "exampleEnglish": "Wishing you good health!"
+ },
+ {
+  "id": "3-023",
+  "hanzi": "节日",
+  "pinyin": "jiérì",
+  "english": "holiday, festival",
+  "level": 3,
+  "example": "春节是中国最重要的节日。",
+  "examplePinyin": "Chūnjié shì Zhōngguó zuì zhòngyào de jiérì.",
+  "exampleEnglish": "Spring Festival is China's most important holiday."
+ },
+ {
+  "id": "3-024",
+  "hanzi": "经常",
+  "pinyin": "jīngcháng",
+  "english": "often",
+  "level": 3,
+  "example": "我经常去那个饭店。",
+  "examplePinyin": "Wǒ jīngcháng qù nàge fàndiàn.",
+  "exampleEnglish": "I often go to that restaurant."
+ },
+ {
+  "id": "3-025",
+  "hanzi": "决定",
+  "pinyin": "juédìng",
+  "english": "to decide",
+  "level": 3,
+  "example": "我决定明年去中国。",
+  "examplePinyin": "Wǒ juédìng míngnián qù Zhōngguó.",
+  "exampleEnglish": "I've decided to go to China next year."
+ },
+ {
+  "id": "3-026",
+  "hanzi": "可爱",
+  "pinyin": "kě'ài",
+  "english": "cute, lovely",
+  "level": 3,
+  "example": "这只小猫真可爱。",
+  "examplePinyin": "Zhè zhī xiǎo māo zhēn kě'ài.",
+  "exampleEnglish": "This kitten is really cute."
+ },
+ {
+  "id": "3-027",
+  "hanzi": "满意",
+  "pinyin": "mǎnyì",
+  "english": "satisfied",
+  "level": 3,
+  "example": "你对这个房间满意吗？",
+  "examplePinyin": "Nǐ duì zhège fángjiān mǎnyì ma?",
+  "exampleEnglish": "Are you satisfied with this room?"
+ },
+ {
+  "id": "3-028",
+  "hanzi": "努力",
+  "pinyin": "nǔlì",
+  "english": "to work hard",
+  "level": 3,
+  "example": "他学习很努力。",
+  "examplePinyin": "Tā xuéxí hěn nǔlì.",
+  "exampleEnglish": "He studies very hard."
+ },
+ {
+  "id": "3-029",
+  "hanzi": "奇怪",
+  "pinyin": "qíguài",
+  "english": "strange",
+  "level": 3,
+  "example": "这件事很奇怪。",
+  "examplePinyin": "Zhè jiàn shì hěn qíguài.",
+  "exampleEnglish": "This is very strange."
+ },
+ {
+  "id": "3-030",
+  "hanzi": "认真",
+  "pinyin": "rènzhēn",
+  "english": "serious, earnest",
+  "level": 3,
+  "example": "她工作很认真。",
+  "examplePinyin": "Tā gōngzuò hěn rènzhēn.",
+  "exampleEnglish": "She is very conscientious at work."
+ },
+ {
+  "id": "3-031",
+  "hanzi": "容易",
+  "pinyin": "róngyì",
+  "english": "easy",
+  "level": 3,
+  "example": "这个字很容易写。",
+  "examplePinyin": "Zhège zì hěn róngyì xiě.",
+  "exampleEnglish": "This character is easy to write."
+ },
+ {
+  "id": "3-032",
+  "hanzi": "世界",
+  "pinyin": "shìjiè",
+  "english": "world",
+  "level": 3,
+  "example": "世界很大。",
+  "examplePinyin": "Shìjiè hěn dà.",
+  "exampleEnglish": "The world is big."
+ },
+ {
+  "id": "3-033",
+  "hanzi": "提高",
+  "pinyin": "tígāo",
+  "english": "to improve, to raise",
+  "level": 3,
+  "example": "我想提高我的汉语水平。",
+  "examplePinyin": "Wǒ xiǎng tígāo wǒ de Hànyǔ shuǐpíng.",
+  "exampleEnglish": "I want to improve my Chinese."
+ },
+ {
+  "id": "3-034",
+  "hanzi": "同意",
+  "pinyin": "tóngyì",
+  "english": "to agree",
+  "level": 3,
+  "example": "我同意你的看法。",
+  "examplePinyin": "Wǒ tóngyì nǐ de kànfǎ.",
+  "exampleEnglish": "I agree with your view."
+ },
+ {
+  "id": "3-035",
+  "hanzi": "文化",
+  "pinyin": "wénhuà",
+  "english": "culture",
+  "level": 3,
+  "example": "我对中国文化很感兴趣。",
+  "examplePinyin": "Wǒ duì Zhōngguó wénhuà hěn gǎn xìngqù.",
+  "exampleEnglish": "I'm very interested in Chinese culture."
+ },
+ {
+  "id": "3-036",
+  "hanzi": "习惯",
+  "pinyin": "xíguàn",
+  "english": "habit; to be used to",
+  "level": 3,
+  "example": "我习惯早上喝咖啡。",
+  "examplePinyin": "Wǒ xíguàn zǎoshang hē kāfēi.",
+  "exampleEnglish": "I'm used to drinking coffee in the morning."
+ },
+ {
+  "id": "3-037",
+  "hanzi": "相信",
+  "pinyin": "xiāngxìn",
+  "english": "to believe",
+  "level": 3,
+  "example": "我相信你能做到。",
+  "examplePinyin": "Wǒ xiāngxìn nǐ néng zuò dào.",
+  "exampleEnglish": "I believe you can do it."
+ },
+ {
+  "id": "3-038",
+  "hanzi": "需要",
+  "pinyin": "xūyào",
+  "english": "to need",
+  "level": 3,
+  "example": "你需要帮助吗？",
+  "examplePinyin": "Nǐ xūyào bāngzhù ma?",
+  "exampleEnglish": "Do you need help?"
+ },
+ {
+  "id": "3-039",
+  "hanzi": "选择",
+  "pinyin": "xuǎnzé",
+  "english": "to choose",
+  "level": 3,
+  "example": "你可以选择一个。",
+  "examplePinyin": "Nǐ kěyǐ xuǎnzé yí ge.",
+  "exampleEnglish": "You can choose one."
+ },
+ {
+  "id": "3-040",
+  "hanzi": "重要",
+  "pinyin": "zhòngyào",
+  "english": "important",
+  "level": 3,
+  "example": "健康很重要。",
+  "examplePinyin": "Jiànkāng hěn zhòngyào.",
+  "exampleEnglish": "Health is very important."
+ }
+]
