@@ -98,8 +98,8 @@ struct HomeView: View {
             NavigationLink { FlashcardsView() } label: {
                 planRow("Review due words", dueCount == 0 ? "\(reviewed) done" : "\(dueCount) due", done: dueCount == 0 && reviewed > 0)
             }
-            NavigationLink { QuizView(mode: .listening) } label: {
-                planRow("Listening exercise", listeningDone ? "done" : "6 questions", done: listeningDone)
+            NavigationLink { ExamPracticeView(section: .listening) } label: {
+                planRow("Listening exercise", listeningDone ? "done" : "10 questions", done: listeningDone)
             }
         }
         .buttonStyle(.plain)
@@ -121,7 +121,7 @@ struct HomeView: View {
     @ViewBuilder private var continueButton: some View {
         let needsCards = dueCount > 0 || (today?.newWords ?? 0) < newTarget
         NavigationLink {
-            if needsCards { FlashcardsView() } else { QuizView(mode: .listening) }
+            if needsCards { FlashcardsView() } else { ExamPracticeView(section: .listening) }
         } label: {
             Label("Continue learning", systemImage: "play.fill")
                 .font(.headline)

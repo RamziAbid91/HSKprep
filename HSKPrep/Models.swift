@@ -4,7 +4,7 @@ import SwiftData
 /// Which syllabus the bundled content follows. Shown in Settings so learners know.
 enum Syllabus {
     static let name = "HSK 2.0 (levels 1–6)"
-    static let note = "Starter word list for HSK 1–3. Verify against the official vocabulary lists before release. Practice questions are original, not official exam material."
+    static let note = "Full HSK 1–3 word lists (HSK 2.0, from the open-source complete-hsk-vocabulary project, MIT licence). The newer HSK 3.0 syllabus uses different lists. Practice questions are original, written in the style of the exam — not official exam material."
 }
 
 /// A vocabulary entry loaded from Vocabulary.json (read-only content).
@@ -17,6 +17,7 @@ struct Word: Codable, Identifiable, Hashable {
     let example: String?
     let examplePinyin: String?
     let exampleEnglish: String?
+    let emoji: String?    // picture for drawable words
 }
 
 /// Skill areas tracked for accuracy and weak-area analysis.

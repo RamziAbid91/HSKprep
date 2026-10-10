@@ -47,6 +47,41 @@ final class Speaker {
     }
 
     func speak(_ text: String, slow: Bool) { speak(text, speed: slow ? .slow : .normal) }
+
+    // Two different voices for 男 / 女 when the device has them; otherwise pitch tells them apart.
+    private lazy var chineseVoices = AVSpeechSynthesisVoice.speechVoices().filter { $0.language == "zh-CN" }
+    private lazy var maleVoice = chineseVoices.first { $0.gender == .male }
+    private lazy var femaleVoice = chineseVoices.first { $0.gender == .female }
+
+    /// Plays a dialogue or passage like the exam recording, then reads the question ("问：…").
+    func play(_ lines: [DialogueLine], question: String? = nil, speed: Speed = .normal) {
+        synth.stopSpeaking(at: .immediate)
+        for line in lines {
+            let u = AVSpeechUtterance(string: line.text)
+            u.rate = speed.rate
+            u.postUtteranceDelay = 0.6
+            switch line.speaker {
+            case "M":
+                u.voice = maleVoice ?? AVSpeechSynthesisVoice(language: "zh-CN")
+                if maleVoice == nil { u.pitchMultiplier = 0.75 }
+            case "F":
+                u.voice = femaleVoice ?? AVSpeechSynthesisVoice(language: "zh-CN")
+                if femaleVoice == nil { u.pitchMultiplier = 1.2 }
+            default:
+                u.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+            }
+            synth.speak(u)
+        }
+        if let question {
+            let q = AVSpeechUtterance(string: "问：" + question)
+            q.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+            q.rate = speed.rate
+            q.preUtteranceDelay = 0.5
+            synth.speak(q)
+        }
+    }
+
+    func stop() { synth.stopSpeaking(at: .immediate) }
 }
 
 /// Small replay + slow-replay buttons used everywhere.

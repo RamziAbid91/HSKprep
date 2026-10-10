@@ -51,6 +51,7 @@ struct FlashcardsView: View {
 
             if showAnswer {
                 Divider()
+                if let pic = word.emoji { Text(pic).font(.system(size: 56)) }
                 Text(word.pinyin).font(.title).foregroundStyle(.tint)
                 Text(word.english).font(.title3)
                 if let ex = word.example {

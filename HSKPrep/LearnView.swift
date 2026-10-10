@@ -78,6 +78,7 @@ struct WordListView: View {
         List(words) { word in
             NavigationLink { WordDetailView(word: word) } label: {
                 HStack {
+                    Text(word.emoji ?? "").frame(width: 30)
                     Text(word.hanzi).font(.title3).frame(minWidth: 60, alignment: .leading)
                     VStack(alignment: .leading) {
                         Text(word.pinyin).foregroundStyle(.tint)
@@ -107,6 +108,7 @@ struct WordDetailView: View {
         List {
             Section {
                 VStack(spacing: 10) {
+                    if let pic = word.emoji { Text(pic).font(.system(size: 64)) }
                     Text(word.hanzi).font(.system(size: 80, weight: .medium))
                     Text(word.pinyin).font(.title).foregroundStyle(.tint)
                     Text(word.english).font(.title3)

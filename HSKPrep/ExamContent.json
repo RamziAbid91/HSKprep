@@ -1,0 +1,2996 @@
+{
+ "listening": [
+  {
+   "id": "L1-pic-01",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我喜欢喝茶。",
+     "pinyin": "wǒ xǐ huān hē chá."
+    }
+   ],
+   "english": "I like drinking tea.",
+   "picture": "🍵"
+  },
+  {
+   "id": "L1-pic-02",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "她家有一个小猫。",
+     "pinyin": "tā jiā yǒu yí gè xiǎo māo."
+    }
+   ],
+   "english": "Her family has a little cat.",
+   "picture": "🐈"
+  },
+  {
+   "id": "L1-pic-03",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "他是医生。",
+     "pinyin": "tā shì yī shēng."
+    }
+   ],
+   "english": "He is a doctor.",
+   "picture": "🧑‍⚕️"
+  },
+  {
+   "id": "L1-pic-04",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "今天下雨了。",
+     "pinyin": "jīn tiān xià yǔ le."
+    }
+   ],
+   "english": "It's raining today.",
+   "picture": "🌧️"
+  },
+  {
+   "id": "L1-pic-05",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我们坐出租车去吧。",
+     "pinyin": "wǒ men zuò chū zū chē qù ba."
+    }
+   ],
+   "english": "Let's take a taxi.",
+   "picture": "🚕"
+  },
+  {
+   "id": "L1-pic-06",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "爸爸在看电视。",
+     "pinyin": "bà bà zài kàn diàn shì."
+    }
+   ],
+   "english": "Dad is watching TV.",
+   "picture": "📺"
+  },
+  {
+   "id": "L1-pic-07",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "这是我的电脑。",
+     "pinyin": "zhè shì wǒ de diàn nǎo."
+    }
+   ],
+   "english": "This is my computer.",
+   "picture": "💻"
+  },
+  {
+   "id": "L1-pic-08",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我想吃苹果。",
+     "pinyin": "wǒ xiǎng chī píng guǒ."
+    }
+   ],
+   "english": "I want to eat an apple.",
+   "picture": "🍎"
+  },
+  {
+   "id": "L1-pic-09",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我女儿在睡觉。",
+     "pinyin": "wǒ nǚ ér zài shuì jiào."
+    }
+   ],
+   "english": "My daughter is sleeping.",
+   "picture": "😴"
+  },
+  {
+   "id": "L1-pic-10",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你好！",
+     "pinyin": "nǐ hǎo!"
+    },
+    {
+     "speaker": "F",
+     "text": "你好，很高兴认识你。",
+     "pinyin": "nǐ hǎo, hěn gāo xìng rèn shí nǐ."
+    }
+   ],
+   "english": "Hello! — Hello, nice to meet you.",
+   "picture": "🤝"
+  },
+  {
+   "id": "L1-pic-11",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "喂，你在哪儿？",
+     "pinyin": "wèi, nǐ zài nǎ ér?"
+    },
+    {
+     "speaker": "F",
+     "text": "我在医院。",
+     "pinyin": "wǒ zài yī yuàn."
+    }
+   ],
+   "english": "Hello, where are you? — I'm at the hospital.",
+   "picture": "🏥"
+  },
+  {
+   "id": "L1-pic-12",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你几点去火车站？",
+     "pinyin": "nǐ jǐ diǎn qù huǒ chē zhàn?"
+    },
+    {
+     "speaker": "M",
+     "text": "下午三点。",
+     "pinyin": "xià wǔ sān diǎn."
+    }
+   ],
+   "english": "What time are you going to the train station? — 3 pm.",
+   "picture": "🚉"
+  },
+  {
+   "id": "L1-pic-13",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你买什么了？",
+     "pinyin": "nǐ mǎi shén me le?"
+    },
+    {
+     "speaker": "F",
+     "text": "我买了一些衣服。",
+     "pinyin": "wǒ mǎi le yī xiē yī fú."
+    }
+   ],
+   "english": "What did you buy? — I bought some clothes.",
+   "picture": "👕"
+  },
+  {
+   "id": "L1-pic-14",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "桌子上有几本书？",
+     "pinyin": "zhuō zi shàng yǒu jǐ běn shū?"
+    },
+    {
+     "speaker": "M",
+     "text": "三本。",
+     "pinyin": "sān běn."
+    }
+   ],
+   "english": "How many books are on the table? — Three.",
+   "picture": "📚"
+  },
+  {
+   "id": "L1-pic-15",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你女儿多大了？",
+     "pinyin": "nǐ nǚ ér duō dà le?"
+    },
+    {
+     "speaker": "F",
+     "text": "她七岁了。",
+     "pinyin": "tā qī suì le."
+    }
+   ],
+   "english": "How old is your daughter? — She's seven.",
+   "picture": "👧"
+  },
+  {
+   "id": "L1-pic-16",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你会做中国菜吗？",
+     "pinyin": "nǐ huì zuò zhōng guó cài ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "会，我做的米饭很好吃。",
+     "pinyin": "huì, wǒ zuò de mǐ fàn hěn hǎo chī."
+    }
+   ],
+   "english": "Can you cook Chinese food? — Yes, my rice is delicious.",
+   "picture": "🍚"
+  },
+  {
+   "id": "L1-pic-17",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你明天怎么去北京？",
+     "pinyin": "nǐ míng tiān zěn me qù běi jīng?"
+    },
+    {
+     "speaker": "F",
+     "text": "坐飞机去。",
+     "pinyin": "zuò fēi jī qù."
+    }
+   ],
+   "english": "How are you getting to Beijing tomorrow? — By plane.",
+   "picture": "✈️"
+  },
+  {
+   "id": "L1-pic-18",
+   "level": 1,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "这是谁的狗？",
+     "pinyin": "zhè shì shéi de gǒu?"
+    },
+    {
+     "speaker": "M",
+     "text": "是我朋友的。",
+     "pinyin": "shì wǒ péng yǒu de."
+    }
+   ],
+   "english": "Whose dog is this? — My friend's.",
+   "picture": "🐕"
+  },
+  {
+   "id": "L1-dlg-01",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你下午去哪儿？",
+     "pinyin": "nǐ xià wǔ qù nǎ ér?"
+    },
+    {
+     "speaker": "M",
+     "text": "我去商店买水果。",
+     "pinyin": "wǒ qù shāng diàn mǎi shuǐ guǒ."
+    }
+   ],
+   "english": "Where are you going this afternoon? — To the shop to buy fruit.",
+   "question": "他下午去哪儿？",
+   "questionPinyin": "tā xià wǔ qù nǎ ér?",
+   "questionEnglish": "Where is he going this afternoon?",
+   "options": [
+    "商店",
+    "医院",
+    "学校"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L1-dlg-02",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "现在几点？",
+     "pinyin": "xiàn zài jǐ diǎn?"
+    },
+    {
+     "speaker": "F",
+     "text": "十点十分。",
+     "pinyin": "shí diǎn shí fēn."
+    }
+   ],
+   "english": "What time is it? — Ten past ten.",
+   "question": "现在几点？",
+   "questionPinyin": "xiàn zài jǐ diǎn?",
+   "questionEnglish": "What time is it now?",
+   "options": [
+    "十点",
+    "十点十分",
+    "十一点"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-03",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你想喝什么？",
+     "pinyin": "nǐ xiǎng hē shén me?"
+    },
+    {
+     "speaker": "M",
+     "text": "我想喝水，谢谢。",
+     "pinyin": "wǒ xiǎng hē shuǐ, xiè xiè."
+    }
+   ],
+   "english": "What would you like to drink? — Water, thanks.",
+   "question": "他想喝什么？",
+   "questionPinyin": "tā xiǎng hē shén me?",
+   "questionEnglish": "What does he want to drink?",
+   "options": [
+    "茶",
+    "水",
+    "牛奶"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-04",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "那个人是谁？",
+     "pinyin": "nà ge rén shì shuí?"
+    },
+    {
+     "speaker": "F",
+     "text": "是我的汉语老师。",
+     "pinyin": "shì wǒ de hàn yǔ lǎo shī."
+    }
+   ],
+   "english": "Who is that person? — My Chinese teacher.",
+   "question": "那个人是谁？",
+   "questionPinyin": "nà ge rén shì shuí?",
+   "questionEnglish": "Who is that person?",
+   "options": [
+    "老师",
+    "医生",
+    "同学"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L1-dlg-05",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你的书在哪儿？",
+     "pinyin": "nǐ de shū zài nǎ ér?"
+    },
+    {
+     "speaker": "M",
+     "text": "在桌子上。",
+     "pinyin": "zài zhuō zi shàng."
+    }
+   ],
+   "english": "Where is your book? — On the table.",
+   "question": "书在哪儿？",
+   "questionPinyin": "shū zài nǎ ér?",
+   "questionEnglish": "Where is the book?",
+   "options": [
+    "椅子下面",
+    "桌子上",
+    "电脑后面"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-06",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "明天天气怎么样？",
+     "pinyin": "míng tiān tiān qì zěn me yàng?"
+    },
+    {
+     "speaker": "F",
+     "text": "明天很冷。",
+     "pinyin": "míng tiān hěn lěng."
+    }
+   ],
+   "english": "What's the weather like tomorrow? — It'll be cold.",
+   "question": "明天天气怎么样？",
+   "questionPinyin": "míng tiān tiān qì zěn me yàng?",
+   "questionEnglish": "What will the weather be like tomorrow?",
+   "options": [
+    "很热",
+    "下雨",
+    "很冷"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "L1-dlg-07",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你什么时候去北京？",
+     "pinyin": "nǐ shén me shí hòu qù běi jīng?"
+    },
+    {
+     "speaker": "M",
+     "text": "星期五。",
+     "pinyin": "xīng qī wǔ."
+    }
+   ],
+   "english": "When are you going to Beijing? — Friday.",
+   "question": "他什么时候去北京？",
+   "questionPinyin": "tā shén me shí hòu qù běi jīng?",
+   "questionEnglish": "When is he going to Beijing?",
+   "options": [
+    "星期三",
+    "星期五",
+    "星期天"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-08",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你家有几个人？",
+     "pinyin": "nǐ jiā yǒu jǐ gè rén?"
+    },
+    {
+     "speaker": "F",
+     "text": "我家有四个人。",
+     "pinyin": "wǒ jiā yǒu sì gè rén."
+    }
+   ],
+   "english": "How many people are in your family? — Four.",
+   "question": "她家有几个人？",
+   "questionPinyin": "tā jiā yǒu jǐ gè rén?",
+   "questionEnglish": "How many people are in her family?",
+   "options": [
+    "三个",
+    "四个",
+    "五个"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-09",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "这些苹果多少钱？",
+     "pinyin": "zhè xiē píng guǒ duō shǎo qián?"
+    },
+    {
+     "speaker": "M",
+     "text": "十五块。",
+     "pinyin": "shí wǔ kuài."
+    }
+   ],
+   "english": "How much are these apples? — 15 kuai.",
+   "question": "苹果多少钱？",
+   "questionPinyin": "píng guǒ duō shǎo qián?",
+   "questionEnglish": "How much are the apples?",
+   "options": [
+    "五块",
+    "十块",
+    "十五块"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "L1-dlg-10",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你认识王小姐吗？",
+     "pinyin": "nǐ rèn shí wáng xiǎo jiě ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "认识，她是我同学。",
+     "pinyin": "rèn shí, tā shì wǒ tóng xué."
+    }
+   ],
+   "english": "Do you know Miss Wang? — Yes, she's my classmate.",
+   "question": "王小姐是她的什么人？",
+   "questionPinyin": "wáng xiǎo jiě shì tā de shén me rén?",
+   "questionEnglish": "Who is Miss Wang to her?",
+   "options": [
+    "同学",
+    "女儿",
+    "老师"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L1-dlg-11",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你会开车吗？",
+     "pinyin": "nǐ huì kāi chē ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "不会，我是坐出租车来的。",
+     "pinyin": "bú huì, wǒ shì zuò chū zū chē lái de."
+    }
+   ],
+   "english": "Can you drive? — No, I came by taxi.",
+   "question": "他怎么来的？",
+   "questionPinyin": "tā zěn me lái de?",
+   "questionEnglish": "How did he come?",
+   "options": [
+    "开车",
+    "坐出租车",
+    "坐飞机"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L1-dlg-12",
+   "level": 1,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你中午吃什么？",
+     "pinyin": "nǐ zhōng wǔ chī shén me?"
+    },
+    {
+     "speaker": "F",
+     "text": "我想去饭馆吃米饭和菜。",
+     "pinyin": "wǒ xiǎng qù fàn guǎn chī mǐ fàn hé cài."
+    }
+   ],
+   "english": "What are you having for lunch? — I want rice and dishes at a restaurant.",
+   "question": "她中午想吃什么？",
+   "questionPinyin": "tā zhōng wǔ xiǎng chī shén me?",
+   "questionEnglish": "What does she want for lunch?",
+   "options": [
+    "米饭和菜",
+    "水果",
+    "苹果"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L2-pic-01",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "他每天早上都去跑步。",
+     "pinyin": "tā měi tiān zǎo shàng dōu qù pǎo bù."
+    }
+   ],
+   "english": "He goes running every morning.",
+   "picture": "🏃"
+  },
+  {
+   "id": "L2-pic-02",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我今天生病了，不想吃东西。",
+     "pinyin": "wǒ jīn tiān shēng bìng le, bù xiǎng chī dōng xī."
+    }
+   ],
+   "english": "I'm sick today and don't want to eat.",
+   "picture": "🤒"
+  },
+  {
+   "id": "L2-pic-03",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "她在唱歌，唱得非常好。",
+     "pinyin": "tā zài chàng gē, chàng dé fēi cháng hǎo."
+    }
+   ],
+   "english": "She's singing, and she sings really well.",
+   "picture": "🎤"
+  },
+  {
+   "id": "L2-pic-04",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "孩子们在外面踢足球。",
+     "pinyin": "hái zi men zài wài miàn tī zú qiú."
+    }
+   ],
+   "english": "The children are playing football outside.",
+   "picture": "⚽"
+  },
+  {
+   "id": "L2-pic-05",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "外面下雪了，真漂亮！",
+     "pinyin": "wài miàn xià xuě le, zhēn piào liàng!"
+    }
+   ],
+   "english": "It's snowing outside — beautiful!",
+   "picture": "❄️"
+  },
+  {
+   "id": "L2-pic-06",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你的手机呢？",
+     "pinyin": "nǐ de shǒu jī ne?"
+    },
+    {
+     "speaker": "F",
+     "text": "在房间的桌子上。",
+     "pinyin": "zài fáng jiān de zhuō zi shàng."
+    }
+   ],
+   "english": "Where's your phone? — On the table in the room.",
+   "picture": "📱"
+  },
+  {
+   "id": "L2-pic-07",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "我们坐公共汽车去吧。",
+     "pinyin": "wǒ men zuò gōng gòng qì chē qù ba."
+    },
+    {
+     "speaker": "M",
+     "text": "好，车站就在前面。",
+     "pinyin": "hǎo, chē zhàn jiù zài qián miàn."
+    }
+   ],
+   "english": "Let's take the bus. — OK, the stop is just ahead.",
+   "picture": "🚌"
+  },
+  {
+   "id": "L2-pic-08",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "服务员，再来两个鸡蛋。",
+     "pinyin": "fú wù yuán, zài lái liǎng gè jī dàn."
+    },
+    {
+     "speaker": "F",
+     "text": "好的，请等一下。",
+     "pinyin": "hǎo de, qǐng děng yí xià."
+    }
+   ],
+   "english": "Waiter, two more eggs please. — Sure, one moment.",
+   "picture": "🥚"
+  },
+  {
+   "id": "L2-pic-09",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "生日快乐！这是送给你的。",
+     "pinyin": "shēng rì kuài lè! zhè shì sòng gěi nǐ de."
+    },
+    {
+     "speaker": "M",
+     "text": "谢谢！",
+     "pinyin": "xiè xiè!"
+    }
+   ],
+   "english": "Happy birthday! This is for you. — Thanks!",
+   "picture": "🎂"
+  },
+  {
+   "id": "L2-pic-10",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你每天怎么去公司？",
+     "pinyin": "nǐ měi tiān zěn me qù gōng sī?"
+    },
+    {
+     "speaker": "F",
+     "text": "我骑自行车去。",
+     "pinyin": "wǒ qí zì xíng chē qù."
+    }
+   ],
+   "english": "How do you get to the office? — I ride a bike.",
+   "picture": "🚲"
+  },
+  {
+   "id": "L2-pic-11",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你喜欢吃西瓜吗？",
+     "pinyin": "nǐ xǐ huān chī xī guā ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "喜欢，夏天吃西瓜最好了。",
+     "pinyin": "xǐ huān, xià tiān chī xī guā zuì hǎo le."
+    }
+   ],
+   "english": "Do you like watermelon? — Yes, it's best in summer.",
+   "picture": "🍉"
+  },
+  {
+   "id": "L2-pic-12",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你在看什么？",
+     "pinyin": "nǐ zài kàn shén me?"
+    },
+    {
+     "speaker": "F",
+     "text": "今天的报纸。",
+     "pinyin": "jīn tiān de bào zhǐ."
+    }
+   ],
+   "english": "What are you reading? — Today's newspaper.",
+   "picture": "📰"
+  },
+  {
+   "id": "L2-pic-13",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "这些药一天吃三次。",
+     "pinyin": "zhè xiē yào yī tiān chī sān cì."
+    },
+    {
+     "speaker": "M",
+     "text": "好的，谢谢医生。",
+     "pinyin": "hǎo de, xiè xiè yī shēng."
+    }
+   ],
+   "english": "Take this medicine three times a day. — OK, thank you, doctor.",
+   "picture": "💊"
+  },
+  {
+   "id": "L2-pic-14",
+   "level": 2,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你会游泳吗？",
+     "pinyin": "nǐ huì yóu yǒng ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "会，我每个星期都去游泳。",
+     "pinyin": "huì, wǒ měi gè xīng qī dōu qù yóu yǒng."
+    }
+   ],
+   "english": "Can you swim? — Yes, I swim every week.",
+   "picture": "🏊"
+  },
+  {
+   "id": "L2-tf-01",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我妹妹非常喜欢跳舞，她每个星期六都去学跳舞。",
+     "pinyin": "wǒ mèi mèi fēi cháng xǐ huān tiào wǔ, tā měi gè xīng qī liù dōu qù xué tiào wǔ."
+    }
+   ],
+   "english": "My younger sister loves dancing; she has dance class every Saturday.",
+   "statement": "妹妹星期六去学跳舞。",
+   "statementPinyin": "mèi mèi xīng qī liù qù xué tiào wǔ.",
+   "statementEnglish": "The sister learns dancing on Saturdays.",
+   "isTrue": true
+  },
+  {
+   "id": "L2-tf-02",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "今天天气很好，是晴天，我们下午一起去公园跑步吧。",
+     "pinyin": "jīn tiān tiān qì hěn hǎo, shì qíng tiān, wǒ men xià wǔ yì qǐ qù gōng yuán pǎo bù ba."
+    }
+   ],
+   "english": "The weather's great today, it's sunny — let's go running in the park this afternoon.",
+   "statement": "今天下雨了。",
+   "statementPinyin": "jīn tiān xià yǔ le.",
+   "statementEnglish": "It rained today.",
+   "isTrue": false
+  },
+  {
+   "id": "L2-tf-03",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我家离公司很近，走路十分钟就到了，所以我每天走路去上班。",
+     "pinyin": "wǒ jiā lí gōng sī hěn jìn, zǒu lù shí fēn zhōng jiù dào le, suǒ yǐ wǒ měi tiān zǒu lù qù shàng bān."
+    }
+   ],
+   "english": "My home is close to the office — ten minutes on foot — so I walk to work every day.",
+   "statement": "他每天坐公共汽车上班。",
+   "statementPinyin": "tā měi tiān zuò gōng gòng qì chē shàng bān.",
+   "statementEnglish": "He takes the bus to work every day.",
+   "isTrue": false
+  },
+  {
+   "id": "L2-tf-04",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "这件衣服颜色很好看，但是太贵了，我不想买。",
+     "pinyin": "zhè jiàn yī fú yán sè hěn hǎo kàn, dàn shì tài guì le, wǒ bù xiǎng mǎi."
+    }
+   ],
+   "english": "This piece of clothing is a nice colour, but it's too expensive; I don't want to buy it.",
+   "statement": "他觉得那件衣服很便宜。",
+   "statementPinyin": "tā jué de nà jiàn yī fú hěn pián yi.",
+   "statementEnglish": "He thinks the clothing is cheap.",
+   "isTrue": false
+  },
+  {
+   "id": "L2-tf-05",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我丈夫是医生，他工作非常忙，晚上常常十点以后才回家。",
+     "pinyin": "wǒ zhàng fū shì yī shēng, tā gōng zuò fēi cháng máng, wǎn shàng cháng cháng shí diǎn yǐ hòu cái huí jiā."
+    }
+   ],
+   "english": "My husband is a doctor. He's very busy and often gets home after ten at night.",
+   "statement": "她丈夫工作很忙。",
+   "statementPinyin": "tā zhàng fū gōng zuò hěn máng.",
+   "statementEnglish": "Her husband is very busy at work.",
+   "isTrue": true
+  },
+  {
+   "id": "L2-tf-06",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我已经准备好了，考试是明天上午九点，在三号教室。",
+     "pinyin": "wǒ yǐ jīng zhǔn bèi hǎo le, kǎo shì shì míng tiān shàng wǔ jiǔ diǎn, zài sān hào jiào shì."
+    }
+   ],
+   "english": "I'm ready. The exam is at 9 tomorrow morning, in classroom 3.",
+   "statement": "考试在下午。",
+   "statementPinyin": "kǎo shì zài xià wǔ.",
+   "statementEnglish": "The exam is in the afternoon.",
+   "isTrue": false
+  },
+  {
+   "id": "L2-tf-07",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "哥哥比我大三岁，他今年二十五岁了。",
+     "pinyin": "gē gē bǐ wǒ dà sān suì, tā jīn nián èr shí wǔ suì le."
+    }
+   ],
+   "english": "My older brother is three years older than me; he's 25 this year.",
+   "statement": "说话人今年二十二岁。",
+   "statementPinyin": "shuō huà rén jīn nián èr shí èr suì.",
+   "statementEnglish": "The speaker is 22 this year.",
+   "isTrue": true
+  },
+  {
+   "id": "L2-tf-08",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "欢迎大家来中国旅游！我们今天先去吃北京菜，明天去看长城。",
+     "pinyin": "huān yíng dà jiā lái zhōng guó lǚ yóu! wǒ men jīn tiān xiān qù chī běi jīng cài, míng tiān qù kàn cháng chéng."
+    }
+   ],
+   "english": "Welcome to China, everyone! Today we'll eat Beijing food, and tomorrow we'll see the Great Wall.",
+   "statement": "他们明天去看长城。",
+   "statementPinyin": "tā men míng tiān qù kàn cháng chéng.",
+   "statementEnglish": "They'll see the Great Wall tomorrow.",
+   "isTrue": true
+  },
+  {
+   "id": "L2-tf-09",
+   "level": 2,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我每天晚上十一点睡觉，早上六点半起床，然后去跑步。",
+     "pinyin": "wǒ měi tiān wǎn shàng shí yì diǎn shuì jiào, zǎo shàng liù diǎn bàn qǐ chuáng, rán hòu qù pǎo bù."
+    }
+   ],
+   "english": "I go to bed at 11 every night, get up at 6:30 and then go running.",
+   "statement": "他早上七点起床。",
+   "statementPinyin": "tā zǎo shàng qī diǎn qǐ chuáng.",
+   "statementEnglish": "He gets up at 7 in the morning.",
+   "isTrue": false
+  },
+  {
+   "id": "L2-dlg-01",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你怎么还没起床？已经八点了！",
+     "pinyin": "nǐ zěn me hái méi qǐ chuáng? yǐ jīng bā diǎn le!"
+    },
+    {
+     "speaker": "M",
+     "text": "我昨天晚上看书看到很晚，太累了。",
+     "pinyin": "wǒ zuó tiān wǎn shàng kàn shū kàn dào hěn wǎn, tài lèi le."
+    }
+   ],
+   "english": "Why aren't you up yet? It's already 8! — I read until late last night, I'm exhausted.",
+   "question": "男的为什么还没起床？",
+   "questionPinyin": "nán de wèi shén me hái méi qǐ chuáng?",
+   "questionEnglish": "Why isn't the man up yet?",
+   "options": [
+    "他生病了",
+    "他很累",
+    "他不上班"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-02",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "这个西瓜多少钱一公斤？",
+     "pinyin": "zhè ge xī guā duō shǎo qián yī gōng jīn?"
+    },
+    {
+     "speaker": "F",
+     "text": "三块五。你要几公斤？",
+     "pinyin": "sān kuài wǔ. nǐ yào jǐ gōng jīn?"
+    },
+    {
+     "speaker": "M",
+     "text": "我要两公斤。",
+     "pinyin": "wǒ yào liǎng gōng jīn."
+    }
+   ],
+   "english": "How much per kilo is this watermelon? — 3.50. How many kilos? — Two.",
+   "question": "男的要买多少西瓜？",
+   "questionPinyin": "nán de yào mǎi duō shǎo xī guā?",
+   "questionEnglish": "How much watermelon does the man buy?",
+   "options": [
+    "一公斤",
+    "两公斤",
+    "三公斤"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-03",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你找什么呢？",
+     "pinyin": "nǐ zhǎo shén me ne?"
+    },
+    {
+     "speaker": "M",
+     "text": "我的手表，我记得放在桌子上了。",
+     "pinyin": "wǒ de shǒu biǎo, wǒ jì de fàng zài zhuō zi shàng le."
+    }
+   ],
+   "english": "What are you looking for? — My watch; I think I put it on the table.",
+   "question": "男的在找什么？",
+   "questionPinyin": "nán de zài zhǎo shén me?",
+   "questionEnglish": "What is the man looking for?",
+   "options": [
+    "手机",
+    "手表",
+    "报纸"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-04",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "喂，你到机场了吗？",
+     "pinyin": "wèi, nǐ dào jī chǎng le ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "还没有，路上车太多了，我可能晚半个小时。",
+     "pinyin": "hái méi yǒu, lù shàng chē tài duō le, wǒ kě néng wǎn bàn gè xiǎo shí."
+    }
+   ],
+   "english": "Hello, are you at the airport? — Not yet, the traffic's bad; I may be half an hour late.",
+   "question": "女的现在在哪儿？",
+   "questionPinyin": "nǚ de xiàn zài zài nǎ ér?",
+   "questionEnglish": "Where is the woman now?",
+   "options": [
+    "机场",
+    "路上",
+    "家里"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-05",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你会游泳吗？",
+     "pinyin": "nǐ huì yóu yǒng ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "会，但是游得不好。我哥哥游得比我好。",
+     "pinyin": "huì, dàn shì yóu dé bù hǎo. wǒ gē gē yóu dé bǐ wǒ hǎo."
+    }
+   ],
+   "english": "Can you swim? — Yes, but not well. My brother swims better than me.",
+   "question": "谁游泳游得好？",
+   "questionPinyin": "shuí yóu yǒng yóu dé hǎo?",
+   "questionEnglish": "Who swims well?",
+   "options": [
+    "男的",
+    "男的哥哥",
+    "女的"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-06",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "医生，我孩子的病怎么样了？",
+     "pinyin": "yī shēng, wǒ hái zi de bìng zěn me yàng le?"
+    },
+    {
+     "speaker": "F",
+     "text": "没什么问题，吃点儿药，休息两天就好了。",
+     "pinyin": "méi shén me wèn tí, chī diǎn ér yào, xiū xī liǎng tiān jiù hǎo le."
+    }
+   ],
+   "english": "Doctor, how is my child? — Nothing serious; some medicine and two days' rest.",
+   "question": "孩子要做什么？",
+   "questionPinyin": "hái zi yào zuò shén me?",
+   "questionEnglish": "What does the child need to do?",
+   "options": [
+    "吃药休息",
+    "去医院",
+    "去学校"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L2-dlg-07",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你们公司离这儿远吗？",
+     "pinyin": "nǐ men gōng sī lí zhè ér yuǎn ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "不远，坐公共汽车二十分钟就到了。",
+     "pinyin": "bù yuǎn, zuò gōng gòng qì chē èr shí fēn zhōng jiù dào le."
+    }
+   ],
+   "english": "Is your company far from here? — No, twenty minutes by bus.",
+   "question": "男的怎么去公司？",
+   "questionPinyin": "nán de zěn me qù gōng sī?",
+   "questionEnglish": "How does the man get to his company?",
+   "options": [
+    "开车",
+    "坐公共汽车",
+    "走路"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-08",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你的新同学怎么样？",
+     "pinyin": "nǐ de xīn tóng xué zěn me yàng?"
+    },
+    {
+     "speaker": "F",
+     "text": "很好，她很爱笑，大家都喜欢她。",
+     "pinyin": "hěn hǎo, tā hěn ài xiào, dà jiā dōu xǐ huān tā."
+    }
+   ],
+   "english": "How's your new classmate? — Great, she smiles a lot and everyone likes her.",
+   "question": "女的觉得新同学怎么样？",
+   "questionPinyin": "nǚ de jué de xīn tóng xué zěn me yàng?",
+   "questionEnglish": "What does the woman think of her new classmate?",
+   "options": [
+    "很好",
+    "不好",
+    "很忙"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L2-dlg-09",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "我们几号去旅游？",
+     "pinyin": "wǒ men jǐ hào qù lǚ yóu?"
+    },
+    {
+     "speaker": "M",
+     "text": "十月一号，坐飞机去。票我已经买好了。",
+     "pinyin": "shí yuè yī hào, zuò fēi jī qù. piào wǒ yǐ jīng mǎi hǎo le."
+    }
+   ],
+   "english": "What date are we going on our trip? — October 1st, by plane. I've already bought the tickets.",
+   "question": "他们什么时候去旅游？",
+   "questionPinyin": "tā men shén me shí hòu qù lǚ yóu?",
+   "questionEnglish": "When are they travelling?",
+   "options": [
+    "十月一号",
+    "十号",
+    "一月十号"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L2-dlg-10",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你今天穿得真漂亮！",
+     "pinyin": "nǐ jīn tiān chuān dé zhēn piào liàng!"
+    },
+    {
+     "speaker": "F",
+     "text": "谢谢，今天是我的生日，晚上要和朋友们去吃饭。",
+     "pinyin": "xiè xiè, jīn tiān shì wǒ de shēng rì, wǎn shàng yào hé péng yǒu men qù chī fàn."
+    }
+   ],
+   "english": "You look great today! — Thanks, it's my birthday; I'm having dinner with friends tonight.",
+   "question": "女的今天晚上做什么？",
+   "questionPinyin": "nǚ de jīn tiān wǎn shàng zuò shén me?",
+   "questionEnglish": "What is the woman doing tonight?",
+   "options": [
+    "上班",
+    "和朋友吃饭",
+    "去考试"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-11",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "这个题你懂了吗？",
+     "pinyin": "zhè ge tí nǐ dǒng le ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "还不太懂，你能再给我介绍一下吗？",
+     "pinyin": "hái bù tài dǒng, nǐ néng zài gěi wǒ jiè shào yī xià ma?"
+    }
+   ],
+   "english": "Do you understand this question? — Not quite, can you explain it again?",
+   "question": "男的是什么意思？",
+   "questionPinyin": "nán de shì shén me yì si?",
+   "questionEnglish": "What does the man mean?",
+   "options": [
+    "他懂了",
+    "他还不懂",
+    "他不想学"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L2-dlg-12",
+   "level": 2,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "外面阴天了，可能要下雨，你带伞吧。",
+     "pinyin": "wài miàn yīn tiān le, kě néng yào xià yǔ, nǐ dài sǎn ba."
+    },
+    {
+     "speaker": "F",
+     "text": "好的，谢谢。",
+     "pinyin": "hǎo de, xiè xiè."
+    }
+   ],
+   "english": "It's cloudy, it might rain — take an umbrella. — OK, thanks.",
+   "question": "男的让女的做什么？",
+   "questionPinyin": "nán de ràng nǚ de zuò shén me?",
+   "questionEnglish": "What does the man tell the woman to do?",
+   "options": [
+    "带伞",
+    "穿衣服",
+    "回家"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-pic-01",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你看，这个熊猫多可爱啊！",
+     "pinyin": "nǐ kàn, zhè ge xióng māo duō kě ài a!"
+    },
+    {
+     "speaker": "F",
+     "text": "是啊，它正在吃东西呢。",
+     "pinyin": "shì a, tā zhèng zài chī dōng xī ne."
+    }
+   ],
+   "english": "Look how cute this panda is! — Yes, it's eating.",
+   "picture": "🐼"
+  },
+  {
+   "id": "L3-pic-02",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你先把行李箱放在这儿，我去拿护照。",
+     "pinyin": "nǐ xiān bǎ xíng lǐ xiāng fàng zài zhè ér, wǒ qù ná hù zhào."
+    },
+    {
+     "speaker": "M",
+     "text": "好的，我在这儿等你。",
+     "pinyin": "hǎo de, wǒ zài zhè ér děng nǐ."
+    }
+   ],
+   "english": "Put the suitcase here first, I'll get the passports. — OK, I'll wait here.",
+   "picture": "🧳"
+  },
+  {
+   "id": "L3-pic-03",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "我感冒了，头有点儿疼。",
+     "pinyin": "wǒ gǎn mào le, tóu yǒu diǎn ér téng."
+    },
+    {
+     "speaker": "F",
+     "text": "你快去医院看看吧。",
+     "pinyin": "nǐ kuài qù yī yuàn kàn kàn ba."
+    }
+   ],
+   "english": "I've caught a cold and have a bit of a headache. — Go and see a doctor.",
+   "picture": "🤧"
+  },
+  {
+   "id": "L3-pic-04",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "周末我们去爬山吧？",
+     "pinyin": "zhōu mò wǒ men qù pá shān ba?"
+    },
+    {
+     "speaker": "M",
+     "text": "好啊，山上的空气特别新鲜。",
+     "pinyin": "hǎo a, shān shàng de kōng qì tè bié xīn xiān."
+    }
+   ],
+   "english": "Shall we go hiking this weekend? — Sure, the mountain air is so fresh.",
+   "picture": "🧗"
+  },
+  {
+   "id": "L3-pic-05",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你的眼镜呢？",
+     "pinyin": "nǐ de yǎn jìng ne?"
+    },
+    {
+     "speaker": "F",
+     "text": "我刚才还看见了，怎么找不到了？",
+     "pinyin": "wǒ gāng cái hái kàn jiàn le, zěn me zhǎo bú dào le?"
+    }
+   ],
+   "english": "Where are your glasses? — I saw them a moment ago — why can't I find them?",
+   "picture": "👓"
+  },
+  {
+   "id": "L3-pic-06",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "下班后我要去超市买点儿面包和牛奶。",
+     "pinyin": "xià bān hòu wǒ yào qù chāo shì mǎi diǎn ér miàn bāo hé niú nǎi."
+    },
+    {
+     "speaker": "M",
+     "text": "帮我带一瓶果汁吧。",
+     "pinyin": "bāng wǒ dài yī píng guǒ zhī ba."
+    }
+   ],
+   "english": "After work I'm going to the supermarket for bread and milk. — Get me a bottle of juice.",
+   "picture": "🛒"
+  },
+  {
+   "id": "L3-pic-07",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "快点儿，电梯来了！",
+     "pinyin": "kuài diǎn ér, diàn tī lái le!"
+    },
+    {
+     "speaker": "F",
+     "text": "等等我！",
+     "pinyin": "děng děng wǒ!"
+    }
+   ],
+   "english": "Hurry, the lift is here! — Wait for me!",
+   "picture": "🛗"
+  },
+  {
+   "id": "L3-pic-08",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "生日快乐！我给你做了一个蛋糕。",
+     "pinyin": "shēng rì kuài lè! wǒ gěi nǐ zuò le yí gè dàn gāo."
+    },
+    {
+     "speaker": "M",
+     "text": "太谢谢你了！",
+     "pinyin": "tài xiè xiè nǐ le!"
+    }
+   ],
+   "english": "Happy birthday! I made you a cake. — Thank you so much!",
+   "picture": "🍰"
+  },
+  {
+   "id": "L3-pic-09",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "外面刮风了，好像要下雨。",
+     "pinyin": "wài miàn guā fēng le, hǎo xiàng yào xià yǔ."
+    },
+    {
+     "speaker": "F",
+     "text": "别忘了带伞。",
+     "pinyin": "bié wàng le dài sǎn."
+    }
+   ],
+   "english": "It's windy outside, looks like rain. — Don't forget your umbrella.",
+   "picture": "☂️"
+  },
+  {
+   "id": "L3-pic-10",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你经常骑自行车上班吗？",
+     "pinyin": "nǐ jīng cháng qí zì xíng chē shàng bān ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "对，又方便又能锻炼身体。",
+     "pinyin": "duì, yòu fāng biàn yòu néng duàn liàn shēn tǐ."
+    }
+   ],
+   "english": "Do you often cycle to work? — Yes, it's convenient and good exercise.",
+   "picture": "🚴"
+  },
+  {
+   "id": "L3-pic-11",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "这双鞋有点儿小，有大一点儿的吗？",
+     "pinyin": "zhè shuāng xié yǒu diǎn ér xiǎo, yǒu dà yī diǎn ér de ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "有，您等一下。",
+     "pinyin": "yǒu, nín děng yí xià."
+    }
+   ],
+   "english": "These shoes are a bit small, do you have a bigger size? — Yes, one moment.",
+   "picture": "👟"
+  },
+  {
+   "id": "L3-pic-12",
+   "level": 3,
+   "kind": "picture",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你在画什么？",
+     "pinyin": "nǐ zài huà shén me?"
+    },
+    {
+     "speaker": "M",
+     "text": "我在画我们家的小猫。",
+     "pinyin": "wǒ zài huà wǒ men jiā de xiǎo māo."
+    }
+   ],
+   "english": "What are you drawing? — Our kitten.",
+   "picture": "🎨"
+  },
+  {
+   "id": "L3-tf-01",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我以前觉得学习汉语很难，但是来中国一年以后，我发现其实没有那么难，现在我已经能用汉语和邻居说话了。",
+     "pinyin": "wǒ yǐ qián jué de xué xí hàn yǔ hěn nán, dàn shì lái zhōng guó yī nián yǐ hòu, wǒ fā xiàn qí shí méi yǒu nà me nán, xiàn zài wǒ yǐ jīng néng yòng hàn yǔ hé lín jū shuō huà le."
+    }
+   ],
+   "english": "I used to think Chinese was hard, but after a year in China I found it isn't that hard; now I can talk with my neighbours in Chinese.",
+   "statement": "他现在觉得汉语比以前容易。",
+   "statementPinyin": "tā xiàn zài jué de hàn yǔ bǐ yǐ qián róng yì.",
+   "statementEnglish": "He now finds Chinese easier than before.",
+   "isTrue": true
+  },
+  {
+   "id": "L3-tf-02",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "这家饭馆的菜虽然有点儿贵，但是非常新鲜，而且服务员都很热情，所以每到周末，这里的客人都特别多。",
+     "pinyin": "zhè jiā fàn guǎn de cài suī rán yǒu diǎn ér guì, dàn shì fēi cháng xīn xiān, ér qiě fú wù yuán dōu hěn rè qíng, suǒ yǐ měi dào zhōu mò, zhè lǐ de kè rén dōu tè bié duō."
+    }
+   ],
+   "english": "This restaurant is a bit expensive, but the food is very fresh and the staff are friendly, so it's packed every weekend.",
+   "statement": "这家饭馆周末客人很少。",
+   "statementPinyin": "zhè jiā fàn guǎn zhōu mò kè rén hěn shǎo.",
+   "statementEnglish": "This restaurant has few customers at weekends.",
+   "isTrue": false
+  },
+  {
+   "id": "L3-tf-03",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我爷爷今年八十岁了，身体还很健康。他每天早上都去公园锻炼一个小时，下午在家看看报纸，画画儿。",
+     "pinyin": "wǒ yé yé jīn nián bā shí suì le, shēn tǐ hái hěn jiàn kāng. tā měi tiān zǎo shàng dōu qù gōng yuán duàn liàn yí gè xiǎo shí, xià wǔ zài jiā kàn kàn bào zhǐ, huà huà ér."
+    }
+   ],
+   "english": "My grandfather is 80 and still healthy. He exercises in the park for an hour every morning, and reads the paper and paints at home in the afternoon.",
+   "statement": "爷爷每天下午去公园。",
+   "statementPinyin": "yé yé měi tiān xià wǔ qù gōng yuán.",
+   "statementEnglish": "Grandpa goes to the park every afternoon.",
+   "isTrue": false
+  },
+  {
+   "id": "L3-tf-04",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "小王，经理让你明天上午九点到他办公室去一下，他想了解一下你最近的工作。",
+     "pinyin": "xiǎo wáng, jīng lǐ ràng nǐ míng tiān shàng wǔ jiǔ diǎn dào tā bàn gōng shì qù yī xià, tā xiǎng liǎo jiě yī xià nǐ zuì jìn de gōng zuò."
+    }
+   ],
+   "english": "Xiao Wang, the manager wants you in his office at 9 tomorrow morning; he wants to hear about your recent work.",
+   "statement": "经理明天上午要见小王。",
+   "statementPinyin": "jīng lǐ míng tiān shàng wǔ yào jiàn xiǎo wáng.",
+   "statementEnglish": "The manager will see Xiao Wang tomorrow morning.",
+   "isTrue": true
+  },
+  {
+   "id": "L3-tf-05",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "坐地铁去机场又快又便宜，一般只要四十分钟。如果坐出租车，路上车多的时候，可能需要一个多小时。",
+     "pinyin": "zuò dì tiě qù jī chǎng yòu kuài yòu pián yi, yì bān zhǐ yào sì shí fēn zhōng. rú guǒ zuò chū zū chē, lù shàng chē duō de shí hòu, kě néng xū yào yí gè duō xiǎo shí."
+    }
+   ],
+   "english": "The subway to the airport is fast and cheap, usually only 40 minutes. A taxi can take over an hour when traffic is heavy.",
+   "statement": "坐地铁去机场比坐出租车快。",
+   "statementPinyin": "zuò dì tiě qù jī chǎng bǐ zuò chū zū chē kuài.",
+   "statementEnglish": "The subway to the airport is faster than a taxi.",
+   "isTrue": true
+  },
+  {
+   "id": "L3-tf-06",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我的房间在三层，房间外面就是一个小花园。春天的时候，花园里开满了花，非常漂亮。",
+     "pinyin": "wǒ de fáng jiān zài sān céng, fáng jiān wài miàn jiù shì yí gè xiǎo huā yuán. chūn tiān de shí hòu, huā yuán lǐ kāi mǎn le huā, fēi cháng piào liàng."
+    }
+   ],
+   "english": "My room is on the third floor, right above a little garden. In spring the garden is full of flowers — beautiful.",
+   "statement": "他的房间在一层。",
+   "statementPinyin": "tā de fáng jiān zài yī céng.",
+   "statementEnglish": "His room is on the first floor.",
+   "isTrue": false
+  },
+  {
+   "id": "L3-tf-07",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我妹妹特别喜欢小动物，她家里有一只小猫和两只小鸟。每天放学回家，她第一件事就是给它们吃东西。",
+     "pinyin": "wǒ mèi mèi tè bié xǐ huān xiǎo dòng wù, tā jiā lǐ yǒu yī zhī xiǎo māo hé liǎng zhǐ xiǎo niǎo. měi tiān fàng xué huí jiā, tā dì yī jiàn shì jiù shì gěi tā men chī dōng xī."
+    }
+   ],
+   "english": "My younger sister loves small animals; she has a kitten and two little birds. The first thing she does after school is feed them.",
+   "statement": "妹妹有两只猫。",
+   "statementPinyin": "mèi mèi yǒu liǎng zhǐ māo.",
+   "statementEnglish": "The younger sister has two cats.",
+   "isTrue": false
+  },
+  {
+   "id": "L3-tf-08",
+   "level": 3,
+   "kind": "statement",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "这次考试我的成绩不太好，我决定以后每天晚上都复习一个小时，下次一定要考好。",
+     "pinyin": "zhè cì kǎo shì wǒ de chéng jì bù tài hǎo, wǒ jué dìng yǐ hòu měi tiān wǎn shàng dōu fù xí yí gè xiǎo shí, xià cì yí dìng yào kǎo hǎo."
+    }
+   ],
+   "english": "My results in this exam weren't good. I've decided to review for an hour every evening so I do well next time.",
+   "statement": "他对这次考试的成绩很满意。",
+   "statementPinyin": "tā duì zhè cì kǎo shì de chéng jì hěn mǎn yì.",
+   "statementEnglish": "He's satisfied with his exam results.",
+   "isTrue": false
+  },
+  {
+   "id": "L3-dlg-01",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你怎么又迟到了？",
+     "pinyin": "nǐ zěn me yòu chí dào le?"
+    },
+    {
+     "speaker": "M",
+     "text": "对不起，路上车太多了，公共汽车半天都不来。",
+     "pinyin": "duì bù qǐ, lù shàng chē tài duō le, gōng gòng qì chē bàn tiān dōu bù lái."
+    },
+    {
+     "speaker": "F",
+     "text": "下次早点儿出门吧。",
+     "pinyin": "xià cì zǎo diǎn ér chū mén ba."
+    }
+   ],
+   "english": "Why are you late again? — Sorry, the traffic was bad and the bus took ages. — Leave earlier next time.",
+   "question": "男的为什么迟到了？",
+   "questionPinyin": "nán de wèi shén me chí dào le?",
+   "questionEnglish": "Why was the man late?",
+   "options": [
+    "起床晚了",
+    "公共汽车来得慢",
+    "忘了时间"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-dlg-02",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "你周末打算做什么？",
+     "pinyin": "nǐ zhōu mò dǎ suàn zuò shén me?"
+    },
+    {
+     "speaker": "F",
+     "text": "我想去图书馆借几本书，然后去看看奶奶。",
+     "pinyin": "wǒ xiǎng qù tú shū guǎn jiè jǐ běn shū, rán hòu qù kàn kàn nǎi nǎi."
+    },
+    {
+     "speaker": "M",
+     "text": "你奶奶住得远吗？",
+     "pinyin": "nǐ nǎi nǎi zhù dé yuǎn ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "不远，坐地铁两站就到了。",
+     "pinyin": "bù yuǎn, zuò dì tiě liǎng zhàn jiù dào le."
+    }
+   ],
+   "english": "What are your plans for the weekend? — The library to borrow books, then visit my grandma. — Does she live far? — No, two subway stops.",
+   "question": "女的周末不会去哪儿？",
+   "questionPinyin": "nǚ de zhōu mò bú huì qù nǎ ér?",
+   "questionEnglish": "Where will the woman NOT go this weekend?",
+   "options": [
+    "图书馆",
+    "奶奶家",
+    "超市"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "L3-dlg-03",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "这条裙子你穿着真好看，在哪儿买的？",
+     "pinyin": "zhè tiáo qún zi nǐ chuān zhe zhēn hǎo kàn, zài nǎ ér mǎi de?"
+    },
+    {
+     "speaker": "F",
+     "text": "在学校附近的商店，现在买一送一，特别便宜。",
+     "pinyin": "zài xué xiào fù jìn de shāng diàn, xiàn zài mǎi yī sòng yī, tè bié pián yi."
+    }
+   ],
+   "english": "That dress looks great on you, where did you buy it? — At a shop near the school; it's buy-one-get-one-free right now.",
+   "question": "那个商店在哪儿？",
+   "questionPinyin": "nà ge shāng diàn zài nǎ ér?",
+   "questionEnglish": "Where is the shop?",
+   "options": [
+    "学校附近",
+    "公司旁边",
+    "银行对面"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-dlg-04",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "服务员，菜单上的这个菜是甜的吗？",
+     "pinyin": "fú wù yuán, cài dān shàng de zhè ge cài shì tián de ma?"
+    },
+    {
+     "speaker": "F",
+     "text": "有一点儿甜，很多客人都喜欢。",
+     "pinyin": "yǒu yì diǎn ér tián, hěn duō kè rén dōu xǐ huān."
+    },
+    {
+     "speaker": "M",
+     "text": "那就来一个吧，再要一碗米饭。",
+     "pinyin": "nà jiù lái yí gè ba, zài yào yī wǎn mǐ fàn."
+    }
+   ],
+   "english": "Waiter, is this dish on the menu sweet? — A little; lots of customers like it. — Then I'll have one, and a bowl of rice.",
+   "question": "他们最可能在哪儿？",
+   "questionPinyin": "tā men zuì kě néng zài nǎ ér?",
+   "questionEnglish": "Where are they most likely to be?",
+   "options": [
+    "饭馆",
+    "超市",
+    "银行"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-dlg-05",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你的汉语说得越来越好了！",
+     "pinyin": "nǐ de hàn yǔ shuō dé yuè lái yuè hǎo le!"
+    },
+    {
+     "speaker": "M",
+     "text": "谢谢，我每天都跟中国同事练习说话。",
+     "pinyin": "xiè xiè, wǒ měi tiān dōu gēn zhōng guó tóng shì liàn xí shuō huà."
+    }
+   ],
+   "english": "Your Chinese is getting better and better! — Thanks, I practise speaking with my Chinese colleagues every day.",
+   "question": "男的怎么练习汉语？",
+   "questionPinyin": "nán de zěn me liàn xí hàn yǔ?",
+   "questionEnglish": "How does the man practise Chinese?",
+   "options": [
+    "看电视",
+    "跟同事说话",
+    "上网"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-dlg-06",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "空调好像坏了，房间里太热了。",
+     "pinyin": "kōng tiáo hǎo xiàng huài le, fáng jiān lǐ tài rè le."
+    },
+    {
+     "speaker": "F",
+     "text": "我已经给经理打电话了，他说一会儿就找人来看看。",
+     "pinyin": "wǒ yǐ jīng gěi jīng lǐ dǎ diàn huà le, tā shuō yī huì er jiù zhǎo rén lái kàn kàn."
+    }
+   ],
+   "english": "The air conditioning seems broken, it's too hot in here. — I've called the manager; he'll send someone soon.",
+   "question": "关于空调，可以知道什么？",
+   "questionPinyin": "guān yú kōng tiáo, kě yǐ zhī dào shén me?",
+   "questionEnglish": "What do we learn about the air conditioning?",
+   "options": [
+    "已经好了",
+    "坏了",
+    "太冷了"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-dlg-07",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你决定了吗？去北京还是去上海工作？",
+     "pinyin": "nǐ jué dìng le ma? qù běi jīng hái shì qù shàng hǎi gōng zuò?"
+    },
+    {
+     "speaker": "M",
+     "text": "还没有。北京的机会多，但是我的家人都在上海。",
+     "pinyin": "hái méi yǒu. běi jīng de jī huì duō, dàn shì wǒ de jiā rén dōu zài shàng hǎi."
+    }
+   ],
+   "english": "Have you decided — Beijing or Shanghai? — Not yet. Beijing has more opportunities, but my family is in Shanghai.",
+   "question": "男的为什么还没决定？",
+   "questionPinyin": "nán de wèi shén me hái méi jué dìng?",
+   "questionEnglish": "Why hasn't the man decided?",
+   "options": [
+    "他不想工作",
+    "他的家人在上海",
+    "北京太远"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-dlg-08",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "我的护照找不到了，下午的飞机怎么办？",
+     "pinyin": "wǒ de hù zhào zhǎo bú dào le, xià wǔ de fēi jī zěn me bàn?"
+    },
+    {
+     "speaker": "F",
+     "text": "别着急，你再好好想想，是不是放在行李箱里了？",
+     "pinyin": "bié zháo jí, nǐ zài hǎo hǎo xiǎng xiǎng, shì bú shì fàng zài háng lǐ xiāng lǐ le?"
+    }
+   ],
+   "english": "I can't find my passport — what about this afternoon's flight? — Don't panic, think again: is it in your suitcase?",
+   "question": "男的为什么着急？",
+   "questionPinyin": "nán de wèi shén me zháo jí?",
+   "questionEnglish": "Why is the man anxious?",
+   "options": [
+    "护照找不到了",
+    "飞机票太贵",
+    "行李箱坏了"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-dlg-09",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "F",
+     "text": "你女儿上几年级了？",
+     "pinyin": "nǐ nǚ ér shàng jǐ nián jí le?"
+    },
+    {
+     "speaker": "M",
+     "text": "三年级了，她数学特别好，就是不太喜欢写字。",
+     "pinyin": "sān nián jí le, tā shù xué tè bié hǎo, jiù shì bù tài xǐ huān xiě zì."
+    }
+   ],
+   "english": "What grade is your daughter in? — Third grade. She's great at maths, but doesn't like writing characters.",
+   "question": "男的的女儿不喜欢做什么？",
+   "questionPinyin": "nán de de nǚ ér bù xǐ huān zuò shén me?",
+   "questionEnglish": "What doesn't his daughter like doing?",
+   "options": [
+    "学数学",
+    "写字",
+    "上学"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-dlg-10",
+   "level": 3,
+   "kind": "dialogue",
+   "lines": [
+    {
+     "speaker": "M",
+     "text": "今天的会议什么时候结束？",
+     "pinyin": "jīn tiān de huì yì shén me shí hòu jié shù?"
+    },
+    {
+     "speaker": "F",
+     "text": "大概五点半。你有事吗？",
+     "pinyin": "dà gài wǔ diǎn bàn. nǐ yǒu shì ma?"
+    },
+    {
+     "speaker": "M",
+     "text": "我六点要去学校接儿子。",
+     "pinyin": "wǒ liù diǎn yào qù xué xiào jiē ér zi."
+    }
+   ],
+   "english": "When does today's meeting end? — Around 5:30. Do you have plans? — I need to pick up my son from school at 6.",
+   "question": "男的六点要做什么？",
+   "questionPinyin": "nán de liù diǎn yào zuò shén me?",
+   "questionEnglish": "What does the man need to do at 6?",
+   "options": [
+    "开会",
+    "接儿子",
+    "去银行"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-psg-01",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "很多人觉得早上锻炼身体最好，其实不一定。早上刚起床的时候，身体还没有完全准备好，如果马上去跑步，可能对身体不好。一般来说，下午四点到六点是锻炼的好时间。",
+     "pinyin": "hěn duō rén jué de zǎo shàng duàn liàn shēn tǐ zuì hǎo, qí shí bù yí dìng. zǎo shàng gāng qǐ chuáng de shí hòu, shēn tǐ hái méi yǒu wán quán zhǔn bèi hǎo, rú guǒ mǎ shàng qù pǎo bù, kě néng duì shēn tǐ bù hǎo. yì bān lái shuō, xià wǔ sì diǎn dào liù diǎn shì duàn liàn de hǎo shí jiān."
+    }
+   ],
+   "english": "Many people think morning is the best time to exercise, but not necessarily. Right after waking the body isn't ready, so running immediately may not be good. Generally 4–6 pm is a good time to exercise.",
+   "question": "这段话主要想告诉我们什么？",
+   "questionPinyin": "zhè duàn huà zhǔ yào xiǎng gào sù wǒ men shén me?",
+   "questionEnglish": "What is this passage mainly telling us?",
+   "options": [
+    "早上必须跑步",
+    "下午锻炼可能更好",
+    "锻炼对身体不好"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-psg-02",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "我叫李明，是一名大学生。我的爱好是照相，每到周末，我都会带着照相机去公园或者河边。我最喜欢照小鸟和花草。去年，我的一张照片还在学校的比赛中得了第一名。",
+     "pinyin": "wǒ jiào lǐ míng, shì yī míng dà xué shēng. wǒ de ài hào shì zhào xiàng, měi dào zhōu mò, wǒ dū huì dài zhe zhào xiàng jī qù gōng yuán huò zhě hé biān. wǒ zuì xǐ huān zhào xiǎo niǎo hé huā cǎo. qù nián, wǒ de yī zhāng zhào piān hái zài xué xiào de bǐ sài zhōng dé le dì yì míng."
+    }
+   ],
+   "english": "My name is Li Ming, I'm a university student. My hobby is photography; every weekend I take my camera to the park or the river. I love photographing birds and plants. Last year one of my photos won first prize in a school competition.",
+   "question": "李明的照片怎么了？",
+   "questionPinyin": "lǐ míng de zhào piān zěn me le?",
+   "questionEnglish": "What happened to Li Ming's photo?",
+   "options": [
+    "被他忘在公园了",
+    "在比赛中得了第一名",
+    "卖了很多钱"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-psg-03",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "上个星期，我搬到了新家。新家离公司比较远，以前我走路十分钟就能到，现在要坐四十分钟的地铁。不过新家附近有一个很大的公园，环境特别好，所以我还是很满意。",
+     "pinyin": "shàng gè xīng qī, wǒ bān dào le xīn jiā. xīn jiā lí gōng sī bǐ jiào yuǎn, yǐ qián wǒ zǒu lù shí fēn zhōng jiù néng dào, xiàn zài yào zuò sì shí fēn zhōng de dì tiě. bù guò xīn jiā fù jìn yǒu yí gè hěn dà de gōng yuán, huán jìng tè bié hǎo, suǒ yǐ wǒ hái shì hěn mǎn yì."
+    }
+   ],
+   "english": "Last week I moved house. The new place is further from the office — it used to be a ten-minute walk, now it's 40 minutes by subway. But there's a big park nearby and the environment is lovely, so I'm still very happy.",
+   "question": "说话人觉得新家怎么样？",
+   "questionPinyin": "shuō huà rén jué de xīn jiā zěn me yàng?",
+   "questionEnglish": "How does the speaker feel about the new home?",
+   "options": [
+    "很满意",
+    "太远了，不喜欢",
+    "不太安静"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-psg-04",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "中国人过春节的时候，一家人一定要在一起吃饭。很多在别的城市工作的年轻人，都会在春节以前回家。所以每年这个时候，火车票和飞机票都特别难买。",
+     "pinyin": "zhōng guó rén guò chūn jié de shí hòu, yī jiā rén yí dìng yào zài yì qǐ chī fàn. hěn duō zài bié de chéng shì gōng zuò de nián qīng rén, dū huì zài chūn jié yǐ qián huí jiā. suǒ yǐ měi nián zhè ge shí hòu, huǒ chē piào hé fēi jī piào dōu tè bié nán mǎi."
+    }
+   ],
+   "english": "At Spring Festival, Chinese families must eat together. Many young people who work in other cities go home before the festival, so train and plane tickets are very hard to get at this time every year.",
+   "question": "为什么春节以前票很难买？",
+   "questionPinyin": "wèi shén me chūn jié yǐ qián piào hěn nán mǎi?",
+   "questionEnglish": "Why are tickets hard to buy before Spring Festival?",
+   "options": [
+    "很多人要回家",
+    "票太贵了",
+    "火车太少"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "L3-psg-05",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "王老师是我们的数学老师。她上课非常认真，讲得也很清楚。下课以后，她总是愿意留在教室里，一个一个地帮我们解决问题。同学们都很喜欢她。",
+     "pinyin": "wáng lǎo shī shì wǒ men de shù xué lǎo shī. tā shàng kè fēi cháng rèn zhēn, jiǎng dé yě hěn qīng chǔ. xià kè yǐ hòu, tā zǒng shì yuàn yì liú zài jiào shì lǐ, yí gè yí gè dì bāng wǒ men jiě jué wèn tí. tóng xué men dōu hěn xǐ huān tā."
+    }
+   ],
+   "english": "Ms Wang is our maths teacher. She teaches conscientiously and explains clearly. After class she always stays in the classroom to help us with problems one by one. Everyone likes her.",
+   "question": "关于王老师，下面哪个是对的？",
+   "questionPinyin": "guān yú wáng lǎo shī, xià miàn nǎ ge shì duì de?",
+   "questionEnglish": "Which statement about Ms Wang is correct?",
+   "options": [
+    "她教汉语",
+    "她愿意帮助学生",
+    "她上课不认真"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "L3-psg-06",
+   "level": 3,
+   "kind": "passage",
+   "lines": [
+    {
+     "speaker": "N",
+     "text": "现在越来越多的人喜欢在网上买东西。上网买东西很方便，不用出门，而且常常比商店便宜。但是有时候，你买到的东西和照片上的不一样，所以买以前最好先看看别人怎么说。",
+     "pinyin": "xiàn zài yuè lái yuè duō de rén xǐ huān zài wǎng shàng mǎi dōng xī. shàng wǎng mǎi dōng xī hěn fāng biàn, bù yòng chū mén, ér qiě cháng cháng bǐ shāng diàn pián yi. dàn shì yǒu shí hòu, nǐ mǎi dào de dōng xī hé zhào piān shàng de bù yí yàng, suǒ yǐ mǎi yǐ qián zuì hǎo xiān kàn kàn bié rén zěn me shuō."
+    }
+   ],
+   "english": "More and more people like shopping online. It's convenient — you don't have to go out — and often cheaper than shops. But sometimes what you receive isn't like the photo, so it's best to check what others say before buying.",
+   "question": "在网上买东西有什么问题？",
+   "questionPinyin": "zài wǎng shàng mǎi dōng xī yǒu shén me wèn tí?",
+   "questionEnglish": "What problem can online shopping have?",
+   "options": [
+    "东西太贵",
+    "东西可能和照片不一样",
+    "必须出门"
+   ],
+   "answer": 1
+  }
+ ],
+ "reading": [
+  {
+   "id": "R1-qa-01",
+   "level": 1,
+   "kind": "reply",
+   "text": "你叫什么名字？",
+   "pinyin": "nǐ jiào shén me míng zì?",
+   "reply": "我叫李明。",
+   "replyPinyin": "wǒ jiào lǐ míng.",
+   "english": "What's your name? — I'm Li Ming."
+  },
+  {
+   "id": "R1-qa-02",
+   "level": 1,
+   "kind": "reply",
+   "text": "你今年多大？",
+   "pinyin": "nǐ jīn nián duō dà?",
+   "reply": "我二十岁。",
+   "replyPinyin": "wǒ èr shí suì.",
+   "english": "How old are you this year? — I'm twenty."
+  },
+  {
+   "id": "R1-qa-03",
+   "level": 1,
+   "kind": "reply",
+   "text": "你是哪国人？",
+   "pinyin": "nǐ shì nǎ guó rén?",
+   "reply": "我是中国人。",
+   "replyPinyin": "wǒ shì zhōng guó rén.",
+   "english": "Which country are you from? — I'm Chinese."
+  },
+  {
+   "id": "R1-qa-04",
+   "level": 1,
+   "kind": "reply",
+   "text": "你想喝点儿什么？",
+   "pinyin": "nǐ xiǎng hē diǎn ér shén me?",
+   "reply": "来一杯茶吧。",
+   "replyPinyin": "lái yī bēi chá ba.",
+   "english": "What would you like to drink? — A cup of tea, please."
+  },
+  {
+   "id": "R1-qa-05",
+   "level": 1,
+   "kind": "reply",
+   "text": "你住在哪儿？",
+   "pinyin": "nǐ zhù zài nǎ ér?",
+   "reply": "我住在学校后面。",
+   "replyPinyin": "wǒ zhù zài xué xiào hòu miàn.",
+   "english": "Where do you live? — Behind the school."
+  },
+  {
+   "id": "R1-qa-06",
+   "level": 1,
+   "kind": "reply",
+   "text": "对不起！",
+   "pinyin": "duì bù qǐ!",
+   "reply": "没关系。",
+   "replyPinyin": "méi guān xì.",
+   "english": "Sorry! — That's OK."
+  },
+  {
+   "id": "R1-qa-07",
+   "level": 1,
+   "kind": "reply",
+   "text": "谢谢你！",
+   "pinyin": "xiè xiè nǐ!",
+   "reply": "不客气。",
+   "replyPinyin": "bú kè qì.",
+   "english": "Thank you! — You're welcome."
+  },
+  {
+   "id": "R1-qa-08",
+   "level": 1,
+   "kind": "reply",
+   "text": "你什么时候回家？",
+   "pinyin": "nǐ shén me shí hòu huí jiā?",
+   "reply": "明天上午。",
+   "replyPinyin": "míng tiān shàng wǔ.",
+   "english": "When are you going home? — Tomorrow morning."
+  },
+  {
+   "id": "R1-qa-09",
+   "level": 1,
+   "kind": "reply",
+   "text": "这个杯子多少钱？",
+   "pinyin": "zhè ge bēi zi duō shǎo qián?",
+   "reply": "二十块。",
+   "replyPinyin": "èr shí kuài.",
+   "english": "How much is this cup? — 20 kuai."
+  },
+  {
+   "id": "R1-qa-10",
+   "level": 1,
+   "kind": "reply",
+   "text": "你喜欢看电影吗？",
+   "pinyin": "nǐ xǐ huān kàn diàn yǐng ma?",
+   "reply": "很喜欢。",
+   "replyPinyin": "hěn xǐ huān.",
+   "english": "Do you like watching movies? — Very much."
+  },
+  {
+   "id": "R1-qa-11",
+   "level": 1,
+   "kind": "reply",
+   "text": "喂，你在做什么？",
+   "pinyin": "wèi, nǐ zài zuò shén me?",
+   "reply": "我在学习汉语。",
+   "replyPinyin": "wǒ zài xué xí hàn yǔ.",
+   "english": "Hello, what are you doing? — I'm studying Chinese."
+  },
+  {
+   "id": "R1-qa-12",
+   "level": 1,
+   "kind": "reply",
+   "text": "你怎么去医院？",
+   "pinyin": "nǐ zěn me qù yī yuàn?",
+   "reply": "坐出租车去。",
+   "replyPinyin": "zuò chū zū chē qù.",
+   "english": "How are you getting to the hospital? — By taxi."
+  },
+  {
+   "id": "R1-cz-01",
+   "level": 1,
+   "kind": "cloze",
+   "text": "我很喜欢我的汉语＿＿。",
+   "pinyin": "wǒ hěn xǐ huān wǒ de hàn yǔ lǎo shī.",
+   "options": [
+    "老师",
+    "米饭",
+    "冷",
+    "开"
+   ],
+   "answer": 0,
+   "english": "I really like my Chinese teacher."
+  },
+  {
+   "id": "R1-cz-02",
+   "level": 1,
+   "kind": "cloze",
+   "text": "你叫什么＿＿？",
+   "pinyin": "nǐ jiào shén me míng zì?",
+   "options": [
+    "朋友",
+    "名字",
+    "工作",
+    "东西"
+   ],
+   "answer": 1,
+   "english": "What's your name?"
+  },
+  {
+   "id": "R1-cz-03",
+   "level": 1,
+   "kind": "cloze",
+   "text": "他在医院＿＿，他是医生。",
+   "pinyin": "tā zài yī yuàn gōng zuò, tā shì yī shēng.",
+   "options": [
+    "睡觉",
+    "喝",
+    "工作",
+    "漂亮"
+   ],
+   "answer": 2,
+   "english": "He works at a hospital; he's a doctor."
+  },
+  {
+   "id": "R1-cz-04",
+   "level": 1,
+   "kind": "cloze",
+   "text": "今天太＿＿了，我不想出去。",
+   "pinyin": "jīn tiān tài lěng le, wǒ bù xiǎng chū qù.",
+   "options": [
+    "冷",
+    "少",
+    "开",
+    "读"
+   ],
+   "answer": 0,
+   "english": "It's too cold today, I don't want to go out."
+  },
+  {
+   "id": "R1-cz-05",
+   "level": 1,
+   "kind": "cloze",
+   "text": "这是我的好＿＿。",
+   "pinyin": "zhè shì wǒ de hǎo péng yǒu.",
+   "options": [
+    "桌子",
+    "天气",
+    "朋友",
+    "水"
+   ],
+   "answer": 2,
+   "english": "This is my good friend."
+  },
+  {
+   "id": "R1-cz-06",
+   "level": 1,
+   "kind": "cloze",
+   "text": "我＿＿去中国学习汉语。",
+   "pinyin": "wǒ xiǎng qù zhōng guó xué xí hàn yǔ.",
+   "options": [
+    "叫",
+    "想",
+    "是",
+    "有"
+   ],
+   "answer": 1,
+   "english": "I want to go to China to study Chinese."
+  },
+  {
+   "id": "R1-cz-07",
+   "level": 1,
+   "kind": "cloze",
+   "text": "她的衣服很＿＿。",
+   "pinyin": "tā de yī fú hěn piào liàng.",
+   "options": [
+    "学习",
+    "喜欢",
+    "点",
+    "漂亮"
+   ],
+   "answer": 3,
+   "english": "Her clothes are very pretty."
+  },
+  {
+   "id": "R1-cz-08",
+   "level": 1,
+   "kind": "cloze",
+   "text": "我们＿＿飞机去北京。",
+   "pinyin": "wǒ men zuò fēi jī qù běi jīng.",
+   "options": [
+    "坐",
+    "做",
+    "看",
+    "听"
+   ],
+   "answer": 0,
+   "english": "We're flying to Beijing."
+  },
+  {
+   "id": "R1-cz-09",
+   "level": 1,
+   "kind": "cloze",
+   "text": "桌子＿＿有一本书。",
+   "pinyin": "zhuō zi shàng yǒu yī běn shū.",
+   "options": [
+    "大",
+    "上",
+    "个",
+    "多"
+   ],
+   "answer": 1,
+   "english": "There's a book on the table."
+  },
+  {
+   "id": "R1-cz-10",
+   "level": 1,
+   "kind": "cloze",
+   "text": "你＿＿说汉语吗？",
+   "pinyin": "nǐ huì shuō hàn yǔ ma?",
+   "options": [
+    "去",
+    "在",
+    "会",
+    "和"
+   ],
+   "answer": 2,
+   "english": "Can you speak Chinese?"
+  },
+  {
+   "id": "R1-cz-11",
+   "level": 1,
+   "kind": "cloze",
+   "text": "现在下午三＿＿。",
+   "pinyin": "xiàn zài xià wǔ sān diǎn.",
+   "options": [
+    "岁",
+    "点",
+    "块",
+    "个"
+   ],
+   "answer": 1,
+   "english": "It's 3 pm now."
+  },
+  {
+   "id": "R1-cz-12",
+   "level": 1,
+   "kind": "cloze",
+   "text": "我们一起去商店＿＿东西吧。",
+   "pinyin": "wǒ men yì qǐ qù shāng diàn mǎi dōng xī ba.",
+   "options": [
+    "读",
+    "写",
+    "听",
+    "买"
+   ],
+   "answer": 3,
+   "english": "Let's go shopping together."
+  },
+  {
+   "id": "R2-qa-01",
+   "level": 2,
+   "kind": "reply",
+   "text": "你每天几点起床？",
+   "pinyin": "nǐ měi tiān jǐ diǎn qǐ chuáng?",
+   "reply": "六点半，我要早点儿去上班。",
+   "replyPinyin": "liù diǎn bàn, wǒ yào zǎo diǎn ér qù shàng bān.",
+   "english": "What time do you get up? — 6:30, I need to get to work early."
+  },
+  {
+   "id": "R2-qa-02",
+   "level": 2,
+   "kind": "reply",
+   "text": "你在哪儿工作？",
+   "pinyin": "nǐ zài nǎ ér gōng zuò?",
+   "reply": "我在一家公司工作。",
+   "replyPinyin": "wǒ zài yī jiā gōng sī gōng zuò.",
+   "english": "Where do you work? — At a company."
+  },
+  {
+   "id": "R2-qa-03",
+   "level": 2,
+   "kind": "reply",
+   "text": "你身体怎么样？",
+   "pinyin": "nǐ shēn tǐ zěn me yàng?",
+   "reply": "很好，我每天都去跑步。",
+   "replyPinyin": "hěn hǎo, wǒ měi tiān dōu qù pǎo bù.",
+   "english": "How's your health? — Great, I go running every day."
+  },
+  {
+   "id": "R2-qa-04",
+   "level": 2,
+   "kind": "reply",
+   "text": "这件衣服怎么样？",
+   "pinyin": "zhè jiàn yī fú zěn me yàng?",
+   "reply": "颜色很好看，但是有点儿贵。",
+   "replyPinyin": "yán sè hěn hǎo kàn, dàn shì yǒu diǎn ér guì.",
+   "english": "What do you think of this piece of clothing? — Nice colour, but a bit expensive."
+  },
+  {
+   "id": "R2-qa-05",
+   "level": 2,
+   "kind": "reply",
+   "text": "你怎么还在看电视？",
+   "pinyin": "nǐ zěn me hái zài kàn diàn shì?",
+   "reply": "我已经准备好明天的考试了。",
+   "replyPinyin": "wǒ yǐ jīng zhǔn bèi hǎo míng tiān de kǎo shì le.",
+   "english": "Why are you still watching TV? — I'm already ready for tomorrow's exam."
+  },
+  {
+   "id": "R2-qa-06",
+   "level": 2,
+   "kind": "reply",
+   "text": "你去过中国吗？",
+   "pinyin": "nǐ qù guò zhōng guó ma?",
+   "reply": "去过两次，都是去旅游。",
+   "replyPinyin": "qù guò liǎng cì, dōu shì qù lǚ yóu.",
+   "english": "Have you been to China? — Twice, both times as a tourist."
+  },
+  {
+   "id": "R2-qa-07",
+   "level": 2,
+   "kind": "reply",
+   "text": "我们什么时候考试？",
+   "pinyin": "wǒ men shén me shí hòu kǎo shì?",
+   "reply": "下个星期三。",
+   "replyPinyin": "xià gè xīng qī sān.",
+   "english": "When is our exam? — Next Wednesday."
+  },
+  {
+   "id": "R2-qa-08",
+   "level": 2,
+   "kind": "reply",
+   "text": "你为什么不吃鱼？",
+   "pinyin": "nǐ wèi shén me bù chī yú?",
+   "reply": "因为我昨天已经吃过了。",
+   "replyPinyin": "yīn wèi wǒ zuó tiān yǐ jīng chī guò le.",
+   "english": "Why aren't you eating the fish? — Because I already had some yesterday."
+  },
+  {
+   "id": "R2-qa-09",
+   "level": 2,
+   "kind": "reply",
+   "text": "你认识那个穿红衣服的女孩子吗？",
+   "pinyin": "nǐ rèn shí nà ge chuān hóng yī fú de nǚ hái zi ma?",
+   "reply": "认识，她是我妹妹。",
+   "replyPinyin": "rèn shí, tā shì wǒ mèi mèi.",
+   "english": "Do you know the girl in red? — Yes, she's my younger sister."
+  },
+  {
+   "id": "R2-qa-10",
+   "level": 2,
+   "kind": "reply",
+   "text": "你觉得这个电影怎么样？",
+   "pinyin": "nǐ jué de zhè ge diàn yǐng zěn me yàng?",
+   "reply": "非常好看，我想再看一次。",
+   "replyPinyin": "fēi cháng hǎo kàn, wǒ xiǎng zài kàn yī cì.",
+   "english": "What did you think of the movie? — Excellent, I want to see it again."
+  },
+  {
+   "id": "R2-cz-01",
+   "level": 2,
+   "kind": "cloze",
+   "text": "我＿＿吃过饭了，你们吃吧。",
+   "pinyin": "wǒ yǐ jīng chī guò fàn le, nǐ men chī ba.",
+   "options": [
+    "已经",
+    "正在",
+    "因为",
+    "比"
+   ],
+   "answer": 0,
+   "english": "I've already eaten, go ahead."
+  },
+  {
+   "id": "R2-cz-02",
+   "level": 2,
+   "kind": "cloze",
+   "text": "他＿＿我高一点儿。",
+   "pinyin": "tā bǐ wǒ gāo yì diǎn ér.",
+   "options": [
+    "从",
+    "比",
+    "离",
+    "给"
+   ],
+   "answer": 1,
+   "english": "He's a little taller than me."
+  },
+  {
+   "id": "R2-cz-03",
+   "level": 2,
+   "kind": "cloze",
+   "text": "学校＿＿我家不太远。",
+   "pinyin": "xué xiào lí wǒ jiā bù tài yuǎn.",
+   "options": [
+    "从",
+    "在",
+    "离",
+    "向"
+   ],
+   "answer": 2,
+   "english": "The school isn't far from my home."
+  },
+  {
+   "id": "R2-cz-04",
+   "level": 2,
+   "kind": "cloze",
+   "text": "＿＿下雨了，所以我们没去公园。",
+   "pinyin": "yīn wèi xià yǔ le, suǒ yǐ wǒ men méi qù gōng yuán.",
+   "options": [
+    "因为",
+    "但是",
+    "虽然",
+    "还是"
+   ],
+   "answer": 0,
+   "english": "Because it rained, we didn't go to the park."
+  },
+  {
+   "id": "R2-cz-05",
+   "level": 2,
+   "kind": "cloze",
+   "text": "他每天＿＿六点起床。",
+   "pinyin": "tā měi tiān zǎo shàng liù diǎn qǐ chuáng.",
+   "options": [
+    "中午",
+    "早上",
+    "去年",
+    "小时"
+   ],
+   "answer": 1,
+   "english": "He gets up at six every morning."
+  },
+  {
+   "id": "R2-cz-06",
+   "level": 2,
+   "kind": "cloze",
+   "text": "请＿＿我一杯咖啡。",
+   "pinyin": "qǐng gěi wǒ yī bēi kā fēi.",
+   "options": [
+    "送",
+    "让",
+    "对",
+    "给"
+   ],
+   "answer": 3,
+   "english": "Please give me a cup of coffee."
+  },
+  {
+   "id": "R2-cz-07",
+   "level": 2,
+   "kind": "cloze",
+   "text": "这个问题太难了，我不＿＿。",
+   "pinyin": "zhè ge wèn tí tài nán le, wǒ bù dǒng.",
+   "options": [
+    "找",
+    "送",
+    "懂",
+    "笑"
+   ],
+   "answer": 2,
+   "english": "This question is too hard, I don't understand it."
+  },
+  {
+   "id": "R2-cz-08",
+   "level": 2,
+   "kind": "cloze",
+   "text": "她正在＿＿明天的考试。",
+   "pinyin": "tā zhèng zài zhǔn bèi míng tiān de kǎo shì.",
+   "options": [
+    "准备",
+    "介绍",
+    "希望",
+    "告诉"
+   ],
+   "answer": 0,
+   "english": "She's preparing for tomorrow's exam."
+  },
+  {
+   "id": "R2-cz-09",
+   "level": 2,
+   "kind": "cloze",
+   "text": "你看，那＿＿衣服真漂亮。",
+   "pinyin": "nǐ kàn, nà jiàn yī fú zhēn piào liàng.",
+   "options": [
+    "张",
+    "件",
+    "本",
+    "个"
+   ],
+   "answer": 1,
+   "english": "Look, that piece of clothing is really pretty."
+  },
+  {
+   "id": "R2-cz-10",
+   "level": 2,
+   "kind": "cloze",
+   "text": "我昨天＿＿了，没去上班。",
+   "pinyin": "wǒ zuó tiān shēng bìng le, méi qù shàng bān.",
+   "options": [
+    "生病",
+    "唱歌",
+    "旅游",
+    "欢迎"
+   ],
+   "answer": 0,
+   "english": "I was sick yesterday and didn't go to work."
+  },
+  {
+   "id": "R2-cz-11",
+   "level": 2,
+   "kind": "cloze",
+   "text": "我＿＿你明天能来我家玩儿。",
+   "pinyin": "wǒ xī wàng nǐ míng tiān néng lái wǒ jiā wán ér.",
+   "options": [
+    "告诉",
+    "介绍",
+    "希望",
+    "欢迎"
+   ],
+   "answer": 2,
+   "english": "I hope you can come over to my place tomorrow."
+  },
+  {
+   "id": "R2-tf-01",
+   "level": 2,
+   "kind": "passageTrueFalse",
+   "text": "我和妻子都很喜欢运动。每个星期天上午，我们都去公园跑步，下午在家休息。",
+   "pinyin": "wǒ hé qī zǐ dōu hěn xǐ huān yùn dòng. měi gè xīng qī tiān shàng wǔ, wǒ men dōu qù gōng yuán pǎo bù, xià wǔ zài jiā xiū xī.",
+   "english": "My wife and I both love sport. Every Sunday morning we run in the park, and rest at home in the afternoon.",
+   "statement": "他们星期天下午去跑步。",
+   "statementPinyin": "tā men xīng qī tiān xià wǔ qù pǎo bù.",
+   "statementEnglish": "They go running on Sunday afternoons.",
+   "isTrue": false
+  },
+  {
+   "id": "R2-tf-02",
+   "level": 2,
+   "kind": "passageTrueFalse",
+   "text": "这家商店的东西又好又便宜，所以每天来买东西的人都非常多。",
+   "pinyin": "zhè jiā shāng diàn de dōng xī yòu hǎo yòu pián yi, suǒ yǐ měi tiān lái mǎi dōng xī de rén dōu fēi cháng duō.",
+   "english": "This shop's things are good and cheap, so lots of people come every day.",
+   "statement": "这家商店的东西很贵。",
+   "statementPinyin": "zhè jiā shāng diàn de dōng xī hěn guì.",
+   "statementEnglish": "This shop's things are expensive.",
+   "isTrue": false
+  },
+  {
+   "id": "R2-tf-03",
+   "level": 2,
+   "kind": "passageTrueFalse",
+   "text": "我弟弟今年上大学了，他学习很努力，每天晚上都在教室看书。",
+   "pinyin": "wǒ dì di jīn nián shàng dà xué le, tā xué xí hěn nǔ lì, měi tiān wǎn shàng dōu zài jiào shì kàn shū.",
+   "english": "My younger brother started university this year. He studies hard and reads in the classroom every evening.",
+   "statement": "弟弟学习很努力。",
+   "statementPinyin": "dì di xué xí hěn nǔ lì.",
+   "statementEnglish": "The younger brother studies hard.",
+   "isTrue": true
+  },
+  {
+   "id": "R3-cz-01",
+   "level": 3,
+   "kind": "cloze",
+   "text": "我把作业＿＿了，现在可以出去玩儿了吗？",
+   "pinyin": "wǒ bǎ zuò yè wán chéng le, xiàn zài kě yǐ chū qù wán ér le ma?",
+   "options": [
+    "完成",
+    "认为",
+    "影响",
+    "发现"
+   ],
+   "answer": 0,
+   "english": "I've finished my homework — can I go out to play now?"
+  },
+  {
+   "id": "R3-cz-02",
+   "level": 3,
+   "kind": "cloze",
+   "text": "外面太冷了，你多穿点儿衣服，别＿＿了。",
+   "pinyin": "wài miàn tài lěng le, nǐ duō chuān diǎn ér yī fú, bié gǎn mào le.",
+   "options": [
+    "锻炼",
+    "感冒",
+    "检查",
+    "照顾"
+   ],
+   "answer": 1,
+   "english": "It's cold out, wear more clothes so you don't catch a cold."
+  },
+  {
+   "id": "R3-cz-03",
+   "level": 3,
+   "kind": "cloze",
+   "text": "这个问题有点儿难，我们一起想想＿＿吧。",
+   "pinyin": "zhè ge wèn tí yǒu diǎn ér nán, wǒ men yì qǐ xiǎng xiǎng bàn fǎ ba.",
+   "options": [
+    "机会",
+    "环境",
+    "办法",
+    "兴趣"
+   ],
+   "answer": 2,
+   "english": "This problem is a bit hard; let's think of a solution together."
+  },
+  {
+   "id": "R3-cz-04",
+   "level": 3,
+   "kind": "cloze",
+   "text": "他对中国＿＿很感兴趣，所以来北京学习。",
+   "pinyin": "tā duì zhōng guó wén huà hěn gǎn xìng qù, suǒ yǐ lái běi jīng xué xí.",
+   "options": [
+    "文化",
+    "成绩",
+    "新闻",
+    "节目"
+   ],
+   "answer": 0,
+   "english": "He's very interested in Chinese culture, so he came to study in Beijing."
+  },
+  {
+   "id": "R3-cz-05",
+   "level": 3,
+   "kind": "cloze",
+   "text": "你＿＿吧，我一定会照顾好你的猫。",
+   "pinyin": "nǐ fàng xīn ba, wǒ yí dìng huì zhào gù hǎo nǐ de māo.",
+   "options": [
+    "着急",
+    "害怕",
+    "生气",
+    "放心"
+   ],
+   "answer": 3,
+   "english": "Don't worry, I'll definitely look after your cat."
+  },
+  {
+   "id": "R3-cz-06",
+   "level": 3,
+   "kind": "cloze",
+   "text": "我们家＿＿有一个很大的超市，买东西很方便。",
+   "pinyin": "wǒ men jiā fù jìn yǒu yí gè hěn dà de chāo shì, mǎi dōng xī hěn fāng biàn.",
+   "options": [
+    "中间",
+    "附近",
+    "以前",
+    "周末"
+   ],
+   "answer": 1,
+   "english": "There's a big supermarket near our home; shopping is convenient."
+  },
+  {
+   "id": "R3-cz-07",
+   "level": 3,
+   "kind": "cloze",
+   "text": "这次旅游我们＿＿花了三千块。",
+   "pinyin": "zhè cì lǚ yóu wǒ men yī gòng huā le sān qiān kuài.",
+   "options": [
+    "一定",
+    "一直",
+    "一共",
+    "一样"
+   ],
+   "answer": 2,
+   "english": "We spent 3,000 kuai in total on this trip."
+  },
+  {
+   "id": "R3-cz-08",
+   "level": 3,
+   "kind": "cloze",
+   "text": "老师说话的＿＿太小了，我听不清楚。",
+   "pinyin": "lǎo shī shuō huà de shēng yīn tài xiǎo le, wǒ tīng bù qīng chǔ.",
+   "options": [
+    "声音",
+    "音乐",
+    "故事",
+    "句子"
+   ],
+   "answer": 0,
+   "english": "The teacher's voice is too quiet, I can't hear clearly."
+  },
+  {
+   "id": "R3-cz-09",
+   "level": 3,
+   "kind": "cloze",
+   "text": "明天的会议很＿＿，你一定要参加。",
+   "pinyin": "míng tiān de huì yì hěn zhòng yào, nǐ yí dìng yào cān jiā.",
+   "options": [
+    "简单",
+    "健康",
+    "重要",
+    "干净"
+   ],
+   "answer": 2,
+   "english": "Tomorrow's meeting is important; you must attend."
+  },
+  {
+   "id": "R3-cz-10",
+   "level": 3,
+   "kind": "cloze",
+   "text": "我找了一个小时，＿＿找到我的护照了！",
+   "pinyin": "wǒ zhǎo le yí gè xiǎo shí, zhōng yú zhǎo dào wǒ de hù zhào le!",
+   "options": [
+    "突然",
+    "终于",
+    "其实",
+    "一般"
+   ],
+   "answer": 1,
+   "english": "I searched for an hour and finally found my passport!"
+  },
+  {
+   "id": "R3-pq-01",
+   "level": 3,
+   "kind": "passageQuestion",
+   "text": "小李最近工作特别忙，每天晚上都要十点以后才下班。他已经两个星期没有去锻炼了，周末也只想在家睡觉。他的女朋友很担心他的身体。",
+   "pinyin": "xiǎo lǐ zuì jìn gōng zuò tè bié máng, měi tiān wǎn shàng dōu yào shí diǎn yǐ hòu cái xià bān. tā yǐ jīng liǎng gè xīng qī méi yǒu qù duàn liàn le, zhōu mò yě zhǐ xiǎng zài jiā shuì jiào. tā de nǚ péng yǒu hěn dān xīn tā de shēn tǐ.",
+   "english": "Xiao Li has been very busy at work lately and only leaves after ten every night. He hasn't exercised for two weeks and only wants to sleep at weekends. His girlfriend is worried about his health.",
+   "question": "小李的女朋友为什么担心？",
+   "questionPinyin": "xiǎo lǐ de nǚ péng yǒu wèi shén me dān xīn?",
+   "questionEnglish": "Why is Xiao Li's girlfriend worried?",
+   "options": [
+    "小李太忙太累",
+    "小李不爱她",
+    "小李生病了"
+   ],
+   "answer": 0
+  },
+  {
+   "id": "R3-pq-02",
+   "level": 3,
+   "kind": "passageQuestion",
+   "text": "我住的这个城市冬天不太冷，夏天也不太热，一年四季都很舒服。春天的时候，街道两边的树都绿了；秋天的时候，很多人喜欢去山上照相。",
+   "pinyin": "wǒ zhù de zhè ge chéng shì dōng tiān bù tài lěng, xià tiān yě bù tài rè, yī nián sì jì dōu hěn shū fú. chūn tiān de shí hòu, jiē dào liǎng biān de shù dōu lǜ le; qiū tiān de shí hòu, hěn duō rén xǐ huān qù shān shàng zhào xiàng.",
+   "english": "The city I live in isn't too cold in winter or too hot in summer — it's comfortable all year. In spring the trees along the streets turn green; in autumn many people go up the hills to take photos.",
+   "question": "这个城市的天气怎么样？",
+   "questionPinyin": "zhè ge chéng shì de tiān qì zěn me yàng?",
+   "questionEnglish": "What is the weather like in this city?",
+   "options": [
+    "冬天特别冷",
+    "夏天特别热",
+    "一年四季都舒服"
+   ],
+   "answer": 2
+  },
+  {
+   "id": "R3-pq-03",
+   "level": 3,
+   "kind": "passageQuestion",
+   "text": "这家超市每个星期三的水果都比别的时候便宜很多，所以每到星期三，超市里的人就特别多。我一般会在下班以后去买一些香蕉和葡萄。",
+   "pinyin": "zhè jiā chāo shì měi gè xīng qī sān de shuǐ guǒ dōu bǐ bié de shí hòu pián yi hěn duō, suǒ yǐ měi dào xīng qī sān, chāo shì lǐ de rén jiù tè bié duō. wǒ yì bān huì zài xià bān yǐ hòu qù mǎi yī xiē xiāng jiāo hé pú táo.",
+   "english": "Every Wednesday this supermarket's fruit is much cheaper than usual, so it's very crowded on Wednesdays. I usually go after work to buy bananas and grapes.",
+   "question": "星期三超市的水果怎么样？",
+   "questionPinyin": "xīng qī sān chāo shì de shuǐ guǒ zěn me yàng?",
+   "questionEnglish": "What is the supermarket fruit like on Wednesdays?",
+   "options": [
+    "很新鲜",
+    "比较便宜",
+    "卖完了"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "R3-pq-04",
+   "level": 3,
+   "kind": "passageQuestion",
+   "text": "下个月我要去上海参加一个会议，会议一共三天。我打算会议结束以后在上海多留两天，去看看几个老同学。",
+   "pinyin": "xià gè yuè wǒ yào qù shàng hǎi cān jiā yí gè huì yì, huì yì yī gòng sān tiān. wǒ dǎ suàn huì yì jié shù yǐ hòu zài shàng hǎi duō liú liǎng tiān, qù kàn kàn jǐ gè lǎo tóng xué.",
+   "english": "Next month I'm going to a three-day conference in Shanghai. I plan to stay two extra days afterwards to see some old classmates.",
+   "question": "他打算在上海做什么？",
+   "questionPinyin": "tā dǎ suàn zài shàng hǎi zuò shén me?",
+   "questionEnglish": "What does he plan to do in Shanghai?",
+   "options": [
+    "只参加会议",
+    "参加会议和看老同学",
+    "去旅游一个月"
+   ],
+   "answer": 1
+  },
+  {
+   "id": "R3-tf-01",
+   "level": 3,
+   "kind": "passageTrueFalse",
+   "text": "我的邻居是一位老奶奶，她一个人住。她的儿子和女儿都在国外工作，一年只能回来一次。我有时间的时候，会去她家帮她打扫房间，跟她说说话。",
+   "pinyin": "wǒ de lín jū shì yī wèi lǎo nǎi nǎi, tā yí gè rén zhù. tā de ér zi hé nǚ ér dōu zài guó wài gōng zuò, yī nián zhǐ néng huí lái yī cì. wǒ yǒu shí jiān de shí hòu, huì qù tā jiā bāng tā dǎ sǎo fáng jiān, gēn tā shuō shuō huà.",
+   "english": "My neighbour is an elderly lady who lives alone. Her son and daughter work abroad and can only come back once a year. When I have time I help her clean and chat with her.",
+   "statement": "老奶奶和她的儿子住在一起。",
+   "statementPinyin": "lǎo nǎi nǎi hé tā de ér zi zhù zài yì qǐ.",
+   "statementEnglish": "The old lady lives with her son.",
+   "isTrue": false
+  },
+  {
+   "id": "R3-tf-02",
+   "level": 3,
+   "kind": "passageTrueFalse",
+   "text": "这本书的故事很有意思，讲的是一个熊猫离开家去找妈妈的事情。虽然这是一本给孩子看的书，但是很多大人也很喜欢。",
+   "pinyin": "zhè běn shū de gù shì hěn yǒu yì si, jiǎng de shì yí gè xióng māo lí kāi jiā qù zhǎo mā mā de shì qíng. suī rán zhè shì yī běn gěi hái zi kàn de shū, dàn shì hěn duō dà rén yě hěn xǐ huān.",
+   "english": "This book has an interesting story about a panda who leaves home to look for its mother. It's a children's book, but many adults love it too.",
+   "statement": "只有孩子喜欢这本书。",
+   "statementPinyin": "zhǐ yǒu hái zi xǐ huān zhè běn shū.",
+   "statementEnglish": "Only children like this book.",
+   "isTrue": false
+  },
+  {
+   "id": "R3-tf-03",
+   "level": 3,
+   "kind": "passageTrueFalse",
+   "text": "学习一种语言，最重要的是多听多说。很多人只知道看书、记词语，但是不敢开口说，所以学了很多年还是不会用。",
+   "pinyin": "xué xí yī zhǒng yǔ yán, zuì zhòng yào de shì duō tīng duō shuō. hěn duō rén zhǐ zhī dào kàn shū, jì cí yǔ, dàn shì bù gǎn kāi kǒu shuō, suǒ yǐ xué le hěn duō nián hái shì bú huì yòng.",
+   "english": "When learning a language, the most important thing is to listen and speak a lot. Many people only read and memorise words but are afraid to speak, so after years they still can't use it.",
+   "statement": "说话人认为学语言要多说。",
+   "statementPinyin": "shuō huà rén rèn wéi xué yǔ yán yào duō shuō.",
+   "statementEnglish": "The speaker thinks you should speak a lot when learning a language.",
+   "isTrue": true
+  }
+ ]
+}

@@ -28,8 +28,16 @@ struct PracticeView: View {
                     }
                 }
                 Section("Listening 听力") {
+                    NavigationLink { ExamPracticeView(section: .listening) } label: {
+                        row("Exam-style listening", "Pictures, dialogues, ★ true/false\(level >= 3 ? ", passages" : "")", "headphones")
+                    }
                     NavigationLink { QuizView(mode: .listening) } label: {
-                        row("Listening exercise", "Words, true/false, and sentences", "headphones")
+                        row("Word listening drill", "Hear a word or sentence, pick the meaning", "ear")
+                    }
+                }
+                Section("Reading 阅读") {
+                    NavigationLink { ExamPracticeView(section: .reading) } label: {
+                        row("Exam-style reading", "Pictures, replies, fill in the blank\(level >= 2 ? ", short texts" : "")", "text.book.closed")
                     }
                 }
                 Section("Fix your weak spots") {
@@ -72,18 +80,18 @@ enum QuizMode {
         switch self {
         case .meaning: "Multiple choice"
         case .typing: "Typing practice"
-        case .listening: "Listening"
+        case .listening: "Word listening"
         case .mistakes: "Mistake review"
         }
     }
 }
 
 enum ItemKind {
-    case chooseMeaning, typePinyin, listenWord, listenTrueFalse, listenSentence
+    case chooseMeaning, choosePicture, typePinyin, listenWord, listenTrueFalse, listenSentence
 
     var skill: Skill {
         switch self {
-        case .chooseMeaning: .vocabulary
+        case .chooseMeaning, .choosePicture: .vocabulary
         case .typePinyin: .typing
         case .listenWord, .listenTrueFalse, .listenSentence: .listening
         }
@@ -111,6 +119,7 @@ struct QuizItem: Identifiable {
     var prompt: String {
         switch kind {
         case .chooseMeaning: "What does this word mean?"
+        case .choosePicture: "Which picture shows this word?"
         case .typePinyin: "Type the pinyin."
         case .listenWord: "Listen and choose the word you hear."
         case .listenTrueFalse: "Listen. True or false: the word means “\(statement ?? "")”."
@@ -131,6 +140,12 @@ enum QuizBuilder {
         switch kind {
         case .chooseMeaning:
             return QuizItem(kind: kind, word: word, options: ([word.english] + others.prefix(3).map(\.english)).shuffled(), answer: word.english)
+        case .choosePicture:
+            guard let pic = word.emoji else { return item(kind: .chooseMeaning, word: word, distractors: distractors) }
+            var wrong: [String] = []
+            for e in others.compactMap(\.emoji) where e != pic && !wrong.contains(e) { wrong.append(e) }
+            guard wrong.count >= 3 else { return item(kind: .chooseMeaning, word: word, distractors: distractors) }
+            return QuizItem(kind: kind, word: word, options: ([pic] + wrong.prefix(3)).shuffled(), answer: pic)
         case .typePinyin:
             return QuizItem(kind: kind, word: word, options: [], answer: word.pinyin)
         case .listenWord:
@@ -200,7 +215,11 @@ struct QuizView: View {
 
         switch mode {
         case .meaning:
-            items = QuizBuilder.make(kinds: [.chooseMeaning], words: Array(pool.shuffled().prefix(10)), distractors: levelWords)
+            // Words that have a picture get picture questions half of the time.
+            items = pool.shuffled().prefix(10).compactMap { w in
+                QuizBuilder.item(kind: w.emoji != nil && Bool.random() ? .choosePicture : .chooseMeaning,
+                                 word: w, distractors: levelWords)
+            }
         case .typing:
             items = QuizBuilder.make(kinds: [.typePinyin], words: Array(pool.shuffled().prefix(8)), distractors: levelWords)
         case .listening:
@@ -278,7 +297,7 @@ struct QuizView: View {
             : isAnswer ? .green : isPicked ? .red : .secondary
         return Button { if !checked { selected = option } } label: {
             Text(option)
-                .font(q.kind == .listenWord ? .title2 : .body)
+                .font(q.kind == .choosePicture ? .system(size: 44) : q.kind == .listenWord ? .title2 : .body)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .background(color.opacity(isPicked || (checked && isAnswer) ? 0.2 : 0.08),
@@ -309,7 +328,7 @@ struct QuizView: View {
                     Spacer()
                     AudioButtons(text: q.word.hanzi)
                 }
-                Text(q.word.english)
+                Text("\(q.word.emoji.map { $0 + "  " } ?? "")\(q.word.english)")
                 if let ex = q.word.example {
                     Text("\(ex)  \(q.word.exampleEnglish ?? "")").font(.subheadline).foregroundStyle(.secondary)
                 }

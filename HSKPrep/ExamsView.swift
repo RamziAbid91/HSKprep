@@ -1,86 +1,6 @@
 import SwiftUI
 import SwiftData
 
-// MARK: - Exam question model
-
-enum ExamSection: String, CaseIterable {
-    case listening = "Listening 听力"
-    case reading = "Reading 阅读"
-    var skill: Skill { self == .listening ? .listening : .reading }
-}
-
-struct ExamQuestion: Identifiable {
-    let id = UUID()
-    let section: ExamSection
-    let prompt: String
-    let audio: String?        // played, not shown (listening)
-    let display: String?      // shown big (reading)
-    let options: [String]
-    let answer: String
-    let itemID: String        // word or grammar id, for mistake tracking
-    let explanation: String   // shown only after submission
-}
-
-/// Builds an original practice exam (not official HSK questions).
-enum ExamGenerator {
-    static let listeningCount = 10
-    static let readingCount = 10
-    static let timeLimit = 15 * 60
-
-    static func make(level: Int) -> [ExamQuestion] {
-        let pool = VocabularyStore.words(level: level)
-        guard pool.count >= 4 else { return [] }
-        let picks = pool.shuffled()
-        var out: [ExamQuestion] = []
-
-        // Listening: 5 word recognition + 5 sentence comprehension
-        for (i, w) in picks.prefix(listeningCount).enumerated() {
-            let others = pool.filter { $0.id != w.id }.shuffled()
-            if i < 5 || w.example == nil {
-                out.append(ExamQuestion(
-                    section: .listening, prompt: "You will hear a word. Choose the word you hear.",
-                    audio: w.hanzi, display: nil,
-                    options: ([w.hanzi] + others.prefix(3).map(\.hanzi)).shuffled(), answer: w.hanzi,
-                    itemID: w.id, explanation: "\(w.hanzi) (\(w.pinyin)) — \(w.english)"))
-            } else {
-                let meaning = w.exampleEnglish ?? w.english
-                out.append(ExamQuestion(
-                    section: .listening, prompt: "You will hear a sentence. Choose what it means.",
-                    audio: w.example, display: nil,
-                    options: ([meaning] + others.compactMap(\.exampleEnglish).prefix(3)).shuffled(), answer: meaning,
-                    itemID: w.id,
-                    explanation: "Transcript: \(w.example ?? "")\n\(w.examplePinyin ?? "")\n\(meaning)"))
-            }
-        }
-
-        // Reading: meaning + pinyin + grammar fill-in-the-blank
-        let readingWords = Array(picks.dropFirst(listeningCount).prefix(6))
-        for (i, w) in readingWords.enumerated() {
-            let others = pool.filter { $0.id != w.id }.shuffled()
-            if i % 2 == 0 {
-                out.append(ExamQuestion(
-                    section: .reading, prompt: "Choose the correct meaning.", audio: nil, display: w.hanzi,
-                    options: ([w.english] + others.prefix(3).map(\.english)).shuffled(), answer: w.english,
-                    itemID: w.id, explanation: "\(w.hanzi) (\(w.pinyin)) means “\(w.english)”."))
-            } else {
-                out.append(ExamQuestion(
-                    section: .reading, prompt: "Choose the correct pinyin.", audio: nil, display: w.hanzi,
-                    options: ([w.pinyin] + others.prefix(3).map(\.pinyin)).shuffled(), answer: w.pinyin,
-                    itemID: w.id, explanation: "\(w.hanzi) is read \(w.pinyin) — \(w.english)."))
-            }
-        }
-        let grammar = GrammarStore.all.filter { $0.level <= level }
-            .flatMap { p in p.blanks.map { (p, $0) } }.shuffled()
-        for (p, f) in grammar.prefix(readingCount - out.filter { $0.section == .reading }.count) {
-            out.append(ExamQuestion(
-                section: .reading, prompt: "Choose the word that fills the blank.", audio: nil, display: f.sentence,
-                options: f.options, answer: f.answer, itemID: p.id,
-                explanation: "\(f.sentence.replacingOccurrences(of: "＿＿", with: f.answer)) — \(f.english)\nGrammar: \(p.title). \(p.explanation)"))
-        }
-        return out
-    }
-}
-
 // MARK: - Exams tab
 
 struct ExamsView: View {
@@ -98,13 +18,13 @@ struct ExamsView: View {
                     Picker("Level", selection: $examLevel) {
                         ForEach(1...3, id: \.self) { Text("HSK \($0)").tag($0) }
                     }
-                    LabeledContent("Listening", value: "\(ExamGenerator.listeningCount) questions")
-                    LabeledContent("Reading", value: "\(ExamGenerator.readingCount) questions")
-                    LabeledContent("Time limit", value: "\(ExamGenerator.timeLimit / 60) min")
+                    LabeledContent("Listening 听力", value: "4 parts · 20 questions")
+                    LabeledContent("Reading 阅读", value: "4 parts · 20 questions")
+                    LabeledContent("Time limit", value: "\(ExamBuilder.timeLimit(level: examLevel) / 60) min")
                     Button("Start exam") { showInstructions = true }.bold()
                 }
                 Section {
-                    Text("Original practice questions in exam style. Not official HSK material.")
+                    Text("Same types of questions as the HSK papers — pictures, true/false ★, dialogues, passages, replies and fill-in-the-blank — but shorter, and every question is original practice material (not official HSK questions).")
                         .font(.footnote).foregroundStyle(.secondary)
                 }
                 Section("History") {
@@ -152,10 +72,10 @@ struct ExamInstructionsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("HSK \(level) practice exam").font(.title2.bold())
-            Label("Part 1: Listening — each recording can be played twice.", systemImage: "headphones")
-            Label("Part 2: Reading — words, pinyin and grammar.", systemImage: "text.book.closed")
-            Label("You have \(ExamGenerator.timeLimit / 60) minutes. The exam submits automatically when time runs out.", systemImage: "timer")
-            Label("No hints or answers during the exam. Explanations appear after you submit.", systemImage: "eye.slash")
+            Label("Listening 听力: pictures, true/false ★, dialogues\(level >= 3 ? " and passages" : ""). Each recording can be played twice.", systemImage: "headphones")
+            Label("Reading 阅读: pictures, replies, fill in the blank\(level >= 2 ? ", short texts" : "").", systemImage: "text.book.closed")
+            Label("You have \(ExamBuilder.timeLimit(level: level) / 60) minutes. The exam submits automatically when time runs out.", systemImage: "timer")
+            Label("No hints or answers during the exam. Transcripts and explanations appear after you submit.", systemImage: "eye.slash")
             Spacer()
             Button(action: onStart) { Text("Begin").frame(maxWidth: .infinity) }
                 .buttonStyle(.borderedProminent).controlSize(.large)
@@ -173,14 +93,16 @@ struct ExamSessionView: View {
     @Environment(\.modelContext) private var context
     @State private var questions: [ExamQuestion] = []
     @State private var index = 0
-    @State private var answers: [UUID: String] = [:]
+    @State private var answers: [UUID: Int] = [:]
     @State private var plays: [UUID: Int] = [:]
-    @State private var secondsLeft = ExamGenerator.timeLimit
+    @State private var secondsLeft = 0
     @State private var finished = false
     @State private var confirmSubmit = false
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
-    private func correct(in section: ExamSection? = nil) -> (Int, Int) {
+    private var timeLimit: Int { ExamBuilder.timeLimit(level: level) }
+
+    private func score(_ section: ExamSection? = nil) -> (Int, Int) {
         let qs = questions.filter { section == nil || $0.section == section }
         return (qs.filter { answers[$0.id] == $0.answer }.count, qs.count)
     }
@@ -192,9 +114,10 @@ struct ExamSessionView: View {
                 else if questions.indices.contains(index) { questionView(questions[index]) }
                 else { ProgressView() }
             }
-            .padding()
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Close", action: onClose) }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") { Speaker.shared.stop(); onClose() }
+                }
                 if !finished {
                     ToolbarItem(placement: .principal) {
                         Label(String(format: "%d:%02d", secondsLeft / 60, secondsLeft % 60), systemImage: "timer")
@@ -209,7 +132,12 @@ struct ExamSessionView: View {
                 Text("You answered \(answers.count) of \(questions.count) questions.")
             }
         }
-        .onAppear { if questions.isEmpty { questions = ExamGenerator.make(level: level) } }
+        .onAppear {
+            if questions.isEmpty {
+                questions = ExamBuilder.exam(level: level)
+                secondsLeft = timeLimit
+            }
+        }
         .onReceive(timer) { _ in
             guard !finished, !questions.isEmpty else { return }
             if secondsLeft > 0 { secondsLeft -= 1 } else { finish() }
@@ -217,67 +145,44 @@ struct ExamSessionView: View {
     }
 
     private func questionView(_ q: ExamQuestion) -> some View {
-        VStack(alignment: .leading, spacing: 18) {
-            ProgressView(value: Double(index + 1), total: Double(questions.count))
-            Text("\(q.section.rawValue) · \(index + 1)/\(questions.count)")
-                .font(.caption).foregroundStyle(.secondary)
-            Text(q.prompt).font(.headline)
-
-            if let audio = q.audio {
-                let left = 2 - (plays[q.id] ?? 0)
-                Button {
-                    plays[q.id, default: 0] += 1
-                    Speaker.shared.speak(audio)
-                } label: {
-                    Label(left > 0 ? "Play recording (\(left) left)" : "No plays left", systemImage: "speaker.wave.3.fill")
-                        .frame(maxWidth: .infinity)
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 14) {
+                    ProgressView(value: Double(index + 1), total: Double(questions.count))
+                    Text("\(q.section.rawValue) · \(index + 1)/\(questions.count)")
+                        .font(.caption).foregroundStyle(.secondary)
+                    QuestionCard(
+                        question: q,
+                        selected: Binding(get: { answers[q.id] }, set: { answers[q.id] = $0 }),
+                        maxPlays: q.audio == nil ? nil : 2,
+                        plays: Binding(get: { plays[q.id] ?? 0 }, set: { plays[q.id] = $0 }))
                 }
-                .buttonStyle(.bordered).controlSize(.large)
-                .disabled(left <= 0)
+                .padding()
             }
-            if let display = q.display {
-                Text(display).font(.system(size: 40, weight: .medium)).frame(maxWidth: .infinity)
-            }
-
-            ForEach(Array(q.options.enumerated()), id: \.offset) { i, option in
-                Button { answers[q.id] = option } label: {
-                    HStack(alignment: .top) {
-                        Text(["A", "B", "C", "D"][min(i, 3)]).bold()
-                        Text(option).font(q.section == .listening && q.audio == option ? .title2 : .body)
-                        Spacer()
-                    }
-                    .padding()
-                    .background(answers[q.id] == option ? Color.accentColor.opacity(0.2) : Color.secondary.opacity(0.08),
-                                in: RoundedRectangle(cornerRadius: 12))
-                }
-                .buttonStyle(.plain)
-            }
-
-            Spacer()
+            .id(q.id)
             HStack {
-                Button("Back") { index -= 1 }.disabled(index == 0)
+                Button("Back") { Speaker.shared.stop(); index -= 1 }.disabled(index == 0)
                 Spacer()
                 if index == questions.count - 1 {
                     Button("Submit") { confirmSubmit = true }.buttonStyle(.borderedProminent)
                 } else {
-                    Button("Next") { index += 1 }.buttonStyle(.borderedProminent)
+                    Button("Next") { Speaker.shared.stop(); index += 1 }.buttonStyle(.borderedProminent)
                 }
             }
+            .padding()
         }
-        .id(q.id)
     }
 
     private var results: some View {
-        let (c, t) = correct()
-        let (lc, lt) = correct(in: .listening)
-        let (rc, rt) = correct(in: .reading)
+        let (c, t) = score()
+        let (lc, lt) = score(.listening)
+        let (rc, rt) = score(.reading)
         return List {
             Section {
                 VStack(spacing: 6) {
                     Text("\(c) / \(t)").font(.system(size: 52, weight: .bold))
                     Text(c * 100 / max(t, 1) >= 60 ? "Pass ✅" : "Keep practicing 💪").font(.title3)
-                    Text("Time used: \((ExamGenerator.timeLimit - secondsLeft) / 60) min")
-                        .foregroundStyle(.secondary)
+                    Text("Time used: \((timeLimit - secondsLeft) / 60) min").foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -288,13 +193,22 @@ struct ExamSessionView: View {
             Section("Answers & explanations") {
                 ForEach(Array(questions.enumerated()), id: \.element.id) { i, q in
                     let ok = answers[q.id] == q.answer
-                    VStack(alignment: .leading, spacing: 4) {
-                        Label("Q\(i + 1) · \(q.section.rawValue)", systemImage: ok ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .foregroundStyle(ok ? .green : .red).font(.subheadline.bold())
-                        if !ok { Text("Your answer: \(answers[q.id] ?? "—")").font(.caption).foregroundStyle(.red) }
-                        Text("Correct: \(q.answer)").font(.caption)
-                        Text(q.explanation).font(.caption).foregroundStyle(.secondary)
-                        if let audio = q.audio { AudioButtons(text: audio).font(.body) }
+                    NavigationLink {
+                        ScrollView {
+                            QuestionCard(question: q, selected: .constant(answers[q.id]), revealed: true, plays: .constant(0))
+                                .padding()
+                        }
+                        .navigationTitle("Question \(i + 1)")
+                        .onDisappear { Speaker.shared.stop() }
+                    } label: {
+                        HStack {
+                            Image(systemName: ok ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                .foregroundStyle(ok ? .green : .red)
+                            VStack(alignment: .leading) {
+                                Text("Q\(i + 1) · \(q.part)").font(.subheadline)
+                                Text(q.section.rawValue).font(.caption).foregroundStyle(.secondary)
+                            }
+                        }
                     }
                 }
             }
@@ -304,19 +218,19 @@ struct ExamSessionView: View {
 
     private func finish() {
         guard !finished else { return }
+        Speaker.shared.stop()
         finished = true
-        let (c, t) = correct()
-        let (lc, lt) = correct(in: .listening)
-        let (rc, rt) = correct(in: .reading)
-        context.insert(TestResult(level: level, correct: c, total: t,
-                                  secondsUsed: ExamGenerator.timeLimit - secondsLeft,
+        let (c, t) = score()
+        let (lc, lt) = score(.listening)
+        let (rc, rt) = score(.reading)
+        context.insert(TestResult(level: level, correct: c, total: t, secondsUsed: timeLimit - secondsLeft,
                                   listeningCorrect: lc, listeningTotal: lt, readingCorrect: rc, readingTotal: rt))
         // Feed exam mistakes into the review system.
         for q in questions {
             Tracker.record(context, skill: q.itemID.hasPrefix("g-") ? .grammar : q.section.skill,
                            itemID: q.itemID, correct: answers[q.id] == q.answer)
         }
-        Tracker.addTime(context, seconds: ExamGenerator.timeLimit - secondsLeft)
+        Tracker.addTime(context, seconds: timeLimit - secondsLeft)
         try? context.save()
     }
 }
