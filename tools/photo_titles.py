@@ -34,3 +34,19 @@ PHOTO_TITLES = {
     "✍️": "Handwriting", "🧑‍💼": "Commuting", "😋": "Eating", "🙂": "Face", "🌤️": "Weather", "🐘": "Elephant",
     "🐭": "Mouse", "🐷": "Pig", "🦵": "Human leg", "☀️": "Sun", "🤕": "Headache", "🍔": "Fast food",
 }
+
+# Clearer / unique photos (added after review). Pictures that look alike share one title,
+# so the app never shows them side by side as different answers.
+PHOTO_TITLES.update({
+    "👨": "Father", "👩": "Mother", "🧔": "Man", "👩‍🦰": "Woman", "😋": "Eating", "🍴": "Restaurant",
+    "🧺": "Fruit", "🌃": "Night", "🌀": "Air conditioning", "🌲": "Tree", "🌈": "Color", "🌻": "Summer",
+    "📐": "Classroom", "🏬": "Apartment", "😂": "Laughter", "😢": "Crying", "😠": "Anger",
+    "🀄": "Chinese characters", "🍽️": "Plate (dishware)", "🏖️": "Tourism",
+    "🎂": "Birthday cake", "🍰": "Birthday cake",   # look alike
+    "🚴": "Bicycle",                                 # looks like 🚲
+    "🥵": "Heat wave", "🤒": "Fever", "🍵": "Chinese tea", "🥤": "Cup",
+    "🏫": "School", "💼": "Office", "🧑‍🎓": "Student", "🖍️": "Blackboard",
+})
+for _gone in ["🐘", "🐭", "🐷", "🦒", "🐢", "🧍", "👴", "👵", "🧓", "🧑", "👫", "🤵", "👩‍💼", "🧑‍💼",
+              "🛎️", "🙇", "🙏", "👋", "🗣️", "👂‍"]:
+    PHOTO_TITLES.pop(_gone, None)

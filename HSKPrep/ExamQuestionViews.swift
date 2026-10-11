@@ -11,6 +11,7 @@ struct QuestionCard: View {
     @Binding var plays: Int
 
     private static let letters = ["A", "B", "C", "D", "E", "F"]
+    @ObservedObject private var speaker = Speaker.shared
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -51,26 +52,34 @@ struct QuestionCard: View {
 
     private func audioControls(_ audio: [DialogueLine]) -> some View {
         let left = maxPlays.map { max(0, $0 - plays) }
-        return HStack {
-            Button {
-                plays += 1
-                Speaker.shared.play(audio, question: question.audioQuestion)
-            } label: {
-                Label(left.map { $0 > 0 ? "Play recording (\($0) left)" : "No plays left" } ?? "Play recording",
-                      systemImage: "speaker.wave.3.fill")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(left == 0)
-
-            if maxPlays == nil {
-                Button { Speaker.shared.play(audio, question: question.audioQuestion, speed: .slow) } label: {
-                    Image(systemName: "tortoise.fill").padding(.horizontal, 4)
+        let tag = question.id.uuidString
+        let playingThis = speaker.isPlaying && speaker.activeTag == tag
+        return VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Button {
+                    if playingThis { Speaker.shared.stop(); return }
+                    plays += 1
+                    Speaker.shared.play(audio, question: question.audioQuestion, tag: tag)
+                } label: {
+                    Label(playingThis ? "Stop"
+                          : left.map { $0 > 0 ? "Play recording (\($0) left)" : "No plays left" } ?? "Play recording",
+                          systemImage: playingThis ? "stop.fill" : "speaker.wave.3.fill")
+                        .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
+                // In the exam a play can't be stopped and restarted for free.
+                .disabled(maxPlays != nil && (left == 0 || playingThis))
+
+                if maxPlays == nil {
+                    Button { Speaker.shared.play(audio, question: question.audioQuestion, speed: .slow, tag: tag) } label: {
+                        Image(systemName: "tortoise.fill").padding(.horizontal, 4)
+                    }
+                    .buttonStyle(.bordered)
+                }
             }
+            .controlSize(.large)
+            PlaybackProgressView(tag: tag)
         }
-        .controlSize(.large)
     }
 
     // MARK: Options

@@ -140,6 +140,7 @@ enum ExamBuilder {
 
     /// A full practice exam: 4 listening parts + 4 reading parts, 5 questions each.
     static func exam(level: Int) -> [ExamQuestion] {
+        usedPictures = []
         let n = perPart
         let parts: [[ExamQuestion]]
         switch level {
@@ -164,6 +165,7 @@ enum ExamBuilder {
 
     /// Exam-style practice for one section: a mix of that section's question types.
     static func practice(section: ExamSection, level: Int, count: Int = 10) -> [ExamQuestion] {
+        usedPictures = []
         let parts: [[ExamQuestion]]
         switch section {
         case .listening:
@@ -184,6 +186,38 @@ enum ExamBuilder {
         DialogueLine(speaker: "N", text: text, pinyin: pinyin)
     }
 
+    // MARK: No repeated pictures
+
+    /// Photos already shown as the main picture in the exam being built.
+    private static var usedPictures: Set<String> = []
+
+    /// What is actually shown: emojis that share a photo count as the same picture.
+    static func identity(_ picture: String?) -> String {
+        guard let picture else { return "" }
+        return PhotoStore.shared.titles[picture] ?? picture
+    }
+
+    /// Picks n items whose pictures haven't been shown yet in this exam (and differ from each other).
+    private static func fresh<T>(_ items: [T], _ n: Int, picture: (T) -> String?) -> [T] {
+        var out: [T] = []
+        for item in items where out.count < n {
+            let id = identity(picture(item))
+            if id.isEmpty || !usedPictures.contains(id) {
+                out.append(item)
+                if !id.isEmpty { usedPictures.insert(id) }
+            }
+        }
+        return out
+    }
+
+    /// A random different picture (for "doesn't match" questions), also not shown before.
+    private static func freshOtherPicture(than correct: String, level: Int) -> String? {
+        let candidates = otherPictures(excluding: correct, level: level, count: 30)
+        let pick = candidates.first { !usedPictures.contains(identity($0)) } ?? candidates.first
+        if let pick { usedPictures.insert(identity(pick)) }
+        return pick
+    }
+
     private static func samePicture(_ a: Word, _ b: Word) -> Bool {
         let id = { (w: Word) in w.emoji.map { PhotoStore.shared.titles[$0] ?? $0 } ?? w.id }
         return id(a) == id(b)
@@ -199,8 +233,7 @@ enum ExamBuilder {
     private static func otherPictures(excluding emoji: String, level: Int, count: Int) -> [String] {
         let scenes = ContentStore.listening(level: level, kinds: ["picture"], atLeast: 10).compactMap(\.picture)
         let words = pictureWords(level).compactMap(\.emoji)
-        // Two pictures can share a photo (e.g. 👴 and 👵) — compare by what is actually shown.
-        let identity = { (e: String) in PhotoStore.shared.titles[e] ?? e }
+        // Two pictures can share a photo (e.g. 🎂 and 🍰) — compare by what is actually shown.
         var seen: Set<String> = [identity(emoji)]
         var out: [String] = []
         for e in (scenes.shuffled() + words.shuffled()) where !seen.contains(identity(e)) {
@@ -228,9 +261,12 @@ enum ExamBuilder {
     /// Hear a word; does it match the picture?
     static func listenWordPictureTF(_ level: Int, _ n: Int) -> [ExamQuestion] {
         let words = pictureWords(level).shuffled()
-        return words.prefix(n).map { w in
+        return fresh(words, n, picture: \.emoji).map { w in
             let match = Bool.random()
-            let other = words.first { $0.id != w.id && samePicture($0, w) == false }
+            let other = words.shuffled().first {
+                $0.id != w.id && !samePicture($0, w) && !usedPictures.contains(identity($0.emoji))
+            }
+            if let other, !match { usedPictures.insert(identity(other.emoji)) }
             let shownWord = match ? w : (other ?? w)
             return ExamQuestion(
                 section: .listening, part: "Picture: true or false", instruction: "Listen. Does the word match the picture?",
@@ -244,10 +280,10 @@ enum ExamBuilder {
     /// Hear a sentence or dialogue; is the picture right?
     static func listenPictureTF(_ level: Int, _ n: Int) -> [ExamQuestion] {
         let items = ContentStore.listening(level: level, kinds: ["picture"], atLeast: n).shuffled()
-        return items.prefix(n).compactMap { item in
+        return fresh(items, n, picture: \.picture).compactMap { item in
             guard let correct = item.picture else { return nil }
             let match = Bool.random()
-            let shown = match ? correct : (otherPictures(excluding: correct, level: level, count: 1).first ?? correct)
+            let shown = match ? correct : (freshOtherPicture(than: correct, level: level) ?? correct)
             return ExamQuestion(
                 section: .listening, part: "Picture: true or false", instruction: "Listen. Does the recording match the picture?",
                 audio: item.lines, picture: shown, options: ExamQuestion.trueFalse, answer: shown == correct ? 0 : 1,
@@ -262,7 +298,7 @@ enum ExamBuilder {
             multiLine == nil || ($0.lines.count > 1) == multiLine!
         }.shuffled()
         let fallback = items.count < n ? ContentStore.listening(level: level, kinds: ["picture"], atLeast: n).shuffled() : []
-        return (items + fallback.filter { f in !items.contains { $0.id == f.id } }).prefix(n).compactMap { item in
+        return fresh(items + fallback.filter { f in !items.contains { $0.id == f.id } }, n, picture: \.picture).compactMap { item in
             guard let correct = item.picture else { return nil }
             let (opts, ans) = pictureOptions(correct: correct, level: level, total: level == 1 ? 3 : 4)
             return ExamQuestion(
@@ -307,9 +343,12 @@ enum ExamBuilder {
     /// See a word and a picture; do they match?
     static func readWordPictureTF(_ level: Int, _ n: Int) -> [ExamQuestion] {
         let words = pictureWords(level).shuffled()
-        return words.prefix(n).map { w in
+        return fresh(words, n, picture: \.emoji).map { w in
             let match = Bool.random()
-            let other = words.first { $0.id != w.id && samePicture($0, w) == false } ?? w
+            let other = words.shuffled().first {
+                $0.id != w.id && !samePicture($0, w) && !usedPictures.contains(identity($0.emoji))
+            } ?? w
+            if !match { usedPictures.insert(identity(other.emoji)) }
             let pic = match ? w.emoji : other.emoji
             return ExamQuestion(
                 section: .reading, part: "Word and picture", instruction: "Does the word match the picture?",
@@ -321,7 +360,7 @@ enum ExamBuilder {
     /// Read a sentence/dialogue; choose the picture.
     static func readSentencePicture(_ level: Int, _ n: Int) -> [ExamQuestion] {
         let items = ContentStore.listening(level: level, kinds: ["picture"], atLeast: n).shuffled()
-        return items.prefix(n).compactMap { item in
+        return fresh(items, n, picture: \.picture).compactMap { item in
             guard let correct = item.picture else { return nil }
             let (opts, ans) = pictureOptions(correct: correct, level: level, total: 4)
             return ExamQuestion(

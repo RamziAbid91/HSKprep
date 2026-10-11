@@ -64,7 +64,7 @@ final class RecordedAudio {
 /// Speaks Mandarin. Uses the natural recorded audio when it exists (and is switched on in Settings),
 /// otherwise an iOS voice the learner picks in Settings. Best iOS quality comes from "Enhanced"/"Premium"
 /// voices downloaded in iOS Settings → Accessibility → Spoken Content → Voices → Chinese.
-final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
+final class Speaker: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
     static let shared = Speaker()
     private let synth = AVSpeechSynthesizer()
 
@@ -81,9 +81,35 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
 
     /// One piece of a playback sequence.
     private enum Segment {
-        case file(URL, rate: Float, pauseAfter: TimeInterval)
+        case file(URL, rate: Float, pauseAfter: TimeInterval, weight: Double)
         case speech(AVSpeechUtterance)
+
+        /// Roughly how long the piece is (its number of characters).
+        var weight: Double {
+            switch self {
+            case .file(_, _, _, let w): w
+            case .speech(let u): Double(max(1, u.speechString.count))
+            }
+        }
     }
+
+    // MARK: Playback progress (shown as a bar under the play button)
+
+    /// Which audio is playing: the tag passed to speak/play (e.g. a question id).
+    @Published private(set) var activeTag: String?
+    /// The tag of the last audio that played to the end.
+    @Published private(set) var finishedTag: String?
+    /// 0…1 through the whole recording.
+    @Published private(set) var progress: Double = 0
+    @Published private(set) var isPlaying = false
+    /// Current line (1-based) and number of lines.
+    @Published private(set) var currentPart = 0
+    @Published private(set) var partCount = 0
+
+    private var weights: [Double] = []
+    private var doneParts = 0
+    private var speechFraction = 0.0
+    private var progressTimer: Timer?
 
     private var queue: [Segment] = []
     private var player: AVAudioPlayer?
@@ -144,13 +170,13 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
     private func recorded(_ text: String, role: String, speed: Speed, pauseAfter: TimeInterval = 0) -> Segment? {
         guard useRecorded, let url = RecordedAudio.shared.url(text: text, role: role) else { return nil }
         let rate = max(0.5, min(2.0, baseRate / 0.45 * speed.factor))
-        return .file(url, rate: rate, pauseAfter: pauseAfter)
+        return .file(url, rate: rate, pauseAfter: pauseAfter, weight: Double(max(1, text.count)))
     }
 
     // MARK: Speaking
 
-    func speak(_ text: String, speed: Speed = .normal) {
-        start([recorded(text, role: "main", speed: speed) ?? .speech(utterance(text, voice: mainVoice, speed: speed))])
+    func speak(_ text: String, speed: Speed = .normal, tag: String? = nil) {
+        start([recorded(text, role: "main", speed: speed) ?? .speech(utterance(text, voice: mainVoice, speed: speed))], tag: tag)
     }
 
     func speak(_ text: String, slow: Bool) { speak(text, speed: slow ? .slow : .normal) }
@@ -174,7 +200,7 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
     }
 
     /// Plays a dialogue or passage like the exam recording, then reads the question ("问：…").
-    func play(_ lines: [DialogueLine], question: String? = nil, speed: Speed = .normal) {
+    func play(_ lines: [DialogueLine], question: String? = nil, speed: Speed = .normal, tag: String? = nil) {
         let v = dialogueVoices()
         var segments: [Segment] = []
         for line in lines {
@@ -206,7 +232,7 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
                 segments.append(.speech(q))
             }
         }
-        start(segments)
+        start(segments, tag: tag)
     }
 
     func stop() {
@@ -215,23 +241,65 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
         player?.stop()
         player = nil
         synth.stopSpeaking(at: .immediate)
+        progressTimer?.invalidate()
+        progressTimer = nil
+        isPlaying = false
+        activeTag = nil
     }
 
     // MARK: Sequencing
 
-    private func start(_ segments: [Segment]) {
+    private func start(_ segments: [Segment], tag: String? = nil) {
         stop()
         queue = segments
+        weights = segments.map(\.weight)
+        doneParts = 0
+        speechFraction = 0
+        progress = 0
+        partCount = segments.count
+        currentPart = 0
+        activeTag = tag
+        if finishedTag == tag { finishedTag = nil }
+        isPlaying = true
+        let timer = Timer(timeInterval: 0.1, repeats: true) { [weak self] _ in self?.updateProgress() }
+        RunLoop.main.add(timer, forMode: .common)
+        progressTimer = timer
         playNext()
     }
 
+    private func updateProgress() {
+        let total = weights.reduce(0, +)
+        guard total > 0, doneParts < weights.count else { return }
+        var fraction = speechFraction
+        if let p = player, p.duration > 0 { fraction = min(1, p.currentTime / p.duration) }
+        let done = weights.prefix(doneParts).reduce(0, +)
+        progress = min(1, (done + fraction * weights[doneParts]) / total)
+    }
+
+    /// Called when the current piece ends.
+    private func partFinished() {
+        doneParts += 1
+        speechFraction = 0
+        player = nil
+        updateProgress()
+    }
+
+    private func finishAll() {
+        progressTimer?.invalidate()
+        progressTimer = nil
+        progress = 1
+        isPlaying = false
+        finishedTag = activeTag
+    }
+
     private func playNext() {
-        guard !queue.isEmpty else { return }
+        guard !queue.isEmpty else { finishAll(); return }
+        currentPart = doneParts + 1
         switch queue.removeFirst() {
         case .speech(let u):
             synth.speak(u)   // delegate calls playNext when finished
-        case .file(let url, let rate, let pause):
-            guard let p = try? AVAudioPlayer(contentsOf: url) else { playNext(); return }
+        case .file(let url, let rate, let pause, _):
+            guard let p = try? AVAudioPlayer(contentsOf: url) else { partFinished(); playNext(); return }
             p.enableRate = true
             p.rate = rate
             p.delegate = self
@@ -243,15 +311,62 @@ final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegat
 
     private var pauseAfterCurrent: TimeInterval = 0
 
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange,
+                           utterance: AVSpeechUtterance) {
+        let length = (utterance.speechString as NSString).length
+        guard length > 0 else { return }
+        let f = Double(characterRange.location + characterRange.length) / Double(length)
+        DispatchQueue.main.async { self.speechFraction = f }
+    }
+
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        DispatchQueue.main.async { self.playNext() }
+        DispatchQueue.main.async {
+            self.partFinished()
+            self.playNext()
+        }
     }
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         let gen = generation
+        partFinished()
         DispatchQueue.main.asyncAfter(deadline: .now() + pauseAfterCurrent) { [weak self] in
             guard let self, self.generation == gen else { return }
             self.playNext()
+        }
+    }
+}
+
+// MARK: - Playback progress bar
+
+/// Shows how far a recording has played, which line is playing, and when it has finished.
+struct PlaybackProgressView: View {
+    let tag: String
+    @ObservedObject private var speaker = Speaker.shared
+
+    private var isMine: Bool { speaker.activeTag == tag }
+    private var finished: Bool { speaker.finishedTag == tag && !isMine }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            ProgressView(value: isMine ? speaker.progress : (finished ? 1 : 0))
+                .tint(finished ? .green : Theme.accent)
+                .animation(.linear(duration: 0.1), value: speaker.progress)
+            HStack {
+                if isMine && speaker.isPlaying {
+                    Label("Playing…", systemImage: "waveform").symbolEffect(.variableColor.iterative)
+                } else if finished {
+                    Label("Recording finished — choose your answer", systemImage: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                } else {
+                    Text("Tap play to listen")
+                }
+                Spacer()
+                if isMine && speaker.partCount > 1 {
+                    Text("Part \(speaker.currentPart) of \(speaker.partCount)").monospacedDigit()
+                }
+            }
+            .font(.caption)
+            .foregroundStyle(.secondary)
         }
     }
 }

@@ -8,7 +8,6 @@
   "example": "我爱我的妈妈。",
   "examplePinyin": "Wǒ ài wǒ de māma.",
   "exampleEnglish": "I love my mom.",
-  "emoji": "❤️",
   "radical": "爫"
  },
  {
@@ -20,8 +19,8 @@
   "example": "现在八点。",
   "examplePinyin": "Xiànzài bā diǎn.",
   "exampleEnglish": "It's eight o'clock now.",
-  "emoji": "8️⃣",
-  "radical": "八"
+  "radical": "八",
+  "emoji": "8️⃣"
  },
  {
   "id": "1-003",
@@ -32,8 +31,8 @@
   "example": "我爸爸是医生。",
   "examplePinyin": "Wǒ bàba shì yīshēng.",
   "exampleEnglish": "My dad is a doctor.",
-  "emoji": "👨",
-  "radical": "父"
+  "radical": "父",
+  "emoji": "👨"
  },
  {
   "id": "1-004",
@@ -44,8 +43,8 @@
   "example": "这个杯子很大。",
   "examplePinyin": "Zhège bēizi hěn dà.",
   "exampleEnglish": "This cup is big.",
-  "emoji": "🥤",
-  "radical": "木"
+  "radical": "木",
+  "emoji": "🥤"
  },
  {
   "id": "1-005",
@@ -56,8 +55,8 @@
   "example": "我住在北京。",
   "examplePinyin": "Wǒ zhù zài Běijīng.",
   "exampleEnglish": "I live in Beijing.",
-  "emoji": "🏯",
-  "radical": "匕"
+  "radical": "匕",
+  "emoji": "🏯"
  },
  {
   "id": "1-006",
@@ -98,8 +97,8 @@
   "example": "这个菜很好吃。",
   "examplePinyin": "Zhège cài hěn hǎochī.",
   "exampleEnglish": "This dish is delicious.",
-  "emoji": "🥬",
-  "radical": "艹"
+  "radical": "艹",
+  "emoji": "🥬"
  },
  {
   "id": "1-009",
@@ -110,8 +109,8 @@
   "example": "你喝茶吗？",
   "examplePinyin": "Nǐ hē chá ma?",
   "exampleEnglish": "Do you drink tea?",
-  "emoji": "🍵",
-  "radical": "艹"
+  "radical": "艹",
+  "emoji": "🍵"
  },
  {
   "id": "1-010",
@@ -122,8 +121,8 @@
   "example": "我们去吃饭吧。",
   "examplePinyin": "Wǒmen qù chī fàn ba.",
   "exampleEnglish": "Let's go eat.",
-  "emoji": "🍽️",
-  "radical": "口"
+  "radical": "口",
+  "emoji": "😋"
  },
  {
   "id": "1-011",
@@ -134,8 +133,8 @@
   "example": "我坐出租车去。",
   "examplePinyin": "Wǒ zuò chūzūchē qù.",
   "exampleEnglish": "I'm going by taxi.",
-  "emoji": "🚕",
-  "radical": "凵"
+  "radical": "凵",
+  "emoji": "🚕"
  },
  {
   "id": "1-042",
@@ -155,7 +154,6 @@
   "example": "他的家很大。",
   "examplePinyin": "Tā de jiā hěn dà.",
   "exampleEnglish": "His home is big.",
-  "emoji": "🐘",
   "radical": "大"
  },
  {
@@ -183,8 +181,8 @@
   "example": "这是我的电脑。",
   "examplePinyin": "Zhè shì wǒ de diànnǎo.",
   "exampleEnglish": "This is my computer.",
-  "emoji": "💻",
-  "radical": "曰"
+  "radical": "曰",
+  "emoji": "💻"
  },
  {
   "id": "1-014",
@@ -195,8 +193,8 @@
   "example": "爸爸在看电视。",
   "examplePinyin": "Bàba zài kàn diànshì.",
   "exampleEnglish": "Dad is watching TV.",
-  "emoji": "📺",
-  "radical": "曰"
+  "radical": "曰",
+  "emoji": "📺"
  },
  {
   "id": "1-045",
@@ -235,8 +233,8 @@
   "example": "我在读书。",
   "examplePinyin": "Wǒ zài dú shū.",
   "exampleEnglish": "I'm reading a book.",
-  "emoji": "📖",
-  "radical": "讠"
+  "radical": "讠",
+  "emoji": "📖"
  },
  {
   "id": "1-017",
@@ -247,7 +245,6 @@
   "example": "对不起，我来晚了。",
   "examplePinyin": "Duìbuqǐ, wǒ lái wǎn le.",
   "exampleEnglish": "Sorry, I'm late.",
-  "emoji": "🙇",
   "radical": "寸"
  },
  {
@@ -293,7 +290,7 @@
   "pinyin": "fànguǎn",
   "english": "restaurant",
   "level": 1,
-  "emoji": "🍜",
+  "emoji": "🍴",
   "radical": "饣"
  },
  {
@@ -305,8 +302,8 @@
   "example": "他坐飞机去中国。",
   "examplePinyin": "Tā zuò fēijī qù Zhōngguó.",
   "exampleEnglish": "He's flying to China.",
-  "emoji": "✈️",
-  "radical": "飞"
+  "radical": "飞",
+  "emoji": "✈️"
  },
  {
   "id": "1-051",
@@ -344,7 +341,6 @@
   "example": "你在哪儿工作？",
   "examplePinyin": "Nǐ zài nǎr gōngzuò?",
   "exampleEnglish": "Where do you work?",
-  "emoji": "💼",
   "radical": "工"
  },
  {
@@ -356,8 +352,8 @@
   "example": "我家有一只狗。",
   "examplePinyin": "Wǒ jiā yǒu yì zhī gǒu.",
   "exampleEnglish": "My family has a dog.",
-  "emoji": "🐕",
-  "radical": "犭"
+  "radical": "犭",
+  "emoji": "🐕"
  },
  {
   "id": "1-023",
@@ -390,7 +386,6 @@
   "example": "我想喝水。",
   "examplePinyin": "Wǒ xiǎng hē shuǐ.",
   "exampleEnglish": "I want to drink water.",
-  "emoji": "🥤",
   "radical": "口"
  },
  {
@@ -465,8 +460,8 @@
   "example": "你家有几个人？",
   "examplePinyin": "Nǐ jiā yǒu jǐ ge rén?",
   "exampleEnglish": "How many people are in your family?",
-  "emoji": "🏠",
-  "radical": "宀"
+  "radical": "宀",
+  "emoji": "🏠"
  },
  {
   "id": "1-029",
@@ -505,7 +500,6 @@
   "pinyin": "kāi",
   "english": "to open (transitive or intransitive); (of ships,…",
   "level": 1,
-  "emoji": "🚗",
   "radical": "廾"
  },
  {
@@ -517,7 +511,6 @@
   "example": "我喜欢看书。",
   "examplePinyin": "Wǒ xǐhuan kàn shū.",
   "exampleEnglish": "I like reading books.",
-  "emoji": "👀",
   "radical": "目"
  },
  {
@@ -553,8 +546,8 @@
   "example": "她是我的汉语老师。",
   "examplePinyin": "Tā shì wǒ de Hànyǔ lǎoshī.",
   "exampleEnglish": "She is my Chinese teacher.",
-  "emoji": "🧑‍🏫",
-  "radical": "老"
+  "radical": "老",
+  "emoji": "🧑‍🏫"
  },
  {
   "id": "1-063",
@@ -570,7 +563,6 @@
   "pinyin": "lěng",
   "english": "cold",
   "level": 1,
-  "emoji": "🥶",
   "radical": "冫"
  },
  {
@@ -608,8 +600,8 @@
   "example": "妈妈在做饭。",
   "examplePinyin": "Māma zài zuò fàn.",
   "exampleEnglish": "Mom is cooking.",
-  "emoji": "👩",
-  "radical": "女"
+  "radical": "女",
+  "emoji": "👩"
  },
  {
   "id": "1-068",
@@ -661,8 +653,8 @@
   "example": "我要一碗米饭。",
   "examplePinyin": "Wǒ yào yì wǎn mǐfàn.",
   "exampleEnglish": "I'd like a bowl of rice.",
-  "emoji": "🍚",
-  "radical": "米"
+  "radical": "米",
+  "emoji": "🍚"
  },
  {
   "id": "1-073",
@@ -746,8 +738,8 @@
   "example": "他是我的朋友。",
   "examplePinyin": "Tā shì wǒ de péngyou.",
   "exampleEnglish": "He is my friend.",
-  "emoji": "🧑‍🤝‍🧑",
-  "radical": "月"
+  "radical": "月",
+  "emoji": "🧑‍🤝‍🧑"
  },
  {
   "id": "1-082",
@@ -755,7 +747,6 @@
   "pinyin": "piàoliang",
   "english": "pretty; beautiful",
   "level": 1,
-  "emoji": "💐",
   "radical": "氵"
  },
  {
@@ -767,8 +758,8 @@
   "example": "我想吃苹果。",
   "examplePinyin": "Wǒ xiǎng chī píngguǒ.",
   "exampleEnglish": "I want to eat an apple.",
-  "emoji": "🍎",
-  "radical": "艹"
+  "radical": "艹",
+  "emoji": "🍎"
  },
  {
   "id": "1-083",
@@ -818,7 +809,6 @@
   "pinyin": "rè",
   "english": "to warm up; to heat up; hot (of weather)",
   "level": 1,
-  "emoji": "🥵",
   "radical": "灬"
  },
  {
@@ -952,7 +942,7 @@
   "pinyin": "shuǐguǒ",
   "english": "fruit",
   "level": 1,
-  "emoji": "🍇",
+  "emoji": "🧺",
   "radical": "水"
  },
  {
@@ -970,7 +960,6 @@
   "pinyin": "shuōhuà",
   "english": "to speak; to say; to talk",
   "level": 1,
-  "emoji": "🗣️",
   "radical": "讠"
  },
  {
@@ -1029,7 +1018,6 @@
   "pinyin": "tīng",
   "english": "to listen; to hear",
   "level": 1,
-  "emoji": "👂",
   "radical": "口"
  },
  {
@@ -1038,7 +1026,6 @@
   "pinyin": "tóngxué",
   "english": "to study at the same school; fellow student",
   "level": 1,
-  "emoji": "👫",
   "radical": "口"
  },
  {
@@ -1080,7 +1067,6 @@
   "pinyin": "xǐhuan",
   "english": "to like; to be fond of",
   "level": 1,
-  "emoji": "😍",
   "radical": "口"
  },
  {
@@ -1114,7 +1100,6 @@
   "pinyin": "xiānsheng",
   "english": "teacher; gentleman; sir; mister (Mr.); husband",
   "level": 1,
-  "emoji": "🤵",
   "radical": "儿"
  },
  {
@@ -1139,7 +1124,6 @@
   "pinyin": "xiǎo",
   "english": "small; tiny; few",
   "level": 1,
-  "emoji": "🐭",
   "radical": "小"
  },
  {
@@ -1148,7 +1132,6 @@
   "pinyin": "xiǎojie",
   "english": "young lady; miss; (slang) prostitute",
   "level": 1,
-  "emoji": "👩‍💼",
   "radical": "小"
  },
  {
@@ -1177,7 +1160,6 @@
   "example": "谢谢你的帮助。",
   "examplePinyin": "Xièxie nǐ de bāngzhù.",
   "exampleEnglish": "Thank you for your help.",
-  "emoji": "🙏",
   "radical": "讠"
  },
  {
@@ -1197,8 +1179,8 @@
   "example": "我是学生。",
   "examplePinyin": "Wǒ shì xuésheng.",
   "exampleEnglish": "I am a student.",
-  "emoji": "🧑‍🎓",
-  "radical": "子"
+  "radical": "子",
+  "emoji": "🧑‍🎓"
  },
  {
   "id": "1-131",
@@ -1244,8 +1226,8 @@
   "example": "他想当医生。",
   "examplePinyin": "Tā xiǎng dāng yīshēng.",
   "exampleEnglish": "He wants to be a doctor.",
-  "emoji": "🧑‍⚕️",
-  "radical": "匸"
+  "radical": "匸",
+  "emoji": "🧑‍⚕️"
  },
  {
   "id": "1-135",
@@ -1287,7 +1269,6 @@
   "pinyin": "zàijiàn",
   "english": "goodbye",
   "level": 1,
-  "emoji": "👋",
   "radical": "冂"
  },
  {
@@ -1331,8 +1312,8 @@
   "example": "我想去中国。",
   "examplePinyin": "Wǒ xiǎng qù Zhōngguó.",
   "exampleEnglish": "I want to go to China.",
-  "emoji": "🇨🇳",
-  "radical": "丨"
+  "radical": "丨",
+  "emoji": "🇨🇳"
  },
  {
   "id": "1-144",
@@ -1365,7 +1346,7 @@
   "pinyin": "zì",
   "english": "letter; symbol; character",
   "level": 1,
-  "emoji": "🔤",
+  "emoji": "🀄",
   "radical": "子"
  },
  {
@@ -1382,7 +1363,6 @@
   "pinyin": "zuò",
   "english": "to sit; to take (a bus etc.)",
   "level": 1,
-  "emoji": "🪑",
   "radical": "土"
  },
  {
@@ -1438,8 +1418,8 @@
   "example": "爷爷每天看报纸。",
   "examplePinyin": "Yéye měi tiān kàn bàozhǐ.",
   "exampleEnglish": "Grandpa reads the newspaper every day.",
-  "emoji": "📰",
-  "radical": "扌"
+  "radical": "扌",
+  "emoji": "📰"
  },
  {
   "id": "2-003",
@@ -1480,8 +1460,8 @@
   "example": "她很喜欢唱歌。",
   "examplePinyin": "Tā hěn xǐhuan chàng gē.",
   "exampleEnglish": "She really likes singing.",
-  "emoji": "🎤",
-  "radical": "口"
+  "radical": "口",
+  "emoji": "🎤"
  },
  {
   "id": "2-045",
@@ -1588,7 +1568,6 @@
   "example": "我弟弟八岁。",
   "examplePinyin": "Wǒ dìdi bā suì.",
   "exampleEnglish": "My younger brother is eight.",
-  "emoji": "👦",
   "radical": "弓"
  },
  {
@@ -1619,8 +1598,8 @@
   "example": "我的房间很小。",
   "examplePinyin": "Wǒ de fángjiān hěn xiǎo.",
   "exampleEnglish": "My room is small.",
-  "emoji": "🛏️",
-  "radical": "户"
+  "radical": "户",
+  "emoji": "🛏️"
  },
  {
   "id": "2-011",
@@ -1642,8 +1621,8 @@
   "example": "服务员，请给我一杯茶。",
   "examplePinyin": "Fúwùyuán, qǐng gěi wǒ yì bēi chá.",
   "exampleEnglish": "Waiter, please bring me a cup of tea.",
-  "emoji": "🧑‍🍳",
-  "radical": "月"
+  "radical": "月",
+  "emoji": "🧑‍🍳"
  },
  {
   "id": "2-055",
@@ -1651,7 +1630,6 @@
   "pinyin": "gāo",
   "english": "tall; high",
   "level": 2,
-  "emoji": "🦒",
   "radical": "高"
  },
  {
@@ -1671,7 +1649,6 @@
   "pinyin": "gēge",
   "english": "older brother",
   "level": 2,
-  "emoji": "👨",
   "radical": "口"
  },
  {
@@ -1708,8 +1685,8 @@
   "example": "他在一家公司工作。",
   "examplePinyin": "Tā zài yì jiā gōngsī gōngzuò.",
   "exampleEnglish": "He works at a company.",
-  "emoji": "🏢",
-  "radical": "八"
+  "radical": "八",
+  "emoji": "🏢"
  },
  {
   "id": "2-016",
@@ -1739,8 +1716,8 @@
   "example": "他们有两个孩子。",
   "examplePinyin": "Tāmen yǒu liǎng ge háizi.",
   "exampleEnglish": "They have two children.",
-  "emoji": "🧒",
-  "radical": "子"
+  "radical": "子",
+  "emoji": "🧒"
  },
  {
   "id": "2-018",
@@ -1804,8 +1781,8 @@
   "example": "我们几点去机场？",
   "examplePinyin": "Wǒmen jǐ diǎn qù jīchǎng?",
   "exampleEnglish": "What time are we going to the airport?",
-  "emoji": "🛫",
-  "radical": "木"
+  "radical": "木",
+  "emoji": "🛫"
  },
  {
   "id": "2-066",
@@ -1833,8 +1810,8 @@
   "example": "学生们在教室里。",
   "examplePinyin": "Xuéshengmen zài jiàoshì lǐ.",
   "exampleEnglish": "The students are in the classroom.",
-  "emoji": "🏫",
-  "radical": "攵"
+  "radical": "攵",
+  "emoji": "📐"
  },
  {
   "id": "2-021",
@@ -1853,7 +1830,6 @@
   "pinyin": "jiějie",
   "english": "older sister",
   "level": 2,
-  "emoji": "👩",
   "radical": "女"
  },
  {
@@ -1900,8 +1876,8 @@
   "example": "我每天早上喝咖啡。",
   "examplePinyin": "Wǒ měi tiān zǎoshang hē kāfēi.",
   "exampleEnglish": "I drink coffee every morning.",
-  "emoji": "☕",
-  "radical": "口"
+  "radical": "口",
+  "emoji": "☕"
  },
  {
   "id": "2-072",
@@ -1950,7 +1926,6 @@
   "pinyin": "kuài",
   "english": "rapid; quick; speed",
   "level": 2,
-  "emoji": "⚡",
   "radical": "忄"
  },
  {
@@ -1962,7 +1937,6 @@
   "example": "生日快乐！",
   "examplePinyin": "Shēngrì kuàilè!",
   "exampleEnglish": "Happy birthday!",
-  "emoji": "😄",
   "radical": "忄"
  },
  {
@@ -1971,7 +1945,6 @@
   "pinyin": "lèi",
   "english": "tired",
   "level": 2,
-  "emoji": "😩",
   "radical": "糸"
  },
  {
@@ -2007,8 +1980,8 @@
   "example": "我想去上海旅游。",
   "examplePinyin": "Wǒ xiǎng qù Shànghǎi lǚyóu.",
   "exampleEnglish": "I want to travel to Shanghai.",
-  "emoji": "🧳",
-  "radical": "方"
+  "radical": "方",
+  "emoji": "🏖️"
  },
  {
   "id": "2-082",
@@ -2027,7 +2000,6 @@
   "example": "请说慢一点儿。",
   "examplePinyin": "Qǐng shuō màn yìdiǎnr.",
   "exampleEnglish": "Please speak a little slower.",
-  "emoji": "🐢",
   "radical": "忄"
  },
  {
@@ -2052,7 +2024,6 @@
   "pinyin": "mèimei",
   "english": "younger sister; young woman",
   "level": 2,
-  "emoji": "👧",
   "radical": "女"
  },
  {
@@ -2070,7 +2041,7 @@
   "pinyin": "nánrén",
   "english": "a man; a male; men",
   "level": 2,
-  "emoji": "👨",
+  "emoji": "🧔",
   "radical": "田"
  },
  {
@@ -2096,7 +2067,7 @@
   "pinyin": "nǚrén",
   "english": "woman",
   "level": 2,
-  "emoji": "👩",
+  "emoji": "👩‍🦰",
   "radical": "女"
  },
  {
@@ -2162,7 +2133,6 @@
   "example": "明天是晴天。",
   "examplePinyin": "Míngtiān shì qíngtiān.",
   "exampleEnglish": "Tomorrow will be sunny.",
-  "emoji": "☀️",
   "radical": "日"
  },
  {
@@ -2187,7 +2157,6 @@
   "pinyin": "shàngbān",
   "english": "to go to work; to be on duty; to start work",
   "level": 2,
-  "emoji": "🧑‍💼",
   "radical": "一"
  },
  {
@@ -2204,7 +2173,6 @@
   "pinyin": "shēngbìng",
   "english": "to fall ill",
   "level": 2,
-  "emoji": "🤒",
   "radical": "生"
  },
  {
@@ -2216,7 +2184,6 @@
   "example": "今天是我的生日。",
   "examplePinyin": "Jīntiān shì wǒ de shēngrì.",
   "exampleEnglish": "Today is my birthday.",
-  "emoji": "🎂",
   "radical": "生"
  },
  {
@@ -2253,8 +2220,8 @@
   "example": "我的手机在哪儿？",
   "examplePinyin": "Wǒ de shǒujī zài nǎr?",
   "exampleEnglish": "Where is my phone?",
-  "emoji": "📱",
-  "radical": "手"
+  "radical": "手",
+  "emoji": "📱"
  },
  {
   "id": "2-104",
@@ -2262,7 +2229,6 @@
   "pinyin": "sòng",
   "english": "to send; to deliver; to transmit; to give (as a present)",
   "level": 2,
-  "emoji": "🎁",
   "radical": "辶"
  },
  {
@@ -2307,8 +2273,8 @@
   "example": "她跳舞跳得很好。",
   "examplePinyin": "Tā tiào wǔ tiào de hěn hǎo.",
   "exampleEnglish": "She dances very well.",
-  "emoji": "💃",
-  "radical": "足"
+  "radical": "足",
+  "emoji": "💃"
  },
  {
   "id": "2-109",
@@ -2332,7 +2298,6 @@
   "pinyin": "wán",
   "english": "to play; to have fun",
   "level": 2,
-  "emoji": "🎮",
   "radical": "王"
  },
  {
@@ -2341,7 +2306,7 @@
   "pinyin": "wǎnshang",
   "english": "evening; night; in the evening",
   "level": 2,
-  "emoji": "🌙",
+  "emoji": "🌃",
   "radical": "日"
  },
  {
@@ -2459,8 +2424,8 @@
   "example": "外面下雪了。",
   "examplePinyin": "Wàimiàn xià xuě le.",
   "exampleEnglish": "It's snowing outside.",
-  "emoji": "❄️",
-  "radical": "雨"
+  "radical": "雨",
+  "emoji": "❄️"
  },
  {
   "id": "2-037",
@@ -2471,8 +2436,8 @@
   "example": "你喜欢什么颜色？",
   "examplePinyin": "Nǐ xǐhuan shénme yánsè?",
   "exampleEnglish": "What color do you like?",
-  "emoji": "🎨",
-  "radical": "页"
+  "radical": "页",
+  "emoji": "🌈"
  },
  {
   "id": "2-036",
@@ -2483,8 +2448,8 @@
   "example": "她的眼睛很大。",
   "examplePinyin": "Tā de yǎnjing hěn dà.",
   "exampleEnglish": "She has big eyes.",
-  "emoji": "👁️",
-  "radical": "目"
+  "radical": "目",
+  "emoji": "👁️"
  },
  {
   "id": "2-123",
@@ -2558,7 +2523,6 @@
   "pinyin": "yīn",
   "english": "cloudy; overcast",
   "level": 2,
-  "emoji": "☁️",
   "radical": "阝"
  },
  {
@@ -2570,8 +2534,8 @@
   "example": "我每个星期去游泳。",
   "examplePinyin": "Wǒ měi ge xīngqī qù yóu yǒng.",
   "exampleEnglish": "I go swimming every week.",
-  "emoji": "🏊",
-  "radical": "氵"
+  "radical": "氵",
+  "emoji": "🏊"
  },
  {
   "id": "2-132",
@@ -2632,8 +2596,8 @@
   "example": "我早上七点起床。",
   "examplePinyin": "Wǒ zǎoshang qī diǎn qǐ chuáng.",
   "exampleEnglish": "I get up at seven in the morning.",
-  "emoji": "🌅",
-  "radical": "日"
+  "radical": "日",
+  "emoji": "🌅"
  },
  {
   "id": "2-138",
@@ -2657,7 +2621,6 @@
   "pinyin": "zhàngfu",
   "english": "husband",
   "level": 2,
-  "emoji": "🤵",
   "radical": "一"
  },
  {
@@ -2754,7 +2717,6 @@
   "example": "阿姨，您好！",
   "examplePinyin": "Āyí, nín hǎo!",
   "exampleEnglish": "Hello, auntie!",
-  "emoji": "👩",
   "radical": "阝"
  },
  {
@@ -2771,7 +2733,6 @@
   "pinyin": "ǎi",
   "english": "low; short (in length)",
   "level": 3,
-  "emoji": "🧍",
   "radical": "矢"
  },
  {
@@ -2870,7 +2831,6 @@
   "pinyin": "bǎo",
   "english": "to eat till full; satisfied",
   "level": 3,
-  "emoji": "😋",
   "radical": "饣"
  },
  {
@@ -2915,8 +2875,8 @@
   "example": "明天有足球比赛。",
   "examplePinyin": "Míngtiān yǒu zúqiú bǐsài.",
   "exampleEnglish": "There's a soccer match tomorrow.",
-  "emoji": "🏆",
-  "radical": "比"
+  "radical": "比",
+  "emoji": "🏆"
  },
  {
   "id": "3-055",
@@ -2967,8 +2927,8 @@
   "example": "这个宾馆很便宜。",
   "examplePinyin": "Zhège bīnguǎn hěn piányi.",
   "exampleEnglish": "This hotel is cheap.",
-  "emoji": "🏨",
-  "radical": "宀"
+  "radical": "宀",
+  "emoji": "🏨"
  },
  {
   "id": "3-006",
@@ -2979,8 +2939,8 @@
   "example": "牛奶在冰箱里。",
   "examplePinyin": "Niúnǎi zài bīngxiāng lǐ.",
   "exampleEnglish": "The milk is in the fridge.",
-  "emoji": "🧊",
-  "radical": "冫"
+  "radical": "冫",
+  "emoji": "🧊"
  },
  {
   "id": "3-060",
@@ -3209,8 +3169,8 @@
   "example": "我坐地铁上班。",
   "examplePinyin": "Wǒ zuò dìtiě shàng bān.",
   "exampleEnglish": "I take the subway to work.",
-  "emoji": "🚇",
-  "radical": "土"
+  "radical": "土",
+  "emoji": "🚇"
  },
  {
   "id": "3-082",
@@ -3306,8 +3266,8 @@
   "example": "他每天早上锻炼身体。",
   "examplePinyin": "Tā měi tiān zǎoshang duànliàn shēntǐ.",
   "exampleEnglish": "He exercises every morning.",
-  "emoji": "🏋️",
-  "radical": "钅"
+  "radical": "钅",
+  "emoji": "🏋️"
  },
  {
   "id": "3-092",
@@ -3323,7 +3283,6 @@
   "pinyin": "è",
   "english": "to be hungry; hungry; to starve (sb)",
   "level": 3,
-  "emoji": "😫",
   "radical": "饣"
  },
  {
@@ -3352,8 +3311,8 @@
   "example": "我发烧了，不能去上课。",
   "examplePinyin": "Wǒ fā shāo le, bù néng qù shàng kè.",
   "exampleEnglish": "I have a fever and can't go to class.",
-  "emoji": "🤒",
-  "radical": "又"
+  "radical": "又",
+  "emoji": "🤒"
  },
  {
   "id": "3-096",
@@ -3596,7 +3555,7 @@
   "pinyin": "hēibǎn",
   "english": "blackboard",
   "level": 3,
-  "emoji": "🧑‍🏫",
+  "emoji": "🖍️",
   "radical": "黑"
  },
  {
@@ -3897,7 +3856,6 @@
   "pinyin": "jīnglǐ",
   "english": "manager; director",
   "level": 3,
-  "emoji": "👔",
   "radical": "纟"
  },
  {
@@ -3960,7 +3918,6 @@
   "pinyin": "kě",
   "english": "thirsty",
   "level": 3,
-  "emoji": "🥵",
   "radical": "氵"
  },
  {
@@ -3977,7 +3934,6 @@
   "pinyin": "kèrén",
   "english": "visitor; guest; customer",
   "level": 3,
-  "emoji": "🛎️",
   "radical": "宀"
  },
  {
@@ -3986,7 +3942,7 @@
   "pinyin": "kōngtiáo",
   "english": "air conditioning; air conditioner (including units that…",
   "level": 3,
-  "emoji": "❄️",
+  "emoji": "🌀",
   "radical": "穴"
  },
  {
@@ -4039,7 +3995,6 @@
   "pinyin": "lǎo",
   "english": "old",
   "level": 3,
-  "emoji": "🧓",
   "radical": "老"
  },
  {
@@ -4115,7 +4070,7 @@
   "pinyin": "lóu",
   "english": "building; floor",
   "level": 3,
-  "emoji": "🏢",
+  "emoji": "🏬",
   "radical": "木"
  },
  {
@@ -4212,7 +4167,6 @@
   "pinyin": "nǎinai",
   "english": "grandma (father's mother)",
   "level": 3,
-  "emoji": "👵",
   "radical": "女"
  },
  {
@@ -4253,7 +4207,6 @@
   "pinyin": "niánqīng",
   "english": "young",
   "level": 3,
-  "emoji": "🧑",
   "radical": "干"
  },
  {
@@ -4300,7 +4253,6 @@
   "pinyin": "pàng",
   "english": "fat; chubby",
   "level": 3,
-  "emoji": "🐷",
   "radical": "⺼"
  },
  {
@@ -4362,7 +4314,6 @@
   "pinyin": "qí",
   "english": "to ride (bike, horse)",
   "level": 3,
-  "emoji": "🚴",
   "radical": "马"
  },
  {
@@ -4514,7 +4465,6 @@
   "pinyin": "shòu",
   "english": "thin; to lose weight; (of clothing) tight",
   "level": 3,
-  "emoji": "🧍",
   "radical": "疒"
  },
  {
@@ -4523,7 +4473,6 @@
   "pinyin": "shūshu",
   "english": "father's younger brother; uncle; Taiwan pr. [shú shu]",
   "level": 3,
-  "emoji": "👨",
   "radical": "又"
  },
  {
@@ -4540,7 +4489,7 @@
   "pinyin": "shù",
   "english": "tree; to cultivate; to set up",
   "level": 3,
-  "emoji": "🌳",
+  "emoji": "🌲",
   "radical": "木"
  },
  {
@@ -4626,7 +4575,6 @@
   "pinyin": "téng",
   "english": "(it) hurts; sore; to love dearly",
   "level": 3,
-  "emoji": "🤕",
   "radical": "疒"
  },
  {
@@ -4831,7 +4779,7 @@
   "pinyin": "xià",
   "english": "summer",
   "level": 3,
-  "emoji": "🏖️",
+  "emoji": "🌻",
   "radical": "夊"
  },
  {
@@ -4884,7 +4832,6 @@
   "pinyin": "xiǎoxīn",
   "english": "to be careful; to take care",
   "level": 3,
-  "emoji": "⚠️",
   "radical": "小"
  },
  {
@@ -4893,7 +4840,6 @@
   "pinyin": "xiàozhǎng",
   "english": "(college, university) president; headmaster",
   "level": 3,
-  "emoji": "🧑‍🏫",
   "radical": "木"
  },
  {
@@ -4911,7 +4857,6 @@
   "pinyin": "xīnwén",
   "english": "news",
   "level": 3,
-  "emoji": "📰",
   "radical": "斤"
  },
  {
@@ -5002,7 +4947,6 @@
   "pinyin": "yéye",
   "english": "grandpa (father's father)",
   "level": 3,
-  "emoji": "👴",
   "radical": "父"
  },
  {

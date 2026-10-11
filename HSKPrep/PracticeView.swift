@@ -240,9 +240,14 @@ struct QuizView: View {
         switch mode {
         case .meaning:
             // Words that have a picture get picture questions half of the time.
+            // Each photo is the right answer at most once per session.
+            var usedPhotos = Set<String>()
             items = pool.shuffled().prefix(10).compactMap { w in
-                QuizBuilder.item(kind: w.emoji != nil && Bool.random() ? .choosePicture : .chooseMeaning,
-                                 word: w, distractors: levelWords)
+                let photo = ExamBuilder.identity(w.emoji)
+                let usePicture = w.emoji != nil && Bool.random() && !usedPhotos.contains(photo)
+                if usePicture { usedPhotos.insert(photo) }
+                return QuizBuilder.item(kind: usePicture ? .choosePicture : .chooseMeaning,
+                                        word: w, distractors: levelWords)
             }
         case .typing:
             items = QuizBuilder.make(kinds: [.typePinyin], words: Array(pool.shuffled().prefix(8)), distractors: levelWords)
@@ -275,17 +280,18 @@ struct QuizView: View {
 
                 if let audio = q.audio {
                     HStack {
-                        Button { Speaker.shared.speak(audio, speed: speed) } label: {
+                        Button { Speaker.shared.speak(audio, speed: speed, tag: q.id.uuidString) } label: {
                             Label("Play", systemImage: "speaker.wave.3.fill").frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
-                        Button { Speaker.shared.speak(audio, speed: .slow) } label: {
+                        Button { Speaker.shared.speak(audio, speed: .slow, tag: q.id.uuidString) } label: {
                             Image(systemName: "tortoise.fill").padding(.horizontal, 6)
                         }
                         .buttonStyle(.bordered)
                     }
                     .controlSize(.large)
-                    .onAppear { Speaker.shared.speak(audio, speed: speed) }
+                    .onAppear { Speaker.shared.speak(audio, speed: speed, tag: q.id.uuidString) }
+                    if q.kind == .listenSentence { PlaybackProgressView(tag: q.id.uuidString) }
                     if q.kind == .chooseTones {
                         Text(q.word.hanzi).font(.system(size: 52, weight: .medium)).frame(maxWidth: .infinity)
                     }

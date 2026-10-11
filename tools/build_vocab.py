@@ -70,6 +70,25 @@ EMOJI = {
     "客人": "🛎️", "经理": "👔", "校长": "🧑‍🏫", "年轻": "🧑", "老": "🧓", "蛋": "🥚",
 }
 
+
+# ── Picture clean-up ──
+# Every picture must show ONE clear thing. Abstract words (big, fast, love…) and words that would
+# share a photo with another word (older brother vs dad, grandma vs grandpa…) get no picture,
+# so picture questions are never ambiguous.
+NO_PICTURE = [
+    "大", "小", "高", "矮", "胖", "瘦", "快", "慢", "热", "冷", "渴", "饿", "饱", "累", "爱", "喜欢", "漂亮",
+    "快乐", "年轻", "老", "看", "听", "说话", "工作", "开", "送", "玩", "坐", "喝", "哥哥", "姐姐", "弟弟",
+    "妹妹", "丈夫", "先生", "小姐", "爷爷", "奶奶", "阿姨", "叔叔", "校长", "经理", "同学", "上班", "客人",
+    "新闻", "晴", "阴", "生病", "骑", "生日", "谢谢", "对不起", "再见", "小心", "疼",
+]
+for _w in NO_PICTURE:
+    EMOJI.pop(_w, None)
+EMOJI.update({
+    "爸爸": "👨", "妈妈": "👩", "男人": "🧔", "女人": "👩‍🦰", "吃": "😋", "饭馆": "🍴", "水果": "🧺",
+    "晚上": "🌃", "空调": "🌀", "树": "🌲", "颜色": "🌈", "夏": "🌻", "旅游": "🏖️", "教室": "📐",
+    "楼": "🏬", "黑板": "🖍️", "笑": "😂", "哭": "😢", "生气": "😠", "字": "🀄", "盘子": "🍽️",
+})
+
 # Hand-checked pinyin/English for words with several readings (the source lists
 # the readings in no particular order) or whose dictionary meaning isn't the HSK one.
 OVERRIDES = {
@@ -206,6 +225,7 @@ def main():
                 }
                 if h in OVERRIDES:
                     w["pinyin"], w["english"] = OVERRIDES[h]
+            w.pop("emoji", None)
             if h in EMOJI:
                 w["emoji"] = EMOJI[h]
             if entry.get("radical"):
@@ -216,6 +236,7 @@ def main():
     for w in existing:
         if w["hanzi"] not in seen:
             w = dict(w)
+            w.pop("emoji", None)
             if w["hanzi"] in EMOJI:
                 w["emoji"] = EMOJI[w["hanzi"]]
             out.append(w)
