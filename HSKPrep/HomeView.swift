@@ -39,11 +39,13 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
-                    goalCard
-                    planCard
+                    heroCard
                     continueButton
+                    planCard
+                    wordOfTheDay
+                    tipCard
                     HStack(spacing: 12) {
-                        statTile("\(Stats.streak(days))", "day streak", "flame.fill", .orange)
+                        statTile("\(learnedCount)", "words started", "character.book.closed.fill", Theme.jade)
                         statTile("\(weekMinutes)", "min this week", "clock.fill", .blue)
                     }
                     levelCard
@@ -51,7 +53,9 @@ struct HomeView: View {
                 }
                 .padding()
             }
-            .navigationTitle("你好! 👋")
+            .background(Color(.systemGroupedBackground))
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button { showSettings = true } label: { Image(systemName: "person.crop.circle") }
             }
@@ -61,26 +65,85 @@ struct HomeView: View {
 
     // MARK: Cards
 
-    private var goalCard: some View {
-        HStack(spacing: 16) {
-            ZStack {
-                Circle().stroke(.quaternary, lineWidth: 10)
-                Circle()
-                    .trim(from: 0, to: min(1, Double(minutesToday) / Double(max(goalMinutes, 1))))
-                    .stroke(.tint, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                Text("\(minutesToday)").font(.title2.bold())
-            }
-            .frame(width: 72, height: 72)
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Daily goal").font(.headline)
-                Text("\(minutesToday) of \(goalMinutes) minutes")
-                    .foregroundStyle(.secondary)
-                if minutesToday >= goalMinutes { Text("Goal reached 🎉").font(.subheadline.bold()) }
+    /// Greeting, level and today's goal ring on a red gradient.
+    private var heroCard: some View {
+        HStack(spacing: 18) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(greeting).font(.system(size: 34, weight: .heavy))
+                Text("HSK \(level) · \(Date.now.formatted(.dateTime.weekday(.wide).day().month()))")
+                    .font(.subheadline).opacity(0.9)
+                HStack(spacing: 6) {
+                    Image(systemName: "flame.fill")
+                    Text("\(Stats.streak(days)) day streak")
+                }
+                .font(.subheadline.bold())
+                .padding(.horizontal, 10).padding(.vertical, 5)
+                .background(.white.opacity(0.2), in: Capsule())
             }
             Spacer()
+            ZStack {
+                Circle().stroke(.white.opacity(0.25), lineWidth: 10)
+                Circle()
+                    .trim(from: 0, to: min(1, Double(minutesToday) / Double(max(goalMinutes, 1))))
+                    .stroke(.white, style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
+                    .animation(.easeOut(duration: 0.8), value: minutesToday)
+                VStack(spacing: 0) {
+                    Text("\(minutesToday)").font(.title.bold())
+                    Text("/\(goalMinutes) min").font(.caption2)
+                }
+            }
+            .frame(width: 92, height: 92)
         }
-        .card()
+        .foregroundStyle(.white)
+        .padding(20)
+        .background(Theme.heroGradient, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .shadow(color: Theme.accent.opacity(0.3), radius: 12, y: 6)
+    }
+
+    private var greeting: String {
+        switch Calendar.current.component(.hour, from: .now) {
+        case 5..<12: "早上好!"
+        case 12..<18: "下午好!"
+        default: "晚上好!"
+        }
+    }
+
+    /// A different word each day, with its photo.
+    @ViewBuilder private var wordOfTheDay: some View {
+        let pictured = levelWords.filter { $0.emoji != nil }
+        if !pictured.isEmpty {
+            let day = Calendar.current.ordinality(of: .day, in: .era, for: .now) ?? 0
+            let word = pictured[day % pictured.count]
+            NavigationLink { WordDetailView(word: word) } label: {
+                HStack(spacing: 14) {
+                    PictureView(picture: word.emoji ?? "", size: 84, corner: 14)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("WORD OF THE DAY").font(.caption2.bold()).foregroundStyle(Theme.accent)
+                        Text(word.hanzi).font(.title.bold())
+                        Text("\(word.pinyin) · \(word.english)").font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
+                    }
+                    Spacer()
+                    AudioButtons(text: word.hanzi).font(.body)
+                }
+                .card()
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    private var tipCard: some View {
+        let day = Calendar.current.ordinality(of: .day, in: .era, for: .now) ?? 0
+        let tip = StudyTips.all[day % StudyTips.all.count]
+        return NavigationLink { StudyTipsView() } label: {
+            VStack(alignment: .leading, spacing: 6) {
+                Label("Tip of the day", systemImage: "lightbulb.fill").font(.caption.bold()).foregroundStyle(Theme.gold)
+                Text(tip.title).font(.headline)
+                Text(tip.body).font(.subheadline).foregroundStyle(.secondary).lineLimit(3)
+            }
+            .card()
+        }
+        .buttonStyle(.plain)
     }
 
     private var planCard: some View {
@@ -127,8 +190,9 @@ struct HomeView: View {
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.tint, in: RoundedRectangle(cornerRadius: 16))
+                .background(Theme.accent, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                 .foregroundStyle(.white)
+                .shadow(color: Theme.accent.opacity(0.25), radius: 8, y: 4)
         }
     }
 
@@ -150,6 +214,7 @@ struct HomeView: View {
                 Text("\(learnedCount)/\(levelWords.count) words started").font(.subheadline).foregroundStyle(.secondary)
             }
             ProgressView(value: Double(learnedCount), total: Double(max(levelWords.count, 1)))
+                .tint(Theme.levelColor(level))
         }
         .card()
     }
@@ -172,7 +237,8 @@ extension View {
     func card() -> some View {
         padding()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(.background.secondary, in: RoundedRectangle(cornerRadius: 16))
+            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .shadow(color: .black.opacity(0.06), radius: 8, y: 3)
     }
 }
 
@@ -207,6 +273,9 @@ struct SettingsView: View {
                             get: { Date(timeIntervalSince1970: examDate) },
                             set: { examDate = $0.timeIntervalSince1970 }), in: Date()..., displayedComponents: .date)
                     }
+                }
+                Section("Photos") {
+                    NavigationLink("Photo credits & offline download") { PhotoCreditsView() }
                 }
                 Section("Syllabus") {
                     LabeledContent("Version", value: Syllabus.name)

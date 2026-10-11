@@ -7,7 +7,13 @@ targets:
   HSKPrep:
     type: application
     platform: iOS
-    sources: [HSKPrep]
+    sources:
+      - path: HSKPrep
+        excludes: ["BundledPhotos/**"]
+      # Folder reference so photos keep their subfolder in the app bundle.
+      - path: HSKPrep/BundledPhotos
+        type: folder
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.hskprep

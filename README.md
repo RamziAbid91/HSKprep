@@ -27,4 +27,5 @@ claude
 ## Content
 
 - Word lists: HSK 2.0 levels 1–3 from [complete-hsk-vocabulary](https://github.com/drkameleon/complete-hsk-vocabulary) (MIT licence, see `tools/source/`). Rebuild with `python3 tools/build_vocab.py`.
+- Photos: lead images of English Wikipedia articles (Wikimedia Commons, free licences), downloaded by the app and cached. Run `python3 tools/download_photos.py` on a Mac to bundle them for offline use; credits are in the app (Settings → Photo credits) and in `HSKPrep/BundledPhotos/CREDITS.txt`.
 - Exam-style questions are original practice material in the format of the HSK papers (not official questions). Rebuild with `pip install pypinyin && python3 tools/build_content.py`.

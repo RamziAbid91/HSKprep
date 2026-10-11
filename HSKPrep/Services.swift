@@ -211,4 +211,32 @@ enum Pinyin {
         let t = normalize(typed)
         return !t.isEmpty && t == normalize(answer)
     }
+
+    private static let toneSets: [[Character]] = [
+        ["ā", "á", "ǎ", "à"], ["ē", "é", "ě", "è"], ["ī", "í", "ǐ", "ì"],
+        ["ō", "ó", "ǒ", "ò"], ["ū", "ú", "ǔ", "ù"], ["ǖ", "ǘ", "ǚ", "ǜ"],
+    ]
+
+    /// Wrong-tone versions of a pinyin word, e.g. "māma" → "mámà", "mǎma"… (for the tone trainer).
+    static func toneVariants(_ pinyin: String, count: Int) -> [String] {
+        let chars = Array(pinyin)
+        let marked = chars.indices.filter { i in toneSets.contains { $0.contains(chars[i]) } }
+        guard !marked.isEmpty else { return [] }
+        var out: [String] = []
+        var tries = 0
+        while out.count < count && tries < 60 {
+            tries += 1
+            var c = chars
+            for i in marked where marked.count == 1 || Bool.random() {
+                guard let set = toneSets.first(where: { $0.contains(c[i]) }),
+                      let current = set.firstIndex(of: c[i]) else { continue }
+                var t = Int.random(in: 0..<4)
+                if t == current { t = (t + 1) % 4 }
+                c[i] = set[t]
+            }
+            let v = String(c)
+            if v != pinyin && !out.contains(v) { out.append(v) }
+        }
+        return out
+    }
 }

@@ -18,6 +18,7 @@ struct Word: Codable, Identifiable, Hashable {
     let examplePinyin: String?
     let exampleEnglish: String?
     let emoji: String?    // picture for drawable words
+    let radical: String?  // radical of the first character (meaning hint)
 }
 
 /// Skill areas tracked for accuracy and weak-area analysis.

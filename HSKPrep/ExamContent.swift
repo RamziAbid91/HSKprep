@@ -184,6 +184,11 @@ enum ExamBuilder {
         DialogueLine(speaker: "N", text: text, pinyin: pinyin)
     }
 
+    private static func samePicture(_ a: Word, _ b: Word) -> Bool {
+        let id = { (w: Word) in w.emoji.map { PhotoStore.shared.titles[$0] ?? $0 } ?? w.id }
+        return id(a) == id(b)
+    }
+
     private static func pictureWords(_ level: Int) -> [Word] {
         var words = VocabularyStore.all.filter { $0.level == level && $0.emoji != nil }
         if words.count < 8 { words += VocabularyStore.all.filter { $0.level < level && $0.emoji != nil } }
@@ -194,10 +199,12 @@ enum ExamBuilder {
     private static func otherPictures(excluding emoji: String, level: Int, count: Int) -> [String] {
         let scenes = ContentStore.listening(level: level, kinds: ["picture"], atLeast: 10).compactMap(\.picture)
         let words = pictureWords(level).compactMap(\.emoji)
-        var seen: Set<String> = [emoji]
+        // Two pictures can share a photo (e.g. 👴 and 👵) — compare by what is actually shown.
+        let identity = { (e: String) in PhotoStore.shared.titles[e] ?? e }
+        var seen: Set<String> = [identity(emoji)]
         var out: [String] = []
-        for e in (scenes.shuffled() + words.shuffled()) where !seen.contains(e) {
-            seen.insert(e); out.append(e)
+        for e in (scenes.shuffled() + words.shuffled()) where !seen.contains(identity(e)) {
+            seen.insert(identity(e)); out.append(e)
             if out.count == count { break }
         }
         return out
@@ -223,7 +230,7 @@ enum ExamBuilder {
         let words = pictureWords(level).shuffled()
         return words.prefix(n).map { w in
             let match = Bool.random()
-            let other = words.first { $0.id != w.id && $0.emoji != w.emoji }
+            let other = words.first { $0.id != w.id && samePicture($0, w) == false }
             let shownWord = match ? w : (other ?? w)
             return ExamQuestion(
                 section: .listening, part: "Picture: true or false", instruction: "Listen. Does the word match the picture?",
@@ -302,11 +309,11 @@ enum ExamBuilder {
         let words = pictureWords(level).shuffled()
         return words.prefix(n).map { w in
             let match = Bool.random()
-            let other = words.first { $0.id != w.id && $0.emoji != w.emoji } ?? w
+            let other = words.first { $0.id != w.id && samePicture($0, w) == false } ?? w
             let pic = match ? w.emoji : other.emoji
             return ExamQuestion(
                 section: .reading, part: "Word and picture", instruction: "Does the word match the picture?",
-                picture: pic, text: w.hanzi, options: ExamQuestion.trueFalse, answer: pic == w.emoji ? 0 : 1,
+                picture: pic, text: w.hanzi, options: ExamQuestion.trueFalse, answer: match || samePicture(other, w) ? 0 : 1,
                 itemID: w.id, transcript: [narrator(w.hanzi, w.pinyin)], english: "\(w.hanzi) means “\(w.english)”.")
         }
     }

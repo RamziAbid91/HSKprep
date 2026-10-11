@@ -23,10 +23,23 @@ struct LearnView: View {
                     }
                     .pickerStyle(.segmented)
                     if let info = Self.levelInfo[level] {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("HSK \(level) — \(info.title)").font(.headline)
-                            Text(info.goal).font(.subheadline).foregroundStyle(.secondary)
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("HSK \(level)").font(.caption.bold()).opacity(0.85)
+                            Text(info.title).font(.title2.bold())
+                            Text(info.goal).font(.subheadline).opacity(0.9)
                         }
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .background(Theme.levelGradient(level), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+                    }
+                }
+
+                Section {
+                    NavigationLink { StudyTipsView() } label: {
+                        Label("Tips & tricks — tones, characters, exam strategy", systemImage: "lightbulb.fill")
+                            .foregroundStyle(Theme.gold)
                     }
                 }
 
@@ -36,7 +49,10 @@ struct LearnView: View {
                     }
                 }
 
-                Section("Grammar") {
+                Section("Grammar · \(GrammarStore.points(level: level).count) lessons") {
+                    NavigationLink { GrammarPracticeView(point: mixedPractice) } label: {
+                        Label("Mixed grammar quiz", systemImage: "shuffle").bold()
+                    }
                     ForEach(GrammarStore.points(level: level)) { point in
                         NavigationLink { GrammarLessonView(point: point) } label: {
                             HStack {
@@ -55,6 +71,16 @@ struct LearnView: View {
             }
             .navigationTitle("Learn")
         }
+    }
+
+    /// All exercises of this level's grammar points, mixed together.
+    private var mixedPractice: GrammarPoint {
+        let points = GrammarStore.points(level: level)
+        return GrammarPoint(
+            id: "g-mix-\(level)", level: level, title: "HSK \(level) grammar mix", summary: "Mixed practice",
+            explanation: "Mixed practice from all HSK \(level) grammar lessons.", examples: [], commonMistake: "",
+            builders: Array(points.flatMap(\.builders).shuffled().prefix(5)),
+            blanks: Array(points.flatMap(\.blanks).shuffled().prefix(7)))
     }
 }
 
@@ -78,7 +104,11 @@ struct WordListView: View {
         List(words) { word in
             NavigationLink { WordDetailView(word: word) } label: {
                 HStack {
-                    Text(word.emoji ?? "").frame(width: 30)
+                    Group {
+                        if let pic = word.emoji { PictureView(picture: pic, size: 40, corner: 8) }
+                        else { Color.clear }
+                    }
+                    .frame(width: 40, height: 40)
                     Text(word.hanzi).font(.title3).frame(minWidth: 60, alignment: .leading)
                     VStack(alignment: .leading) {
                         Text(word.pinyin).foregroundStyle(.tint)
@@ -108,7 +138,7 @@ struct WordDetailView: View {
         List {
             Section {
                 VStack(spacing: 10) {
-                    if let pic = word.emoji { Text(pic).font(.system(size: 64)) }
+                    if let pic = word.emoji { PictureView(picture: pic, size: 220, corner: 24) }
                     Text(word.hanzi).font(.system(size: 80, weight: .medium))
                     Text(word.pinyin).font(.title).foregroundStyle(.tint)
                     Text(word.english).font(.title3)
@@ -130,13 +160,17 @@ struct WordDetailView: View {
                     }
                 }
             }
-            if word.hanzi.count > 1 {
-                Section("Characters") {
-                    ForEach(Array(word.hanzi.enumerated()), id: \.offset) { _, ch in
-                        Text(String(ch)).font(.title2)
+            if let hint = Radicals.hint(for: word) {
+                Section("Memory trick") {
+                    Label(hint, systemImage: "lightbulb.fill").foregroundStyle(.primary)
+                    let family = VocabularyStore.all.filter { $0.radical == word.radical && $0.id != word.id }.prefix(8)
+                    if !family.isEmpty {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Other words with \(word.radical ?? ""):").font(.caption).foregroundStyle(.secondary)
+                            Text(family.map { "\($0.hanzi) \($0.english.components(separatedBy: ";").first ?? "")" }.joined(separator: " · "))
+                                .font(.subheadline)
+                        }
                     }
-                    Text("Stroke-order animations coming in a later version.")
-                        .font(.caption).foregroundStyle(.secondary)
                 }
             }
         }
@@ -173,6 +207,14 @@ struct GrammarLessonView: View {
             Section("Common mistake") {
                 Label(point.commonMistake, systemImage: "exclamationmark.triangle")
                     .foregroundStyle(.orange)
+            }
+            if !point.tips.isEmpty {
+                Section("Tricks to remember") {
+                    ForEach(point.tips, id: \.self) { tip in
+                        Label(tip, systemImage: "lightbulb.fill")
+                            .symbolRenderingMode(.multicolor)
+                    }
+                }
             }
             Section {
                 NavigationLink { GrammarPracticeView(point: point) } label: {

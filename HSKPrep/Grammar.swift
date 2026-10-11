@@ -31,13 +31,21 @@ struct GrammarPoint: Identifiable, Hashable {
     let commonMistake: String
     let builders: [SentenceBuilder]
     let blanks: [FillBlank]
+    var tips: [String] = []     // memory tricks
 }
 
 /// Original teaching content (not official exam material).
 enum GrammarStore {
     static func points(level: Int) -> [GrammarPoint] { all.filter { $0.level == level } }
 
-    static let all: [GrammarPoint] = [
+    /// Every grammar point, with its memory tricks attached.
+    static let all: [GrammarPoint] = (core + more).map { p in
+        var p = p
+        p.tips += extraTips[p.id] ?? []
+        return p
+    }
+
+    private static let core: [GrammarPoint] = [
         // MARK: HSK 1
         GrammarPoint(
             id: "g-shi", level: 1, title: "是 — to be", summary: "A 是 B: linking two nouns",

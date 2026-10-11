@@ -22,10 +22,10 @@ struct QuestionCard: View {
             if let audio = question.audio { audioControls(audio) }
 
             if let picture = question.picture {
-                Text(picture)
-                    .font(.system(size: 90))
-                    .frame(maxWidth: .infinity, minHeight: 140)
-                    .background(.background.secondary, in: RoundedRectangle(cornerRadius: 20))
+                PictureView(picture: picture, size: 220, corner: 22)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 6)
+                    .background(.background.secondary, in: RoundedRectangle(cornerRadius: 24))
             }
 
             if let text = question.text {
@@ -89,11 +89,13 @@ struct QuestionCard: View {
                   spacing: 12) {
             ForEach(question.options.indices, id: \.self) { i in
                 Button { if !revealed { selected = i } } label: {
-                    VStack(spacing: 4) {
-                        Text(question.options[i].picture ?? "").font(.system(size: 56))
+                    VStack(spacing: 6) {
+                        PictureView(picture: question.options[i].picture ?? "",
+                                    size: question.options.count == 3 ? 96 : 130, corner: 12)
                         Text(Self.letters[i]).font(.headline)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 110)
+                    .padding(8)
+                    .frame(maxWidth: .infinity)
                     .background(color(for: i).opacity(i == selected || (revealed && i == question.answer) ? 0.22 : 0.08),
                                 in: RoundedRectangle(cornerRadius: 16))
                     .overlay(RoundedRectangle(cornerRadius: 16)
@@ -184,6 +186,8 @@ struct ExamPracticeView: View {
     @State private var revealed = false
     @State private var plays = 0
     @State private var score = 0
+    @State private var resultTick = 0
+    @State private var lastOK = false
 
     var body: some View {
         ScrollView {
@@ -210,6 +214,7 @@ struct ExamPracticeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { if questions.isEmpty { start() } }
         .onDisappear { Speaker.shared.stop() }
+        .sensoryFeedback(trigger: resultTick) { _, _ in lastOK ? .success : .error }
         .studyTimer()
     }
 
@@ -237,6 +242,8 @@ struct ExamPracticeView: View {
         let q = questions[index]
         revealed = true
         if s == q.answer { score += 1 }
+        lastOK = s == q.answer
+        resultTick += 1
         Tracker.record(context, skill: q.itemID.hasPrefix("g-") ? .grammar : section.skill, itemID: q.itemID, correct: s == q.answer)
     }
 

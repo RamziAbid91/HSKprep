@@ -7,6 +7,16 @@ enum ReviewGrade: Int, CaseIterable {
     case good  = 4
     case easy  = 5
 
+    /// When the card comes back (rough guide shown under the button).
+    var hint: String {
+        switch self {
+        case .again: "< 1 min"
+        case .hard:  "soon"
+        case .good:  "later"
+        case .easy:  "much later"
+        }
+    }
+
     var label: String {
         switch self {
         case .again: "Again"

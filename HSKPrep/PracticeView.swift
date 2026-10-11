@@ -34,6 +34,12 @@ struct PracticeView: View {
                     NavigationLink { QuizView(mode: .listening) } label: {
                         row("Word listening drill", "Hear a word or sentence, pick the meaning", "ear")
                     }
+                    NavigationLink { QuizView(mode: .tones) } label: {
+                        row("Tone trainer", "Hear a word, pick the right tones", "waveform.path")
+                    }
+                    NavigationLink { QuizView(mode: .dictation) } label: {
+                        row("Dictation", "Hear a word, type its pinyin", "keyboard.badge.ellipsis")
+                    }
                 }
                 Section("Reading 阅读") {
                     NavigationLink { ExamPracticeView(section: .reading) } label: {
@@ -47,8 +53,9 @@ struct PracticeView: View {
                     }
                 }
                 Section {
-                    Label("Pronunciation & tone drills are coming in a later version.", systemImage: "waveform")
-                        .font(.footnote).foregroundStyle(.secondary)
+                    NavigationLink { StudyTipsView() } label: {
+                        row("Tips & tricks", "Tones, radicals, exam strategy", "lightbulb.fill")
+                    }
                 }
             }
             .navigationTitle("Practice")
@@ -75,27 +82,30 @@ struct PracticeView: View {
 // MARK: - Quiz model
 
 enum QuizMode {
-    case meaning, typing, listening, mistakes
+    case meaning, typing, listening, mistakes, tones, dictation
     var title: String {
         switch self {
         case .meaning: "Multiple choice"
         case .typing: "Typing practice"
         case .listening: "Word listening"
         case .mistakes: "Mistake review"
+        case .tones: "Tone trainer"
+        case .dictation: "Dictation"
         }
     }
 }
 
 enum ItemKind {
-    case chooseMeaning, choosePicture, typePinyin, listenWord, listenTrueFalse, listenSentence
+    case chooseMeaning, choosePicture, typePinyin, listenWord, listenTrueFalse, listenSentence, chooseTones, dictation
 
     var skill: Skill {
         switch self {
         case .chooseMeaning, .choosePicture: .vocabulary
-        case .typePinyin: .typing
-        case .listenWord, .listenTrueFalse, .listenSentence: .listening
+        case .typePinyin, .dictation: .typing
+        case .listenWord, .listenTrueFalse, .listenSentence, .chooseTones: .listening
         }
     }
+    var isTyping: Bool { self == .typePinyin || self == .dictation }
     var isListening: Bool { skill == .listening }
 }
 
@@ -110,7 +120,7 @@ struct QuizItem: Identifiable {
     /// What the learner hears.
     var audio: String? {
         switch kind {
-        case .listenWord, .listenTrueFalse: word.hanzi
+        case .listenWord, .listenTrueFalse, .chooseTones, .dictation: word.hanzi
         case .listenSentence: word.example
         default: nil
         }
@@ -124,6 +134,8 @@ struct QuizItem: Identifiable {
         case .listenWord: "Listen and choose the word you hear."
         case .listenTrueFalse: "Listen. True or false: the word means “\(statement ?? "")”."
         case .listenSentence: "Listen to the sentence. What does it mean?"
+        case .chooseTones: "Listen carefully. Which tones do you hear?"
+        case .dictation: "Listen and type the pinyin (tones optional)."
         }
     }
 }
@@ -143,7 +155,10 @@ enum QuizBuilder {
         case .choosePicture:
             guard let pic = word.emoji else { return item(kind: .chooseMeaning, word: word, distractors: distractors) }
             var wrong: [String] = []
-            for e in others.compactMap(\.emoji) where e != pic && !wrong.contains(e) { wrong.append(e) }
+            let photo = { (e: String) in PhotoStore.shared.titles[e] ?? e }
+            for e in others.compactMap(\.emoji) where photo(e) != photo(pic) && !wrong.map(photo).contains(photo(e)) {
+                wrong.append(e)
+            }
             guard wrong.count >= 3 else { return item(kind: .chooseMeaning, word: word, distractors: distractors) }
             return QuizItem(kind: kind, word: word, options: ([pic] + wrong.prefix(3)).shuffled(), answer: pic)
         case .typePinyin:
@@ -155,6 +170,12 @@ enum QuizBuilder {
             let statement = isTrue ? word.english : (others.first?.english ?? word.english)
             return QuizItem(kind: kind, word: word, options: ["True", "False"],
                             answer: statement == word.english ? "True" : "False", statement: statement)
+        case .chooseTones:
+            let variants = Pinyin.toneVariants(word.pinyin, count: 3)
+            guard variants.count == 3 else { return nil }
+            return QuizItem(kind: kind, word: word, options: ([word.pinyin] + variants).shuffled(), answer: word.pinyin)
+        case .dictation:
+            return QuizItem(kind: kind, word: word, options: [], answer: word.pinyin)
         case .listenSentence:
             guard let meaning = word.exampleEnglish, word.example != nil else { return nil }
             let wrong = others.compactMap(\.exampleEnglish).prefix(3)
@@ -181,6 +202,8 @@ struct QuizView: View {
     @State private var correctCount = 0
     @State private var built = false
     @State private var speed: Speaker.Speed = .normal
+    @State private var resultTick = 0
+    @State private var lastOK = false
 
     private var finished: Bool { built && index >= items.count }
 
@@ -202,6 +225,7 @@ struct QuizView: View {
         .navigationTitle(mode.title)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { if !built { build(); built = true } }
+        .sensoryFeedback(trigger: resultTick) { _, _ in lastOK ? .success : .error }
         .studyTimer()
     }
 
@@ -230,6 +254,10 @@ struct QuizView: View {
             // Faster audio once the learner is consistently accurate.
             let acc = Stats.accuracy(attempts, skill: .listening, days: 14) ?? 0
             speed = acc >= 0.85 ? .fast : .normal
+        case .tones:
+            items = Array(pool.shuffled().compactMap { QuizBuilder.item(kind: .chooseTones, word: $0, distractors: levelWords) }.prefix(10))
+        case .dictation:
+            items = QuizBuilder.make(kinds: [.dictation], words: Array(pool.shuffled().prefix(8)), distractors: levelWords)
         case .mistakes:
             let words = Stats.mistakeWords(attempts).prefix(10).map(\.word)
             items = QuizBuilder.make(kinds: [.chooseMeaning, .listenWord, .typePinyin], words: Array(words),
@@ -258,11 +286,14 @@ struct QuizView: View {
                     }
                     .controlSize(.large)
                     .onAppear { Speaker.shared.speak(audio, speed: speed) }
+                    if q.kind == .chooseTones {
+                        Text(q.word.hanzi).font(.system(size: 52, weight: .medium)).frame(maxWidth: .infinity)
+                    }
                 } else {
                     Text(q.word.hanzi).font(.system(size: 60, weight: .medium)).frame(maxWidth: .infinity)
                 }
 
-                if q.kind == .typePinyin {
+                if q.kind.isTyping {
                     TextField("e.g. ni hao", text: $typed)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
@@ -270,6 +301,10 @@ struct QuizView: View {
                         .font(.title3)
                         .disabled(checked)
                         .onSubmit { if !typed.isEmpty { check(q) } }
+                } else if q.kind == .choosePicture {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+                        ForEach(q.options, id: \.self) { option in optionButton(option, q: q) }
+                    }
                 } else {
                     ForEach(q.options, id: \.self) { option in
                         optionButton(option, q: q)
@@ -296,9 +331,15 @@ struct QuizView: View {
         let color: Color = !checked ? (isPicked ? .accentColor : .secondary)
             : isAnswer ? .green : isPicked ? .red : .secondary
         return Button { if !checked { selected = option } } label: {
-            Text(option)
-                .font(q.kind == .choosePicture ? .system(size: 44) : q.kind == .listenWord ? .title2 : .body)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            Group {
+                if q.kind == .choosePicture {
+                    PictureView(picture: option, size: 110, corner: 12).frame(maxWidth: .infinity)
+                } else {
+                    Text(option)
+                        .font(q.kind == .listenWord || q.kind == .chooseTones ? .title2 : .body)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
                 .padding()
                 .background(color.opacity(isPicked || (checked && isAnswer) ? 0.2 : 0.08),
                             in: RoundedRectangle(cornerRadius: 12))
@@ -312,7 +353,7 @@ struct QuizView: View {
         return VStack(alignment: .leading, spacing: 8) {
             Label(right ? "Correct!" : "Not quite", systemImage: right ? "checkmark.circle.fill" : "xmark.circle.fill")
                 .font(.headline).foregroundStyle(right ? .green : .red)
-            if q.kind == .typePinyin && !right {
+            if q.kind.isTyping && !right {
                 Text("You typed: \(typed)").font(.subheadline)
             }
             if q.kind == .listenSentence, let ex = q.word.example {
@@ -340,13 +381,15 @@ struct QuizView: View {
     // MARK: Logic
 
     private func isCorrect(_ q: QuizItem) -> Bool {
-        q.kind == .typePinyin ? Pinyin.matches(typed, q.answer) : selected == q.answer
+        q.kind.isTyping ? Pinyin.matches(typed, q.answer) : selected == q.answer
     }
 
     private func check(_ q: QuizItem) {
         checked = true
         let ok = isCorrect(q)
         if ok { correctCount += 1 }
+        lastOK = ok
+        resultTick += 1
         Tracker.record(context, skill: q.kind.skill, itemID: q.word.id, correct: ok)
     }
 

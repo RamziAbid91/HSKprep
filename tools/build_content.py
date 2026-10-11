@@ -422,6 +422,113 @@ read_tf(3, "学习一种语言，最重要的是多听多说。很多人只知�
         "The speaker thinks you should speak a lot when learning a language.")
 
 
+# ══════════════════════════════════════════════════════════════════════
+# More items (batch 2)
+# ══════════════════════════════════════════════════════════════════════
+# HSK 1
+picture(1, ["我在学校学习汉语。"], "🏫", "I study Chinese at school.")
+picture(1, ["这是我的书。"], "📚", "This is my book.")
+picture(1, ["我喜欢吃米饭。"], "🍚", "I like eating rice.")
+picture(1, ["M:你看，天气太热了！", "F:是啊，我想喝水。"], "💧", "Look, it's so hot! — Yes, I want some water.")
+picture(1, ["F:你在做什么？", "M:我在打电话。"], "📞", "What are you doing? — I'm on the phone.")
+picture(1, ["M:这个椅子是谁的？", "F:是王老师的。"], "🪑", "Whose chair is this? — Teacher Wang's.")
+dialogue(1, ["M:你女儿在哪儿工作？", "F:她在医院工作，是医生。"], "女的的女儿做什么工作？",
+         ["老师", "医生", "学生"], 1, "Where does your daughter work? — At a hospital, she's a doctor.", "What is the woman's daughter's job?")
+dialogue(1, ["F:今天几号？", "M:今天九月八号，星期三。"], "今天星期几？",
+         ["星期一", "星期三", "星期八"], 1, "What's the date today? — September 8th, Wednesday.", "What day of the week is it today?")
+dialogue(1, ["M:你喜欢什么水果？", "F:我喜欢苹果，不喜欢西瓜。"], "女的喜欢什么？",
+         ["苹果", "西瓜", "米饭"], 0, "What fruit do you like? — I like apples, not watermelon.", "What does the woman like?")
+dialogue(1, ["F:你明天几点来？", "M:上午十点，我坐出租车来。"], "男的明天什么时候来？",
+         ["上午", "中午", "下午"], 0, "What time are you coming tomorrow? — 10 am, by taxi.", "When is the man coming tomorrow?")
+dialogue(1, ["M:你会写这个字吗？", "F:不会，你能写给我看看吗？"], "女的会写这个字吗？",
+         ["会", "不会", "不知道"], 1, "Can you write this character? — No, can you show me?", "Can the woman write this character?")
+dialogue(1, ["F:你的猫多大了？", "M:三岁了，它很喜欢睡觉。"], "男的的猫怎么样？",
+         ["很喜欢睡觉", "很大", "不吃东西"], 0, "How old is your cat? — Three. It loves sleeping.", "What is the man's cat like?")
+dialogue(1, ["M:你们学校有多少学生？", "F:有一千多个。"], "女的的学校有多少学生？",
+         ["一百多个", "一千多个", "十个"], 1, "How many students does your school have? — Over a thousand.", "How many students are at the woman's school?")
+reply(1, "你会说汉语吗？", "会说一点儿。", "Can you speak Chinese? — A little.")
+reply(1, "现在几点了？", "差五分九点。", "What time is it now? — Five to nine.")
+reply(1, "你爸爸做什么工作？", "他是医生。", "What does your dad do? — He's a doctor.")
+reply(1, "你想吃什么？", "我想吃米饭和菜。", "What would you like to eat? — Rice and some dishes.")
+cloze(1, "我＿＿北京大学的学生。", ["是", "在", "有", "去"], 0, "I'm a student at Peking University.")
+cloze(1, "我家有一＿＿小狗。", ["本", "个", "块", "岁"], 1, "My family has a little dog.")
+cloze(1, "你＿＿什么名字？", ["是", "叫", "有", "说"], 1, "What's your name?")
+cloze(1, "我们明天一起去看＿＿吧。", ["电影", "米饭", "椅子", "衣服"], 0, "Let's go and see a movie together tomorrow.")
+
+# HSK 2
+picture(2, ["M:你每天几点起床？", "F:六点半，我要早点儿去公司。"], "⏰", "What time do you get up? — 6:30, I have to get to the office early.")
+picture(2, ["F:你看，这条鱼多大啊！", "M:晚上我们就吃它吧。"], "🐟", "Look how big this fish is! — Let's have it tonight.")
+picture(2, ["M:请问，去机场怎么走？", "F:坐这个公共汽车就可以。"], "🚌", "Excuse me, how do I get to the airport? — Just take this bus.")
+statement(2, ["我女儿今年六岁，她每天晚上睡觉以前都要听妈妈说一个故事。"], "女儿睡觉以前听故事。", True,
+          "My daughter is six. Every night before bed she has to hear a story from her mom.", "The daughter listens to a story before bed.")
+statement(2, ["我们公司离我家很远，所以我每天早上六点就起床，坐一个小时的公共汽车去上班。"], "他家离公司很近。", False,
+          "Our company is far from my home, so I get up at six every morning and take an hour-long bus ride to work.", "His home is close to the company.")
+statement(2, ["这个手机是我丈夫送给我的生日礼物，颜色和样子我都非常喜欢。"], "手机是她丈夫送的。", True,
+          "This phone was a birthday present from my husband; I love both its colour and style.", "Her husband gave her the phone.")
+dialogue(2, ["F:你看见我的手机了吗？", "M:在电视旁边呢。", "F:谢谢，我找了半天了。"], "手机在哪儿？",
+         ["电视旁边", "桌子上面", "椅子下面"], 0, "Have you seen my phone? — It's next to the TV. — Thanks, I've been looking for ages.", "Where is the phone?")
+dialogue(2, ["M:你妹妹几岁了？", "F:她比我小三岁，今年十八岁。"], "女的今年多大？",
+         ["十五岁", "十八岁", "二十一岁"], 2, "How old is your younger sister? — Three years younger than me, she's 18.", "How old is the woman?")
+dialogue(2, ["F:这件衣服太长了，有短一点儿的吗？", "M:有，您穿这件试试。"], "女的觉得那件衣服怎么样？",
+         ["太长了", "太贵了", "颜色不好看"], 0, "This is too long, do you have a shorter one? — Yes, try this one.", "What does the woman think of the clothes?")
+dialogue(2, ["M:我们坐火车去还是坐飞机去？", "F:坐飞机吧，又快又不太贵。"], "他们可能怎么去？",
+         ["坐火车", "坐飞机", "开车"], 1, "Shall we take the train or fly? — Let's fly, it's fast and not too expensive.", "How will they probably travel?")
+reply(2, "你什么时候开始学汉语的？", "去年九月。", "When did you start learning Chinese? — Last September.")
+reply(2, "你知道去医院怎么走吗？", "一直往前走，就在右边。", "Do you know how to get to the hospital? — Go straight ahead, it's on the right.")
+cloze(2, "我＿＿过这本书，很有意思。", ["看", "穿", "送", "笑"], 0, "I've read this book, it's very interesting.")
+cloze(2, "你喝茶＿＿喝咖啡？", ["还是", "或者", "但是", "所以"], 0, "Would you like tea or coffee?")
+cloze(2, "快点儿，电影＿＿开始了！", ["要", "过", "得", "着"], 0, "Hurry, the movie is about to start!")
+read_tf(2, "今天是我妈妈的生日。我和爸爸早上去商店买了一个大蛋糕，晚上我们要一起去饭馆吃饭。", "他们晚上在家吃饭。", False,
+        "Today is my mom's birthday. Dad and I bought a big cake this morning, and tonight we're all going to a restaurant.", "They're eating at home tonight.")
+read_tf(2, "我很喜欢运动，每天下午都去学校旁边的公园跑步，星期六还去游泳。", "他星期六去游泳。", True,
+        "I love sport. I run in the park next to the school every afternoon, and on Saturdays I also go swimming.", "He goes swimming on Saturdays.")
+
+# HSK 3
+picture(3, ["M:你在看什么书？", "F:一本关于中国历史的书，很有意思。"], "📚", "What book are you reading? — One about Chinese history, it's very interesting.")
+picture(3, ["F:你的头发真漂亮，在哪儿做的？", "M:我家附近有一家店，我带你去。"], "💇", "Your hair looks great, where did you get it done? — There's a place near my home, I'll take you.")
+picture(3, ["M:你怎么了？脸色不太好。", "F:我发烧了，可能是感冒了。"], "🤒", "What's wrong? You don't look well. — I have a fever, maybe a cold.")
+statement(3, ["我小时候住在一个小城市，那里没有地铁，也没有很高的楼。现在我在北京工作，这里的生活和以前完全不一样。"],
+          "他现在住在小城市。", False,
+          "As a child I lived in a small city with no subway and no tall buildings. Now I work in Beijing, and life is completely different.",
+          "He now lives in a small city.")
+statement(3, ["学习中文的时候，很多人觉得声调最难。其实，只要每天跟着录音多听多说，几个月以后就会发现自己进步了很多。"],
+          "说话人认为声调永远学不好。", False,
+          "Many learners find tones the hardest part of Chinese. But if you listen and repeat with recordings every day, after a few months you'll see big progress.",
+          "The speaker thinks tones can never be learned.")
+dialogue(3, ["F:明天的比赛你参加吗？", "M:我很想参加，但是我的腿还有点儿疼。", "F:那你还是好好休息吧。"], "男的为什么可能不参加比赛？",
+         ["他的腿疼", "他没有时间", "他不喜欢比赛"], 0,
+         "Are you taking part in tomorrow's match? — I'd love to, but my leg still hurts a bit. — Then you'd better rest.", "Why might the man not take part?")
+dialogue(3, ["M:你的行李箱怎么这么重？", "F:里面有很多书，还有给朋友带的礼物。"], "行李箱为什么很重？",
+         ["有很多衣服", "有书和礼物", "有很多水果"], 1,
+         "Why is your suitcase so heavy? — There are lots of books in it, and presents for friends.", "Why is the suitcase heavy?")
+dialogue(3, ["F:你周末一般做什么？", "M:如果天气好，我就去爬山；如果下雨，我就在家看书。"], "下雨的时候，男的做什么？",
+         ["去爬山", "在家看书", "去游泳"], 1,
+         "What do you usually do at weekends? — If the weather's good I go hiking; if it rains I read at home.", "What does the man do when it rains?")
+passage(3, ["小张是一名司机，他每天开车送客人去机场。他说，这个工作虽然很累，但是可以认识很多有意思的人，听很多不同的故事，所以他很喜欢自己的工作。"],
+        "小张为什么喜欢自己的工作？", ["工作很轻松", "能认识有意思的人", "钱很多"], 1,
+        "Xiao Zhang is a driver who takes passengers to the airport every day. He says the job is tiring, but he meets lots of interesting people and hears many different stories, so he likes it.",
+        "Why does Xiao Zhang like his job?")
+passage(3, ["我的邻居李奶奶今年七十多岁了。她每天早上都在公园里教别人打太极拳。她说，运动让她的身体越来越健康，心情也越来越好。"],
+        "关于李奶奶，下面哪个是对的？", ["她每天去公园", "她身体不好", "她今年六十岁"], 0,
+        "My neighbour Grandma Li is in her seventies. Every morning she teaches tai chi in the park. She says exercise keeps her healthier and happier.",
+        "Which statement about Grandma Li is correct?")
+cloze(3, "这个问题很＿＿，我一下就明白了。", ["简单", "奇怪", "重要", "认真"], 0, "This question is simple — I understood it right away.")
+cloze(3, "＿＿明天不下雨，我们就去公园。", ["如果", "虽然", "除了", "因为"], 0, "If it doesn't rain tomorrow, we'll go to the park.")
+cloze(3, "我的自行车＿＿弟弟骑走了。", ["被", "把", "比", "给"], 0, "My bike was ridden off by my younger brother.")
+cloze(3, "这家饭馆的菜又便宜＿＿好吃。", ["又", "也", "还", "都"], 0, "This restaurant's food is cheap and tasty.")
+cloze(3, "我等了他一个小时，他＿＿来。", ["才", "就", "都", "也"], 0, "I waited an hour before he finally came.")
+read_q(3, "很多人喜欢在周末去超市买东西，因为周末有时间。但是我更喜欢星期二晚上去，那时候人很少，不用排队，东西也比较新鲜。",
+       "说话人为什么喜欢星期二晚上去超市？", ["东西最便宜", "人少不用排队", "周末没有时间"], 1,
+       "Many people shop at the supermarket at weekends because they have time. But I prefer Tuesday evenings: there are few people, no queues, and things are fresher.",
+       "Why does the speaker like going to the supermarket on Tuesday evenings?")
+read_q(3, "我第一次来中国的时候，一句汉语也不会说。那时候，我的中国同事每天中午都跟我一起吃饭，教我说汉语。现在我的汉语已经说得很好了，我非常感谢他们。",
+       "说话人的汉语是怎么提高的？", ["上网学习", "同事教他", "看电视"], 1,
+       "When I first came to China I couldn't say a word of Chinese. My Chinese colleagues had lunch with me every day and taught me. Now I speak well, and I'm very grateful to them.",
+       "How did the speaker's Chinese improve?")
+read_tf(3, "地铁站旁边新开了一家面包店，那里的面包又新鲜又好吃，所以每天早上都有很多人在门口排队。", "那家面包店的生意不好。", False,
+        "A new bakery has opened next to the subway station. The bread is fresh and tasty, so every morning lots of people queue at the door.",
+        "Business is bad at that bakery.")
+
 def main():
     data = {"listening": listening, "reading": reading}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n")

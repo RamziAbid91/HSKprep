@@ -11,7 +11,10 @@ Usage:  python3 tools/build_vocab.py
 """
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "HSKPrep" / "Vocabulary.json"
@@ -204,6 +207,8 @@ def main():
                     w["pinyin"], w["english"] = OVERRIDES[h]
             if h in EMOJI:
                 w["emoji"] = EMOJI[h]
+            if entry.get("radical"):
+                w["radical"] = entry["radical"]
             out.append(w)
 
     # Keep any earlier words that are not in the official lists (e.g. 饭店) so progress isn't lost.
@@ -217,6 +222,10 @@ def main():
     ids = [w["id"] for w in out]
     assert len(ids) == len(set(ids)), "duplicate IDs"
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+    # Picture -> Wikipedia article whose lead photo the app shows (loaded at runtime, cached).
+    from photo_titles import PHOTO_TITLES
+    (ROOT / "HSKPrep" / "Photos.json").write_text(json.dumps(PHOTO_TITLES, ensure_ascii=False, indent=1, sort_keys=True) + "\n")
+    print(f"{len(PHOTO_TITLES)} pictures have a photo")
     for lvl in (1, 2, 3):
         words = [w for w in out if w["level"] == lvl]
         print(f"HSK {lvl}: {len(words)} words, {sum('emoji' in w for w in words)} with pictures")
