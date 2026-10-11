@@ -1,0 +1,8 @@
+{
+ "voices": {
+  "main": "zh-CN-XiaoxiaoNeural",
+  "female": "zh-CN-XiaoxiaoNeural",
+  "male": "zh-CN-YunxiNeural"
+ },
+ "count": 1181
+}
