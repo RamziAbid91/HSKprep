@@ -1,5 +1,6 @@
 import Foundation
 import AVFoundation
+import CryptoKit
 import SwiftData
 import SwiftUI
 
@@ -24,10 +25,46 @@ enum VocabularyStore {
 
 // MARK: - Audio
 
-/// Speaks Mandarin with an iOS voice the learner picks in Settings (offline).
-/// The best quality comes from "Enhanced"/"Premium" voices, which the learner downloads in
-/// iOS Settings → Accessibility → Spoken Content → Voices → Chinese.
-final class Speaker {
+/// Natural recorded audio generated with Azure neural voices by tools/generate_audio.py.
+/// Files live in HSKPrep/Audio/<key>.mp3 with Audio/manifest.json listing the voices used.
+/// key = first 20 hex chars of SHA-256("<voice name>|<text>") — the script uses the same rule.
+final class RecordedAudio {
+    static let shared = RecordedAudio()
+
+    struct Manifest: Decodable {
+        let voices: [String: String]   // "main", "male", "female" -> Azure voice name
+        let count: Int?
+    }
+
+    let manifest: Manifest?
+
+    private init() {
+        if let url = Bundle.main.url(forResource: "manifest", withExtension: "json", subdirectory: "Audio"),
+           let data = try? Data(contentsOf: url) {
+            manifest = try? JSONDecoder().decode(Manifest.self, from: data)
+        } else {
+            manifest = nil
+        }
+    }
+
+    var isAvailable: Bool { manifest != nil }
+
+    static func key(voice: String, text: String) -> String {
+        let digest = SHA256.hash(data: Data("\(voice)|\(text)".utf8))
+        return String(digest.map { String(format: "%02x", $0) }.joined().prefix(20))
+    }
+
+    /// role: "main" (words, sentences, narrator), "male" or "female" (dialogues).
+    func url(text: String, role: String) -> URL? {
+        guard let voice = manifest?.voices[role] ?? manifest?.voices["main"] else { return nil }
+        return Bundle.main.url(forResource: Self.key(voice: voice, text: text), withExtension: "mp3", subdirectory: "Audio")
+    }
+}
+
+/// Speaks Mandarin. Uses the natural recorded audio when it exists (and is switched on in Settings),
+/// otherwise an iOS voice the learner picks in Settings. Best iOS quality comes from "Enhanced"/"Premium"
+/// voices downloaded in iOS Settings → Accessibility → Spoken Content → Voices → Chinese.
+final class Speaker: NSObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
     static let shared = Speaker()
     private let synth = AVSpeechSynthesizer()
 
@@ -39,9 +76,22 @@ final class Speaker {
     static let mainVoiceKey = "voiceMain"
     static let maleVoiceKey = "voiceMale"
     static let femaleVoiceKey = "voiceFemale"
-    static let rateKey = "voiceRate"          // 0.30 … 0.55, default 0.45
+    static let rateKey = "voiceRate"              // 0.30 … 0.55, default 0.45
+    static let useRecordedKey = "useRecordedAudio" // Bool, default true
 
-    private init() {
+    /// One piece of a playback sequence.
+    private enum Segment {
+        case file(URL, rate: Float, pauseAfter: TimeInterval)
+        case speech(AVSpeechUtterance)
+    }
+
+    private var queue: [Segment] = []
+    private var player: AVAudioPlayer?
+    private var generation = 0   // invalidates pending pauses after stop()
+
+    private override init() {
+        super.init()
+        synth.delegate = self
         try? AVAudioSession.sharedInstance().setCategory(.playback, options: .duckOthers)
     }
 
@@ -79,6 +129,10 @@ final class Speaker {
         return r == 0 ? 0.45 : r
     }
 
+    private var useRecorded: Bool {
+        UserDefaults.standard.object(forKey: Self.useRecordedKey) as? Bool ?? true
+    }
+
     private func utterance(_ text: String, voice: AVSpeechSynthesisVoice?, speed: Speed) -> AVSpeechUtterance {
         let u = AVSpeechUtterance(string: text)
         u.voice = voice
@@ -86,23 +140,28 @@ final class Speaker {
         return u
     }
 
+    /// Recorded file for this text, if any. Playback rate follows the speed setting (0.45 = normal).
+    private func recorded(_ text: String, role: String, speed: Speed, pauseAfter: TimeInterval = 0) -> Segment? {
+        guard useRecorded, let url = RecordedAudio.shared.url(text: text, role: role) else { return nil }
+        let rate = max(0.5, min(2.0, baseRate / 0.45 * speed.factor))
+        return .file(url, rate: rate, pauseAfter: pauseAfter)
+    }
+
     // MARK: Speaking
 
     func speak(_ text: String, speed: Speed = .normal) {
-        synth.stopSpeaking(at: .immediate)
-        synth.speak(utterance(text, voice: mainVoice, speed: speed))
+        start([recorded(text, role: "main", speed: speed) ?? .speech(utterance(text, voice: mainVoice, speed: speed))])
     }
 
     func speak(_ text: String, slow: Bool) { speak(text, speed: slow ? .slow : .normal) }
 
-    /// Preview a specific voice (Settings).
+    /// Preview a specific iOS voice (Settings).
     func preview(_ voice: AVSpeechSynthesisVoice, text: String = "你好，欢迎学习汉语。我们今天一起加油！") {
-        synth.stopSpeaking(at: .immediate)
-        synth.speak(utterance(text, voice: voice, speed: .normal))
+        start([.speech(utterance(text, voice: voice, speed: .normal))])
     }
 
     /// Voices for the man and woman in dialogues: the learner's choice, else a voice of that gender,
-    /// else any voice different from the other speaker. `pitch` is used when only one voice exists.
+    /// else any voice different from the other speaker. Pitch is shifted when only one voice exists.
     private func dialogueVoices() -> (male: AVSpeechSynthesisVoice?, female: AVSpeechSynthesisVoice?, samePitch: Bool) {
         let voices = Self.chineseVoices
         let female = voice(forKey: Self.femaleVoiceKey)
@@ -116,9 +175,13 @@ final class Speaker {
 
     /// Plays a dialogue or passage like the exam recording, then reads the question ("问：…").
     func play(_ lines: [DialogueLine], question: String? = nil, speed: Speed = .normal) {
-        synth.stopSpeaking(at: .immediate)
         let v = dialogueVoices()
+        var segments: [Segment] = []
         for line in lines {
+            let role = line.speaker == "M" ? "male" : line.speaker == "F" ? "female" : "main"
+            if let rec = recorded(line.text, role: role, speed: speed, pauseAfter: 0.6) {
+                segments.append(rec); continue
+            }
             let u: AVSpeechUtterance
             switch line.speaker {
             case "M":
@@ -131,16 +194,66 @@ final class Speaker {
                 u = utterance(line.text, voice: mainVoice, speed: speed)
             }
             u.postUtteranceDelay = 0.6
-            synth.speak(u)
+            segments.append(.speech(u))
         }
         if let question {
-            let q = utterance("问：" + question, voice: mainVoice, speed: speed)
-            q.preUtteranceDelay = 0.5
-            synth.speak(q)
+            let text = "问：" + question
+            if let rec = recorded(text, role: "main", speed: speed) {
+                segments.append(rec)
+            } else {
+                let q = utterance(text, voice: mainVoice, speed: speed)
+                q.preUtteranceDelay = 0.5
+                segments.append(.speech(q))
+            }
+        }
+        start(segments)
+    }
+
+    func stop() {
+        generation += 1
+        queue.removeAll()
+        player?.stop()
+        player = nil
+        synth.stopSpeaking(at: .immediate)
+    }
+
+    // MARK: Sequencing
+
+    private func start(_ segments: [Segment]) {
+        stop()
+        queue = segments
+        playNext()
+    }
+
+    private func playNext() {
+        guard !queue.isEmpty else { return }
+        switch queue.removeFirst() {
+        case .speech(let u):
+            synth.speak(u)   // delegate calls playNext when finished
+        case .file(let url, let rate, let pause):
+            guard let p = try? AVAudioPlayer(contentsOf: url) else { playNext(); return }
+            p.enableRate = true
+            p.rate = rate
+            p.delegate = self
+            pauseAfterCurrent = pause
+            player = p
+            p.play()
         }
     }
 
-    func stop() { synth.stopSpeaking(at: .immediate) }
+    private var pauseAfterCurrent: TimeInterval = 0
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        DispatchQueue.main.async { self.playNext() }
+    }
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let gen = generation
+        DispatchQueue.main.asyncAfter(deadline: .now() + pauseAfterCurrent) { [weak self] in
+            guard let self, self.generation == gen else { return }
+            self.playNext()
+        }
+    }
 }
 
 // MARK: - Voice settings
@@ -150,12 +263,35 @@ struct VoiceSettingsView: View {
     @AppStorage(Speaker.maleVoiceKey) private var maleID = ""
     @AppStorage(Speaker.femaleVoiceKey) private var femaleID = ""
     @AppStorage(Speaker.rateKey) private var rate: Double = 0.45
+    @AppStorage(Speaker.useRecordedKey) private var useRecorded = true
     @State private var voices = Speaker.chineseVoices
 
     private var hasGoodVoice: Bool { voices.contains { $0.quality != .default } }
 
     var body: some View {
         List {
+            Section {
+                if RecordedAudio.shared.isAvailable {
+                    Toggle(isOn: $useRecorded) {
+                        VStack(alignment: .leading) {
+                            Text("Natural recorded voice")
+                            Text("\(RecordedAudio.shared.manifest?.count ?? 0) recordings (Azure neural voices)")
+                                .font(.caption).foregroundStyle(.secondary)
+                        }
+                    }
+                    Button("Play a sample") {
+                        Speaker.shared.speak(VocabularyStore.all.first?.example ?? "你好")
+                    }
+                } else {
+                    Text("No recorded audio in this build. The app uses the iPhone voice below. (Developers: run tools/generate_audio.py.)")
+                        .font(.footnote).foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("Recorded audio")
+            } footer: {
+                Text("When on, words and dialogues use the recorded voice. Anything without a recording uses the iPhone voice.")
+            }
+
             if !hasGoodVoice {
                 Section {
                     VStack(alignment: .leading, spacing: 8) {
@@ -173,9 +309,9 @@ struct VoiceSettingsView: View {
                     voiceRow(v, selectedID: $mainID, isDefault: mainID.isEmpty && v.identifier == voices.first?.identifier)
                 }
             } header: {
-                Text("App voice")
+                Text("iPhone voice")
             } footer: {
-                Text("Used for words, sentences and flashcards. Tap the play button to hear each voice.")
+                Text("Used when there's no recording (or recorded audio is off). Tap the play button to hear each voice.")
             }
 
             Section {

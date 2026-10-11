@@ -9,9 +9,13 @@ targets:
     platform: iOS
     sources:
       - path: HSKPrep
-        excludes: ["BundledPhotos/**"]
+        excludes: ["BundledPhotos/**", "Audio/**"]
       # Folder reference so photos keep their subfolder in the app bundle.
       - path: HSKPrep/BundledPhotos
+        type: folder
+        buildPhase: resources
+      # Recorded audio from tools/generate_audio.py (mp3 files + manifest.json).
+      - path: HSKPrep/Audio
         type: folder
         buildPhase: resources
     settings:
