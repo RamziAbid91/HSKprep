@@ -274,6 +274,11 @@ struct SettingsView: View {
                             set: { examDate = $0.timeIntervalSince1970 }), in: Date()..., displayedComponents: .date)
                     }
                 }
+                Section("Audio") {
+                    NavigationLink { VoiceSettingsView() } label: {
+                        Label("Voice & speed", systemImage: "speaker.wave.2.fill")
+                    }
+                }
                 Section("Photos") {
                     NavigationLink("Photo credits & offline download") { PhotoCreditsView() }
                 }

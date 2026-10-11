@@ -24,64 +24,223 @@ enum VocabularyStore {
 
 // MARK: - Audio
 
-/// Speaks Mandarin with the built-in iOS voice (offline). Replace with recorded
-/// native-speaker audio files later for better quality.
+/// Speaks Mandarin with an iOS voice the learner picks in Settings (offline).
+/// The best quality comes from "Enhanced"/"Premium" voices, which the learner downloads in
+/// iOS Settings → Accessibility → Spoken Content → Voices → Chinese.
 final class Speaker {
     static let shared = Speaker()
     private let synth = AVSpeechSynthesizer()
 
     enum Speed { case slow, normal, fast
-        var rate: Float { switch self { case .slow: 0.3; case .normal: 0.45; case .fast: 0.52 } }
+        var factor: Float { switch self { case .slow: 0.7; case .normal: 1.0; case .fast: 1.15 } }
     }
+
+    // UserDefaults keys (also used with @AppStorage in VoiceSettingsView).
+    static let mainVoiceKey = "voiceMain"
+    static let maleVoiceKey = "voiceMale"
+    static let femaleVoiceKey = "voiceFemale"
+    static let rateKey = "voiceRate"          // 0.30 … 0.55, default 0.45
 
     private init() {
         try? AVAudioSession.sharedInstance().setCategory(.playback, options: .duckOthers)
     }
 
+    // MARK: Voices
+
+    /// Mandarin voices on this device, best quality first. Includes Taiwan & Hong Kong Mandarin voices
+    /// only if no mainland voice exists.
+    static var chineseVoices: [AVSpeechSynthesisVoice] {
+        let all = AVSpeechSynthesisVoice.speechVoices()
+        let mainland = all.filter { $0.language == "zh-CN" }
+        let pool = mainland.isEmpty ? all.filter { $0.language.hasPrefix("zh") } : mainland
+        return pool.sorted { ($0.quality.rawValue, $0.name) > ($1.quality.rawValue, $1.name) }
+    }
+
+    static func qualityLabel(_ v: AVSpeechSynthesisVoice) -> String {
+        switch v.quality {
+        case .premium: "Premium"
+        case .enhanced: "Enhanced"
+        default: "Standard"
+        }
+    }
+
+    private func voice(forKey key: String) -> AVSpeechSynthesisVoice? {
+        guard let id = UserDefaults.standard.string(forKey: key), !id.isEmpty else { return nil }
+        return AVSpeechSynthesisVoice(identifier: id)
+    }
+
+    /// The learner's chosen voice, or the best installed one.
+    var mainVoice: AVSpeechSynthesisVoice? {
+        voice(forKey: Self.mainVoiceKey) ?? Self.chineseVoices.first ?? AVSpeechSynthesisVoice(language: "zh-CN")
+    }
+
+    private var baseRate: Float {
+        let r = UserDefaults.standard.float(forKey: Self.rateKey)
+        return r == 0 ? 0.45 : r
+    }
+
+    private func utterance(_ text: String, voice: AVSpeechSynthesisVoice?, speed: Speed) -> AVSpeechUtterance {
+        let u = AVSpeechUtterance(string: text)
+        u.voice = voice
+        u.rate = min(AVSpeechUtteranceMaximumSpeechRate, baseRate * speed.factor)
+        return u
+    }
+
+    // MARK: Speaking
+
     func speak(_ text: String, speed: Speed = .normal) {
         synth.stopSpeaking(at: .immediate)
-        let u = AVSpeechUtterance(string: text)
-        u.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-        u.rate = speed.rate
-        synth.speak(u)
+        synth.speak(utterance(text, voice: mainVoice, speed: speed))
     }
 
     func speak(_ text: String, slow: Bool) { speak(text, speed: slow ? .slow : .normal) }
 
-    // Two different voices for 男 / 女 when the device has them; otherwise pitch tells them apart.
-    private lazy var chineseVoices = AVSpeechSynthesisVoice.speechVoices().filter { $0.language == "zh-CN" }
-    private lazy var maleVoice = chineseVoices.first { $0.gender == .male }
-    private lazy var femaleVoice = chineseVoices.first { $0.gender == .female }
+    /// Preview a specific voice (Settings).
+    func preview(_ voice: AVSpeechSynthesisVoice, text: String = "你好，欢迎学习汉语。我们今天一起加油！") {
+        synth.stopSpeaking(at: .immediate)
+        synth.speak(utterance(text, voice: voice, speed: .normal))
+    }
+
+    /// Voices for the man and woman in dialogues: the learner's choice, else a voice of that gender,
+    /// else any voice different from the other speaker. `pitch` is used when only one voice exists.
+    private func dialogueVoices() -> (male: AVSpeechSynthesisVoice?, female: AVSpeechSynthesisVoice?, samePitch: Bool) {
+        let voices = Self.chineseVoices
+        let female = voice(forKey: Self.femaleVoiceKey)
+            ?? voices.first { $0.gender == .female } ?? mainVoice
+        let male = voice(forKey: Self.maleVoiceKey)
+            ?? voices.first { $0.gender == .male }
+            ?? voices.first { $0.identifier != female?.identifier }
+            ?? mainVoice
+        return (male, female, male?.identifier == female?.identifier)
+    }
 
     /// Plays a dialogue or passage like the exam recording, then reads the question ("问：…").
     func play(_ lines: [DialogueLine], question: String? = nil, speed: Speed = .normal) {
         synth.stopSpeaking(at: .immediate)
+        let v = dialogueVoices()
         for line in lines {
-            let u = AVSpeechUtterance(string: line.text)
-            u.rate = speed.rate
-            u.postUtteranceDelay = 0.6
+            let u: AVSpeechUtterance
             switch line.speaker {
             case "M":
-                u.voice = maleVoice ?? AVSpeechSynthesisVoice(language: "zh-CN")
-                if maleVoice == nil { u.pitchMultiplier = 0.75 }
+                u = utterance(line.text, voice: v.male, speed: speed)
+                if v.samePitch { u.pitchMultiplier = 0.75 }
             case "F":
-                u.voice = femaleVoice ?? AVSpeechSynthesisVoice(language: "zh-CN")
-                if femaleVoice == nil { u.pitchMultiplier = 1.2 }
+                u = utterance(line.text, voice: v.female, speed: speed)
+                if v.samePitch { u.pitchMultiplier = 1.2 }
             default:
-                u.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+                u = utterance(line.text, voice: mainVoice, speed: speed)
             }
+            u.postUtteranceDelay = 0.6
             synth.speak(u)
         }
         if let question {
-            let q = AVSpeechUtterance(string: "问：" + question)
-            q.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-            q.rate = speed.rate
+            let q = utterance("问：" + question, voice: mainVoice, speed: speed)
             q.preUtteranceDelay = 0.5
             synth.speak(q)
         }
     }
 
     func stop() { synth.stopSpeaking(at: .immediate) }
+}
+
+// MARK: - Voice settings
+
+struct VoiceSettingsView: View {
+    @AppStorage(Speaker.mainVoiceKey) private var mainID = ""
+    @AppStorage(Speaker.maleVoiceKey) private var maleID = ""
+    @AppStorage(Speaker.femaleVoiceKey) private var femaleID = ""
+    @AppStorage(Speaker.rateKey) private var rate: Double = 0.45
+    @State private var voices = Speaker.chineseVoices
+
+    private var hasGoodVoice: Bool { voices.contains { $0.quality != .default } }
+
+    var body: some View {
+        List {
+            if !hasGoodVoice {
+                Section {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Label("Get a more natural voice", systemImage: "sparkles").font(.headline)
+                        Text("iPhone has free, high-quality Chinese voices you can download:")
+                        Text("Settings → Accessibility → Spoken Content → Voices → Chinese (China mainland) → tap a voice marked Enhanced or Premium (e.g. Tingting, Lilian, Yue). Then come back here and pick it.")
+                            .font(.subheadline).foregroundStyle(.secondary)
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+
+            Section {
+                ForEach(voices, id: \.identifier) { v in
+                    voiceRow(v, selectedID: $mainID, isDefault: mainID.isEmpty && v.identifier == voices.first?.identifier)
+                }
+            } header: {
+                Text("App voice")
+            } footer: {
+                Text("Used for words, sentences and flashcards. Tap the play button to hear each voice.")
+            }
+
+            Section {
+                Picker("Man (男)", selection: $maleID) {
+                    Text("Automatic").tag("")
+                    ForEach(voices, id: \.identifier) { Text(label($0)).tag($0.identifier) }
+                }
+                Picker("Woman (女)", selection: $femaleID) {
+                    Text("Automatic").tag("")
+                    ForEach(voices, id: \.identifier) { Text(label($0)).tag($0.identifier) }
+                }
+                Button("Play a sample dialogue") {
+                    Speaker.shared.play([
+                        DialogueLine(speaker: "M", text: "你好，你叫什么名字？", pinyin: ""),
+                        DialogueLine(speaker: "F", text: "我叫王丽，很高兴认识你。", pinyin: ""),
+                    ])
+                }
+            } header: {
+                Text("Dialogue voices (listening & exams)")
+            } footer: {
+                Text("If only one voice is installed, the app changes its pitch for the man and the woman. Download a second voice for real two-person dialogues.")
+            }
+
+            Section("Speed") {
+                HStack {
+                    Image(systemName: "tortoise")
+                    Slider(value: $rate, in: 0.30...0.55, step: 0.05)
+                    Image(systemName: "hare")
+                }
+                Button("Test speed") { Speaker.shared.speak("我每天早上七点起床，然后去学校学习汉语。") }
+            }
+
+            Section {
+                Button("Refresh voice list") { voices = Speaker.chineseVoices }
+            } footer: {
+                Text("Downloaded a new voice? Tap refresh.")
+            }
+        }
+        .navigationTitle("Voice")
+        .onDisappear { Speaker.shared.stop() }
+    }
+
+    private func label(_ v: AVSpeechSynthesisVoice) -> String {
+        "\(v.name) · \(Speaker.qualityLabel(v))"
+    }
+
+    private func voiceRow(_ v: AVSpeechSynthesisVoice, selectedID: Binding<String>, isDefault: Bool) -> some View {
+        HStack {
+            Button { selectedID.wrappedValue = v.identifier } label: {
+                HStack {
+                    Image(systemName: selectedID.wrappedValue == v.identifier || isDefault ? "checkmark.circle.fill" : "circle")
+                        .foregroundStyle(Theme.accent)
+                    VStack(alignment: .leading) {
+                        Text(v.name)
+                        Text("\(Speaker.qualityLabel(v)) · \(v.gender == .male ? "male" : v.gender == .female ? "female" : "voice") · \(v.language)")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+            Spacer()
+            Button { Speaker.shared.preview(v) } label: { Image(systemName: "play.circle.fill").font(.title2) }
+                .buttonStyle(.borderless)
+        }
+    }
 }
 
 /// Small replay + slow-replay buttons used everywhere.
