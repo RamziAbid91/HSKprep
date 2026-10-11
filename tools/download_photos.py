@@ -9,6 +9,7 @@ Photos are the lead images of English Wikipedia articles (Wikimedia Commons, fre
 Author and licence of each photo are written to HSKPrep/BundledPhotos/CREDITS.txt.
 Without this step the app downloads photos itself and caches them.
 """
+from __future__ import annotations
 import json
 import urllib.parse
 import urllib.request

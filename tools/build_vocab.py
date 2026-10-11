@@ -9,6 +9,7 @@ sentences (learner progress is keyed on the ID). New words get new IDs.
 
 Usage:  python3 tools/build_vocab.py
 """
+from __future__ import annotations
 import json
 import re
 import sys

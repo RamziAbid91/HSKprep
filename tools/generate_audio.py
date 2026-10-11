@@ -27,6 +27,7 @@ Run (on your Mac, in the project folder)
 The free tier allows ~20 requests per minute, so a full run takes about 1–1.5 hours.
 Never commit your key: it's read from the environment only.
 """
+from __future__ import annotations
 import argparse
 import hashlib
 import json

@@ -9,6 +9,7 @@ official exam questions. Pinyin is generated with pypinyin (pip install pypinyin
 Line format: "M:…" = man, "F:…" = woman, no prefix = narrator.
 Add new items below, then run:  python3 tools/build_content.py
 """
+from __future__ import annotations
 import json
 from pathlib import Path
 
