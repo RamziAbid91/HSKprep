@@ -9,6 +9,9 @@ struct HomeView: View {
     @AppStorage(Settings.newPerDay) private var newPerDay = 10
     @AppStorage(Settings.examDate) private var examDate: Double = 0
     @State private var showSettings = false
+    @AppStorage(Settings.name) private var name = ""
+    @AppStorage(Settings.goal) private var goalRaw = LearningGoal.exam.rawValue
+    @AppStorage(Settings.focus) private var focusRaw = FocusSkill.balanced.rawValue
 
     // MARK: Derived numbers
 
@@ -57,7 +60,15 @@ struct HomeView: View {
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button { showSettings = true } label: { Image(systemName: "person.crop.circle") }
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack(spacing: 8) {
+                        Image("Logo").resizable().frame(width: 30, height: 30)
+                        Text("HSK Prep").font(.headline)
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { showSettings = true } label: { Image(systemName: "person.crop.circle").font(.title3) }
+                }
             }
             .sheet(isPresented: $showSettings) { SettingsView() }
         }
@@ -70,8 +81,10 @@ struct HomeView: View {
         HStack(spacing: 18) {
             VStack(alignment: .leading, spacing: 6) {
                 Text(greeting).font(.system(size: 34, weight: .heavy))
+                    .minimumScaleFactor(0.6).lineLimit(1)
                 Text("HSK \(level) · \(Date.now.formatted(.dateTime.weekday(.wide).day().month()))")
                     .font(.subheadline).opacity(0.9)
+                Text((LearningGoal(rawValue: goalRaw) ?? .exam).motto).font(.caption).opacity(0.85).lineLimit(2)
                 HStack(spacing: 6) {
                     Image(systemName: "flame.fill")
                     Text("\(Stats.streak(days)) day streak")
@@ -102,10 +115,26 @@ struct HomeView: View {
     }
 
     private var greeting: String {
-        switch Calendar.current.component(.hour, from: .now) {
-        case 5..<12: "早上好!"
-        case 12..<18: "下午好!"
-        default: "晚上好!"
+        let hello = switch Calendar.current.component(.hour, from: .now) {
+        case 5..<12: "早上好"
+        case 12..<18: "下午好"
+        default: "晚上好"
+        }
+        return name.isEmpty ? hello + "!" : "\(hello), \(name)!"
+    }
+
+    /// Extra plan item for the learner's chosen focus.
+    @ViewBuilder private var focusRow: some View {
+        switch FocusSkill(rawValue: focusRaw) ?? .balanced {
+        case .balanced: EmptyView()
+        case .listening:
+            NavigationLink { QuizView(mode: .tones) } label: { planRow("Focus: tone trainer", "10 questions", done: false) }
+        case .reading:
+            NavigationLink { ExamPracticeView(section: .reading) } label: { planRow("Focus: reading practice", "10 questions", done: false) }
+        case .vocabulary:
+            NavigationLink { QuizView(mode: .meaning) } label: { planRow("Focus: vocabulary quiz", "10 questions", done: false) }
+        case .grammar:
+            NavigationLink { GrammarLessonListView(level: level) } label: { planRow("Focus: a grammar lesson", "5 min", done: false) }
         }
     }
 
@@ -117,7 +146,7 @@ struct HomeView: View {
             let word = pictured[day % pictured.count]
             NavigationLink { WordDetailView(word: word) } label: {
                 HStack(spacing: 14) {
-                    PictureView(picture: word.emoji ?? "", size: 84, corner: 14)
+                    PictureView(picture: word.emoji ?? "", size: 92, corner: 14, scaled: false)
                     VStack(alignment: .leading, spacing: 4) {
                         Text("WORD OF THE DAY").font(.caption2.bold()).foregroundStyle(Theme.accent)
                         Text(word.hanzi).font(.title.bold())
@@ -164,6 +193,7 @@ struct HomeView: View {
             NavigationLink { ExamPracticeView(section: .listening) } label: {
                 planRow("Listening exercise", listeningDone ? "done" : "10 questions", done: listeningDone)
             }
+            focusRow
         }
         .buttonStyle(.plain)
         .card()
@@ -254,13 +284,25 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section {
+                    HStack(spacing: 14) {
+                        Image("Logo").resizable().frame(width: 56, height: 56)
+                        VStack(alignment: .leading) {
+                            Text(UserDefaults.standard.string(forKey: Settings.name).flatMap { $0.isEmpty ? nil : $0 } ?? "HSK Prep")
+                                .font(.headline)
+                            Text(Profile.goal.title).font(.subheadline).foregroundStyle(.secondary)
+                        }
+                    }
+                    NavigationLink { PersonalizeView() } label: {
+                        Label("Personalize your learning", systemImage: "slider.horizontal.3")
+                    }
+                }
                 Section("Study plan") {
                     Picker("Target level", selection: $level) {
                         ForEach(1...3, id: \.self) { Text("HSK \($0)").tag($0) }
                     }
                     Picker("Daily goal", selection: $goalMinutes) {
-                        Text("15 minutes").tag(15)
-                        Text("20 minutes").tag(20)
+                        ForEach([10, 15, 20, 30], id: \.self) { Text("\($0) minutes").tag($0) }
                     }
                     Stepper("New words per day: \(newPerDay)", value: $newPerDay, in: 5...30, step: 5)
                 }

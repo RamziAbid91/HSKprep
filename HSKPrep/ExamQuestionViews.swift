@@ -12,6 +12,9 @@ struct QuestionCard: View {
 
     private static let letters = ["A", "B", "C", "D", "E", "F"]
     @ObservedObject private var speaker = Speaker.shared
+    @AppStorage(Settings.pictureScale) private var pictureScale = 1.0
+    @AppStorage(Settings.scenesInPractice) private var scenesInPractice = true
+    @AppStorage(Settings.scenesInExam) private var scenesInExam = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -23,7 +26,7 @@ struct QuestionCard: View {
             if let audio = question.audio { audioControls(audio) }
 
             if let picture = question.picture {
-                PictureView(picture: picture, size: 220, corner: 22)
+                PictureView(picture: picture, layout: .banner(260), corner: 22, zoom: .tap)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 6)
                     .background(.background.secondary, in: RoundedRectangle(cornerRadius: 24))
@@ -79,7 +82,17 @@ struct QuestionCard: View {
             }
             .controlSize(.large)
             PlaybackProgressView(tag: tag)
+            if showScene(audio) {
+                ListeningSceneView(lines: audio, itemID: question.itemID, tag: tag)
+            }
         }
+    }
+
+    /// Animated scene for dialogues/passages — never for picture questions (it would give the answer away).
+    private func showScene(_ audio: [DialogueLine]) -> Bool {
+        guard !question.usesPictures, question.picture == nil else { return false }
+        guard maxPlays == nil ? scenesInPractice : scenesInExam else { return false }
+        return SceneBuilder.hasScene(lines: audio, itemID: question.itemID)
     }
 
     // MARK: Options
@@ -94,13 +107,14 @@ struct QuestionCard: View {
     }
 
     private var pictureOptions: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: question.options.count == 3 ? 3 : 2),
+        // Big pictures: 2 per row (3 per row only for 3 options with the "Small" picture size).
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12),
+                                 count: question.options.count == 3 && pictureScale < 1 ? 3 : 2),
                   spacing: 12) {
             ForEach(question.options.indices, id: \.self) { i in
                 Button { if !revealed { selected = i } } label: {
                     VStack(spacing: 6) {
-                        PictureView(picture: question.options[i].picture ?? "",
-                                    size: question.options.count == 3 ? 96 : 130, corner: 12)
+                        PictureView(picture: question.options[i].picture ?? "", layout: .fill, corner: 12, zoom: .longPress)
                         Text(Self.letters[i]).font(.headline)
                     }
                     .padding(8)
@@ -159,7 +173,7 @@ struct ExplanationView: View {
                 ForEach(Array(question.transcript.enumerated()), id: \.offset) { _, line in
                     VStack(alignment: .leading, spacing: 2) {
                         Text(line.label + line.text).font(.body)
-                        Text(line.pinyin).font(.caption).foregroundStyle(.secondary)
+                        PinyinText(line.pinyin, font: .caption)
                     }
                 }
             }

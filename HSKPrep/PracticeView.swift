@@ -64,7 +64,11 @@ struct PracticeView: View {
 
     private func row(_ title: String, _ subtitle: String, _ icon: String, badge: Int = 0) -> some View {
         HStack {
-            Image(systemName: icon).frame(width: 28).foregroundStyle(.tint)
+            Image(systemName: icon)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white)
+                .frame(width: 32, height: 32)
+                .background(Theme.accent.gradient, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
             VStack(alignment: .leading) {
                 Text(title)
                 Text(subtitle).font(.caption).foregroundStyle(.secondary)
@@ -290,13 +294,13 @@ struct QuizView: View {
                         .buttonStyle(.bordered)
                     }
                     .controlSize(.large)
-                    .onAppear { Speaker.shared.speak(audio, speed: speed, tag: q.id.uuidString) }
+                    .onAppear { Speaker.shared.autoSpeak(audio, speed: speed, tag: q.id.uuidString) }
                     if q.kind == .listenSentence { PlaybackProgressView(tag: q.id.uuidString) }
                     if q.kind == .chooseTones {
-                        Text(q.word.hanzi).font(.system(size: 52, weight: .medium)).frame(maxWidth: .infinity)
+                        Text(q.word.hanzi).hanziFont(52).frame(maxWidth: .infinity)
                     }
                 } else {
-                    Text(q.word.hanzi).font(.system(size: 60, weight: .medium)).frame(maxWidth: .infinity)
+                    Text(q.word.hanzi).hanziFont(60).frame(maxWidth: .infinity)
                 }
 
                 if q.kind.isTyping {
@@ -339,7 +343,7 @@ struct QuizView: View {
         return Button { if !checked { selected = option } } label: {
             Group {
                 if q.kind == .choosePicture {
-                    PictureView(picture: option, size: 110, corner: 12).frame(maxWidth: .infinity)
+                    PictureView(picture: option, layout: .fill, corner: 12, zoom: .longPress)
                 } else {
                     Text(option)
                         .font(q.kind == .listenWord || q.kind == .chooseTones ? .title2 : .body)
@@ -365,13 +369,13 @@ struct QuizView: View {
             if q.kind == .listenSentence, let ex = q.word.example {
                 Text("Transcript").font(.caption).foregroundStyle(.secondary)
                 Text(ex).font(.title3)
-                if let p = q.word.examplePinyin { Text(p).foregroundStyle(.secondary) }
+                if let p = q.word.examplePinyin { PinyinText(p) }
                 if let e = q.word.exampleEnglish { Text(e) }
                 Text("Key word: \(q.word.hanzi) (\(q.word.pinyin)) — \(q.word.english)").font(.subheadline)
             } else {
                 HStack(alignment: .firstTextBaseline) {
                     Text(q.word.hanzi).font(.title2)
-                    Text(q.word.pinyin).foregroundStyle(.tint)
+                    PinyinText(q.word.pinyin, color: Theme.accent)
                     Spacer()
                     AudioButtons(text: q.word.hanzi)
                 }

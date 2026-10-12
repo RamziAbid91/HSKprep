@@ -9,7 +9,7 @@ targets:
     platform: iOS
     sources:
       - path: HSKPrep
-        excludes: ["BundledPhotos/**", "Audio/**"]
+        excludes: ["BundledPhotos/**", "Audio/**", "Videos/**"]
       # Folder reference so photos keep their subfolder in the app bundle.
       - path: HSKPrep/BundledPhotos
         type: folder
@@ -18,10 +18,15 @@ targets:
       - path: HSKPrep/Audio
         type: folder
         buildPhase: resources
+      # Optional listening clips: Videos/<question id>.mp4
+      - path: HSKPrep/Videos
+        type: folder
+        buildPhase: resources
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.hskprep
         GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: HSK Prep
         SWIFT_VERSION: "5.9"

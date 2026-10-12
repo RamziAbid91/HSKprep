@@ -68,7 +68,7 @@ struct FlashcardsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .contentShape(Rectangle())
         .onTapGesture { flip() }
-        .onAppear { Speaker.shared.speak(word.hanzi) }
+        .onAppear { Speaker.shared.autoSpeak(word.hanzi) }
         .id(word.id)
     }
 
@@ -89,7 +89,7 @@ struct FlashcardsView: View {
                     .background(Theme.levelColor(word.level).opacity(0.15), in: Capsule())
                     .foregroundStyle(Theme.levelColor(word.level))
                 Spacer()
-                Text(word.hanzi).font(.system(size: 88, weight: .medium))
+                Text(word.hanzi).hanziFont(88)
                 AudioButtons(text: word.hanzi)
                 Spacer()
                 Text("Do you know it? Say it out loud, then flip.").font(.footnote).foregroundStyle(.secondary)
@@ -101,12 +101,12 @@ struct FlashcardsView: View {
         cardBackground(
             ScrollView {
                 VStack(spacing: 12) {
-                    if let pic = word.emoji { PictureView(picture: pic, size: 160, corner: 20) }
+                    if let pic = word.emoji { PictureView(picture: pic, size: 190, corner: 20, zoom: .tap) }
                     HStack(alignment: .firstTextBaseline, spacing: 12) {
-                        Text(word.hanzi).font(.system(size: 44, weight: .medium))
+                        Text(word.hanzi).hanziFont(44)
                         AudioButtons(text: word.hanzi)
                     }
-                    Text(word.pinyin).font(.title).foregroundStyle(Theme.accent)
+                    PinyinText(word.pinyin, font: .title, color: Theme.accent)
                     Text(word.english).font(.title3).multilineTextAlignment(.center)
                     if let hint = Radicals.hint(for: word) {
                         Label(hint, systemImage: "lightbulb")
@@ -121,7 +121,7 @@ struct FlashcardsView: View {
                                 Text(ex).font(.title3)
                                 AudioButtons(text: ex).font(.body)
                             }
-                            if let p = word.examplePinyin { Text(p).font(.subheadline).foregroundStyle(.secondary) }
+                            if let p = word.examplePinyin { PinyinText(p, font: .subheadline) }
                             if let e = word.exampleEnglish { Text(e).font(.subheadline) }
                         }
                         .multilineTextAlignment(.center)

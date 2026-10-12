@@ -105,7 +105,7 @@ struct WordListView: View {
             NavigationLink { WordDetailView(word: word) } label: {
                 HStack {
                     Group {
-                        if let pic = word.emoji { PictureView(picture: pic, size: 40, corner: 8) }
+                        if let pic = word.emoji { PictureView(picture: pic, size: 40, corner: 8, scaled: false) }
                         else { Color.clear }
                     }
                     .frame(width: 40, height: 40)
@@ -138,9 +138,9 @@ struct WordDetailView: View {
         List {
             Section {
                 VStack(spacing: 10) {
-                    if let pic = word.emoji { PictureView(picture: pic, size: 220, corner: 24) }
-                    Text(word.hanzi).font(.system(size: 80, weight: .medium))
-                    Text(word.pinyin).font(.title).foregroundStyle(.tint)
+                    if let pic = word.emoji { PictureView(picture: pic, layout: .banner(260), corner: 24, zoom: .tap) }
+                    Text(word.hanzi).hanziFont(80)
+                    PinyinText(word.pinyin, font: .title, color: Theme.accent)
                     Text(word.english).font(.title3)
                     AudioButtons(text: word.hanzi)
                 }
@@ -155,7 +155,7 @@ struct WordDetailView: View {
                             Spacer()
                             AudioButtons(text: ex)
                         }
-                        if let p = word.examplePinyin { Text(p).foregroundStyle(.secondary) }
+                        if let p = word.examplePinyin { PinyinText(p) }
                         if let e = word.exampleEnglish { Text(e) }
                     }
                 }
@@ -176,7 +176,7 @@ struct WordDetailView: View {
         }
         .navigationTitle(word.hanzi)
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear { Speaker.shared.speak(word.hanzi) }
+        .onAppear { Speaker.shared.autoSpeak(word.hanzi) }
     }
 }
 
@@ -198,7 +198,7 @@ struct GrammarLessonView: View {
                             Spacer()
                             AudioButtons(text: ex.chinese)
                         }
-                        Text(ex.pinyin).foregroundStyle(.secondary)
+                        PinyinText(ex.pinyin)
                         Text(ex.english).font(.subheadline)
                     }
                     .padding(.vertical, 4)
@@ -378,5 +378,22 @@ struct GrammarPracticeView: View {
     private func next() {
         index += 1
         prepare()
+    }
+}
+
+
+/// All grammar lessons of one level (used by the Home "focus" item).
+struct GrammarLessonListView: View {
+    let level: Int
+    var body: some View {
+        List(GrammarStore.points(level: level)) { point in
+            NavigationLink { GrammarLessonView(point: point) } label: {
+                VStack(alignment: .leading) {
+                    Text(point.title)
+                    Text(point.summary).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+        }
+        .navigationTitle("HSK \(level) grammar")
     }
 }

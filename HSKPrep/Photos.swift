@@ -107,34 +107,141 @@ final class PhotoStore {
 }
 
 /// Shows the real photo for a picture, or the emoji while loading / offline.
+/// Sizes follow the learner's "Picture size" setting.
 struct PictureView: View {
-    let picture: String
-    var size: CGFloat = 120
-    var corner: CGFloat = 16
+    enum Layout {
+        case square(CGFloat)   // fixed square
+        case banner(CGFloat)   // full width, this tall
+        case fill              // square that fills the available width (answer grids)
+    }
+    enum Zoom { case none, tap, longPress }
 
+    let picture: String
+    var layout: Layout
+    var corner: CGFloat = 16
+    var scaled = true
+    var zoom: Zoom = .none
+
+    @AppStorage(Settings.pictureScale) private var pictureScale = 1.0
     @State private var image: UIImage?
+    @State private var showZoom = false
+
+    /// Compatibility with the original fixed-size call.
+    init(picture: String, size: CGFloat = 120, corner: CGFloat = 16, scaled: Bool = true, zoom: Zoom = .none) {
+        self.picture = picture; self.layout = .square(size); self.corner = corner; self.scaled = scaled; self.zoom = zoom
+    }
+
+    init(picture: String, layout: Layout, corner: CGFloat = 16, zoom: Zoom = .none) {
+        self.picture = picture; self.layout = layout; self.corner = corner; self.zoom = zoom
+    }
+
+    private var factor: CGFloat { scaled ? pictureScale : 1 }
 
     var body: some View {
-        Group {
-            if let image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: size, height: size)
-                    .clipShape(RoundedRectangle(cornerRadius: corner, style: .continuous))
-            } else {
-                Text(picture)
-                    .font(.system(size: size * 0.55))
-                    .frame(width: size, height: size)
+        content
+            .clipShape(RoundedRectangle(cornerRadius: corner, style: .continuous))
+            .contentShape(RoundedRectangle(cornerRadius: corner, style: .continuous))
+            .modifier(ZoomModifier(zoom: zoom, picture: picture, image: image, showZoom: $showZoom))
+            .task(id: picture) {
+                image = PhotoStore.shared.cachedImage(for: picture)
+                if image == nil, PhotoStore.shared.hasPhoto(picture) {
+                    image = await PhotoStore.shared.image(for: picture)
+                }
+            }
+            .accessibilityHidden(true)
+    }
+
+    @ViewBuilder private var content: some View {
+        switch layout {
+        case .square(let size):
+            photo(fontSize: size * factor * 0.55).frame(width: size * factor, height: size * factor)
+        case .banner(let height):
+            photo(fontSize: height * factor * 0.5).frame(maxWidth: .infinity).frame(height: height * factor)
+        case .fill:
+            Color.clear.aspectRatio(1, contentMode: .fit)
+                .overlay { GeometryReader { g in photo(fontSize: g.size.width * 0.55).frame(width: g.size.width, height: g.size.height) } }
+        }
+    }
+
+    @ViewBuilder private func photo(fontSize: CGFloat) -> some View {
+        if let image {
+            Image(uiImage: image).resizable().scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .clipped()
+        } else {
+            Text(picture).font(.system(size: fontSize))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.secondary.opacity(0.06))
+        }
+    }
+}
+
+/// Tap → full-screen photo; long-press → enlarged preview (used where a tap selects an answer).
+private struct ZoomModifier: ViewModifier {
+    let zoom: PictureView.Zoom
+    let picture: String
+    let image: UIImage?
+    @Binding var showZoom: Bool
+
+    func body(content: Content) -> some View {
+        switch zoom {
+        case .none:
+            content
+        case .tap:
+            content
+                .overlay(alignment: .bottomTrailing) {
+                    Image(systemName: "arrow.up.left.and.arrow.down.right")
+                        .font(.caption.bold()).padding(6)
+                        .background(.ultraThinMaterial, in: Circle()).padding(8)
+                }
+                .onTapGesture { showZoom = true }
+                .fullScreenCover(isPresented: $showZoom) { PhotoZoomView(picture: picture, image: image) }
+        case .longPress:
+            content.contextMenu {
+                Label("Long-press to enlarge", systemImage: "photo")
+            } preview: {
+                Group {
+                    if let image { Image(uiImage: image).resizable().scaledToFit() }
+                    else { Text(picture).font(.system(size: 200)) }
+                }
+                .frame(width: 340, height: 340)
             }
         }
-        .task(id: picture) {
-            image = PhotoStore.shared.cachedImage(for: picture)
-            if image == nil, PhotoStore.shared.hasPhoto(picture) {
-                image = await PhotoStore.shared.image(for: picture)
+    }
+}
+
+/// Full-screen photo with pinch-to-zoom.
+struct PhotoZoomView: View {
+    let picture: String
+    let image: UIImage?
+    @Environment(\.dismiss) private var dismiss
+    @State private var scale: CGFloat = 1
+    @GestureState private var pinch: CGFloat = 1
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Color.black.ignoresSafeArea()
+            Group {
+                if let image { Image(uiImage: image).resizable().scaledToFit() }
+                else { Text(picture).font(.system(size: 220)) }
+            }
+            .scaleEffect(scale * pinch)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .gesture(MagnifyGesture().updating($pinch) { v, s, _ in s = v.magnification }
+                .onEnded { v in scale = min(4, max(1, scale * v.magnification)) })
+            .onTapGesture(count: 2) { withAnimation { scale = scale > 1 ? 1 : 2.5 } }
+
+            Button { dismiss() } label: {
+                Image(systemName: "xmark.circle.fill").font(.largeTitle).symbolRenderingMode(.hierarchical)
+                    .foregroundStyle(.white)
+            }
+            .padding()
+
+            if let title = PhotoStore.shared.titles[picture] {
+                Text("Photo: Wikipedia — \(title)").font(.caption).foregroundStyle(.white.opacity(0.7))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom).padding()
             }
         }
-        .accessibilityHidden(true)
     }
 }
 
